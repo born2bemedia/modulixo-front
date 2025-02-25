@@ -53,7 +53,7 @@
     }
     img {
       position: absolute;
-      transition: all 0.5s;
+      //transition: all 0.5s;
       &:first-child {
         z-index: 1;
         @media (max-width: 1200px) {

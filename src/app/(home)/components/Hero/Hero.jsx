@@ -16,8 +16,8 @@ const Hero = () => {
     offset: ["start start", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  const smoothY = useSpring(y, { stiffness: 100, damping: 20 });
+  const y = useTransform(scrollYProgress, [0, 1], [0, -200]);
+  //const smoothY = useSpring(y, { stiffness: 100, damping: 20 });
 
   return (
     <>
@@ -46,12 +46,12 @@ const Hero = () => {
         <div className={styles.imagesWrap}>
           <Image src={"/images/home/heroBack.webp"} fill alt="hero back" />
           <motion.img
-            style={{ y: smoothY }} // This applies the smooth upward motion
+            style={{ y }} // This applies the smooth upward motion
             src="/images/home/color-picker.svg"
             alt="color picker"
           />
           <motion.img
-            style={{ y: smoothY }}
+            style={{ y }}
             src="/images/home/tools-bar.svg"
             alt="tools bar"
           />
