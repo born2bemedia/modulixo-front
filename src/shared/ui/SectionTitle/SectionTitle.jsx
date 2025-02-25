@@ -14,7 +14,7 @@ const SectionTitle = ({ text, tag }) => {
     case "h2":
       return (
         <h2
-          className={styles.sectionTitle}
+          className={`${styles.sectionTitle} ${styles.secondary}`}
           dangerouslySetInnerHTML={{ __html: text }}
         />
       );

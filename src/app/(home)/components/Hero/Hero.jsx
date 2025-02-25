@@ -60,7 +60,6 @@ const Hero = () => {
           <img src="/images/home/heroBackMob.png" />
         </div>
       </section>
-      <div style={{ height: "100vh" }}></div>
     </>
   );
 };
