@@ -1,0 +1,10 @@
+.sectionTitle {
+  color: #fff;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  @media (max-width: 992px) {
+    font-size: 48px;
+  }
+}
