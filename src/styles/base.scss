@@ -1,0 +1,272 @@
+@use "mixin" as *;
+
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+aside,
+nav,
+footer,
+header,
+section {
+  display: block;
+}
+h1 {
+  //font-family: var(--font-helvetica-neue);
+}
+html,
+body {
+  height: 100%;
+  min-width: $minWidth;
+  scroll-behavior: smooth;
+  //font-family: var(--font-helvetica), sans-serif;
+  @media (min-width: rem(1600)) {
+    ._container {
+      zoom: 1.2;
+    }
+  }
+}
+body {
+  line-height: 1;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+input,
+button,
+textarea {
+  font-size: inherit;
+}
+input::-ms-clear {
+  display: none;
+}
+button {
+  cursor: pointer;
+  background-color: inherit;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+//-webkit-overflow-scrolling: touch;
+/*
+&::-webkit-scrollbar {
+	display: none;
+}
+*/
+
+body {
+  margin: 0;
+  height: auto;
+  @media (max-width: rem(992)) {
+  }
+  &.no-scroll {
+    overflow: hidden;
+    main {
+      padding-right: rem(10);
+      @media (max-width: rem(992)) {
+        padding-right: 0;
+      }
+    }
+    header {
+      padding-right: rem(10);
+      @media (max-width: rem(992)) {
+        padding-right: 0;
+      }
+    }
+  }
+
+  &::-webkit-scrollbar {
+    background: transparent;
+    width: rem(10);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #09090b;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #1d4c29;
+    border-radius: rem(100);
+  }
+}
+* {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  outline: none !important;
+  @media (max-width: rem(992)) {
+    outline: none !important;
+  }
+}
+
+html,
+body {
+  //overflow-x: hidden;
+}
+@media screen and (min-width: rem(992)) {
+  .dt-hidden {
+    display: none !important;
+  }
+}
+@media screen and (max-width: rem(992)) {
+  .iti.iti--container {
+    z-index: 1999999999 !important;
+  }
+  .mob-hidden {
+    display: none !important;
+  }
+}
+
+._container {
+  max-width: $maxWidthContainer + px;
+  margin: 0 auto;
+  //padding: 0 rem(16);
+  //padding: 0 rem(100);
+  width: 100%;
+  @media (max-width: rem(1200)) {
+    //padding: 0 rem(50);
+  }
+  @media (max-width: rem(992)) {
+    padding: 0 rem(16);
+  }
+}
+
+.site {
+  position: relative;
+  > .react-parallax {
+    @media (max-width: rem(992)) {
+      border-radius: 0 !important;
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 1;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fadeInUp {
+  animation: fadeInUp linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+  @media (max-width: rem(992)) {
+    animation-range: entry 0% cover 20%;
+  }
+}
+
+.Toastify__toast-icon {
+  display: none !important;
+}
+
+.react-tel-input {
+  .country-list {
+    width: rem(255);
+    background: #f2f2f2;
+    li {
+      color: #1e1e1e;
+      &.highlight,
+      &:hover {
+        background: #121321;
+        color: #fff;
+      }
+    }
+    &::-webkit-scrollbar {
+      background: transparent;
+      width: rem(5);
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #ffffff0d;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #121321;
+      border-radius: 100px;
+    }
+  }
+  input {
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    height: 49px;
+    padding: 0 rem(16) 0 rem(40) !important;
+    align-items: center;
+    border-radius: rem(16);
+    border: none !important;
+    &:disabled {
+      background: #fff;
+      opacity: 0.8;
+    }
+  }
+  &.invalid {
+    & + span {
+      color: #ee342a;
+      position: absolute;
+      font-size: 11px;
+      line-height: 1;
+    }
+  }
+  .flag-dropdown {
+    border: none !important;
+    background: transparent !important;
+  }
+  .selected-flag {
+    border: none !important;
+    background: transparent !important;
+  }
+}
+
