@@ -1,0 +1,73 @@
+.pricing {
+  position: relative;
+  padding: 164px 0;
+  overflow: hidden;
+  @media (max-width: 992px) {
+    padding: 64px 0;
+  }
+  .body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    .row {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 24px 0;
+      .item {
+        position: relative;
+        height: 795px;
+        width: 50%;
+
+        //padding: 16px;
+        overflow: hidden;
+        @media (max-width: 1600px) {
+          height: 620px;
+        }
+        @media (max-width: 992px) {
+          height: 390px;
+          width: 100%;
+        }
+        &:hover {
+          img {
+            transform: scale(1.1);
+          }
+        }
+        a {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+        img {
+          object-fit: cover;
+          transition: all 0.3s ease;
+          transform: scale(1);
+        }
+        h4 {
+          position: relative;
+          z-index: 2;
+          color: #fff;
+          text-align: center;
+          font-size: 26px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          flex-grow: 1;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(5px);
+          padding: 32px;
+        }
+      }
+    }
+  }
+}

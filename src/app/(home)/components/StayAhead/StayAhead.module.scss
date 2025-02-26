@@ -1,0 +1,66 @@
+.stayAhead {
+  position: relative;
+  padding: 164px 0;
+  overflow: hidden;
+  background-image: url("/images/home/stayAheadBack.png");
+  background-position: center bottom;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  @media (max-width: 1600px) {
+    background-size: 120%;
+  }
+  @media (max-width: 992px) {
+    padding: 64px 0;
+    background-size: 1920px;
+  }
+  .body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    > div {
+      > p {
+        text-align: center;
+      }
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 24px 0;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+      .item {
+        width: 25%;
+        display: flex;
+        @media (max-width: 992px) {
+          width: 100%;
+        }
+        a {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
+          justify-content: space-between;
+          border-right: 1px solid rgba(255, 255, 255, 0.05);
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(5px);
+          padding: 32px;
+
+          .top {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            h3 {
+              color: #fff;
+              font-size: 24px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: normal;
+            }
+          }
+        }
+      }
+    }
+  }
+}

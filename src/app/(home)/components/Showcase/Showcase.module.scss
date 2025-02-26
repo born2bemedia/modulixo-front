@@ -1,0 +1,60 @@
+.showcase {
+  position: relative;
+  padding: 164px 0;
+  overflow: hidden;
+  @media (max-width: 992px) {
+    padding: 64px 0;
+  }
+  .body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    h4 {
+      color: #fff;
+      text-align: center;
+      font-size: 26px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+    .row {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 24px 0;
+      .item {
+        position: relative;
+        height: 480px;
+        width: 25%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding: 16px;
+        overflow: hidden;
+        @media (max-width: 1600px) {
+          height: 360px;
+        }
+        @media (max-width: 992px) {
+          height: 390px;
+          width: 100%;
+        }
+        &:hover {
+          img {
+            transform: scale(1.1);
+          }
+        }
+        img {
+          object-fit: cover;
+          transition: all 0.3s ease;
+          transform: scale(1);
+        }
+        h4 {
+          text-align: center;
+          position: relative;
+          z-index: 2;
+        }
+      }
+    }
+  }
+}

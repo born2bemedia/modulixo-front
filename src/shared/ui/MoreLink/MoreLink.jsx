@@ -2,12 +2,12 @@ import React from "react";
 import styles from "./MoreLink.module.scss";
 import Link from "next/link";
 import ButtonArrow from "@/shared/icons/ButtonArrow";
-const MoreLink = () => {
+const MoreLink = ({ text = "More" }) => {
   return (
-    <Link href={"#"} className={styles.moreLink}>
-      <span>More</span>
+    <span href={"#"} className={styles.moreLink}>
+      <span>{text}</span>
       <ButtonArrow />
-    </Link>
+    </span>
   );
 };
 
