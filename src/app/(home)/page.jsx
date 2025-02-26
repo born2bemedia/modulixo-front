@@ -8,7 +8,7 @@ import Pricing from "./components/Pricing/Pricing";
 import StayAhead from "./components/StayAhead/StayAhead";
 import TestimonialsSection from "./components/TestimonialsSection/TestimonialsSection";
 import HomeContact from "./components/HomeContact/HomeContact";
-
+import styles from "./page.module.scss";
 export default function Home() {
   return (
     <>
@@ -21,6 +21,7 @@ export default function Home() {
       <Pricing />
       <StayAhead />
       <HomeContact />
+      <div className={styles.footerImage}></div>
     </>
   );
 }

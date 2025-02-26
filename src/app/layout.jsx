@@ -16,7 +16,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${urbanist.variable} ${urbanist.className}`}>
+      <body
+        className={`${urbanist.variable} ${urbanist.className}`}
+        style={{ position: "relative" }}
+      >
         <Header />
         <main>{children}</main>
         <Footer />

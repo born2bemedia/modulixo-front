@@ -1,6 +1,7 @@
 @use "@/styles/mixin.scss" as *;
 
 .hero {
+  margin-top: -115px;
   padding: 250px 0;
   position: relative;
   overflow: hidden;
@@ -11,6 +12,7 @@
   @media (max-width: 1200px) {
     padding-bottom: 0;
     padding-top: 130px;
+    margin-top: -83px;
   }
   &:after {
     content: "";

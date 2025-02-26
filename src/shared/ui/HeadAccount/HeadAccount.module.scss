@@ -1,0 +1,43 @@
+@use "@/styles/mixin.scss" as *;
+
+.headAccount {
+  padding-left: 24px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  gap: 12px;
+  @media (max-width: 992px) {
+    justify-content: space-between;
+    width: 100%;
+  }
+  button,
+  a {
+    display: flex;
+    padding: 16px 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    @media (max-width: 992px) {
+      width: 100%;
+    }
+    &:first-child {
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    &:last-child {
+      color: #0c0b0e;
+      font-family: Urbanist;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      border-radius: 16px;
+      background: #fff;
+    }
+  }
+}

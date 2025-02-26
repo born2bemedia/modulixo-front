@@ -6,10 +6,17 @@ import TextBlock from "@/shared/ui/TextBlock/TextBlock";
 import { motion } from "framer-motion";
 import { fadeInUp } from "@/helpers/animations";
 import ContactForm from "@/shared/ContactForm/ContactForm";
+import Image from "next/image";
 
 const HomeContact = () => {
   return (
     <section className={styles.homeContact}>
+      <Image
+        src="/images/home/contact1.png"
+        alt="home-contact"
+        width={470}
+        height={620}
+      />
       <div className="_container">
         <div className={styles.body}>
           <motion.div
