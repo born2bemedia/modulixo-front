@@ -6,6 +6,8 @@ import NumbersThatSpeak from "./components/NumbersThatSpeak/NumbersThatSpeak";
 import Showcase from "./components/Showcase/Showcase";
 import Pricing from "./components/Pricing/Pricing";
 import StayAhead from "./components/StayAhead/StayAhead";
+import TestimonialsSection from "./components/TestimonialsSection/TestimonialsSection";
+import HomeContact from "./components/HomeContact/HomeContact";
 
 export default function Home() {
   return (
@@ -15,8 +17,10 @@ export default function Home() {
       <WhyWorkWithUs />
       <NumbersThatSpeak />
       <Showcase />
+      <TestimonialsSection />
       <Pricing />
       <StayAhead />
+      <HomeContact />
     </>
   );
 }
