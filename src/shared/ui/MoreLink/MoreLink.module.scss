@@ -1,0 +1,15 @@
+.moreLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  svg {
+    path {
+      fill: #fff;
+    }
+  }
+}
