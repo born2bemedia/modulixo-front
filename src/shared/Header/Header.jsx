@@ -85,7 +85,7 @@ const Header = () => {
               <div className={styles.col1}>
                 <ul>
                   <li>
-                    <Link href="#">Home</Link>
+                    <Link href="/">Home</Link>
                   </li>
                   <li>
                     <Link href="#">About</Link>

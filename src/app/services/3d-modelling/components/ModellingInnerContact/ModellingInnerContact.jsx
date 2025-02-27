@@ -55,7 +55,7 @@ const ModellingInnerContact = () => {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <WhiteButton text={"Start Your Project Today"} type={"button"} />
+            <WhiteButton text={"Start Your Project Today"} type={"popup"} />
           </motion.div>
         </div>
       </div>
