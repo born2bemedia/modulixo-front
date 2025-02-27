@@ -13,7 +13,7 @@ import usePopupStore from "@/stores/popupStore";
 import ThanksPopup from "../ThanksPopup/ThanksPopup";
 import ItemTitle from "../ui/ItemTitle/ItemTitle";
 
-// Validation Schema with updated fields and messages
+// Updated Validation Schema with function syntax for conditional validation
 const schema = yup.object().shape({
   firstName: yup.string().required("This field is required!"),
   lastName: yup.string().required("This field is required!"),
@@ -31,11 +31,13 @@ const schema = yup.object().shape({
   // New fields
   preferredContactMethod: yup.string().notRequired(),
   serviceNeed: yup.string().notRequired(),
-  otherService: yup.string().when("serviceNeed", {
-    is: (val) => val === "Other",
-    then: yup.string().required("Please specify your service need."),
-    otherwise: yup.string().notRequired(),
-  }),
+  otherService: yup
+    .string()
+    .when("serviceNeed", (serviceNeed, schema) =>
+      serviceNeed === "Other"
+        ? schema.required("Please specify your service need.")
+        : schema
+    ),
   projectType: yup.string().notRequired(),
   projectDescription: yup.string().notRequired(),
   estimatedBudget: yup.string().notRequired(),
@@ -48,7 +50,7 @@ const schema = yup.object().shape({
   fileFormats: yup.array().of(yup.string()).notRequired(),
   revisionsProcess: yup.string().notRequired(),
   freeConsultation: yup.string().notRequired(),
-  terms: yup.bool().oneOf([true], "This field is required!"),
+  termspopup: yup.bool().oneOf([true], "This field is required!"),
   type: yup.string().notRequired(),
 });
 
@@ -57,10 +59,12 @@ const GetQuoteForm = ({ type = "default" }) => {
   const [loading, setLoading] = useState(false);
   const countryCode = useCountryCode();
 
-  const { thanksPopupDisplay, setThanksPopupDisplay } = usePopupStore();
+  const { thanksPopupDisplay, setThanksPopupDisplay, setGetQuotePopupDisplay } =
+    usePopupStore();
 
   const {
     register,
+    reset,
     handleSubmit,
     setValue,
     watch,
@@ -84,7 +88,7 @@ const GetQuoteForm = ({ type = "default" }) => {
       fileFormats: [],
       revisionsProcess: "",
       freeConsultation: "",
-      terms: false,
+      termspopup: false,
       type: type,
     },
   });
@@ -96,6 +100,8 @@ const GetQuoteForm = ({ type = "default" }) => {
     setLoading(true);
     // Simulate a network request delay
     setTimeout(() => {
+      setGetQuotePopupDisplay(false);
+      reset();
       setThanksPopupDisplay(true);
       setLoading(false);
     }, 3000);
@@ -330,9 +336,7 @@ const GetQuoteForm = ({ type = "default" }) => {
 
           {/* Describe Your Project - textarea */}
           <div className={styles.field}>
-            <label htmlFor="projectDescription">
-                Describe Your Project 
-            </label>
+            <label htmlFor="projectDescription">Describe Your Project</label>
             <textarea
               id="projectDescription"
               {...register("projectDescription")}
@@ -440,9 +444,7 @@ const GetQuoteForm = ({ type = "default" }) => {
 
           {/* Preferred File Format for Delivery - checkboxes */}
           <div className={styles.field}>
-            <label>
-              Preferred File Format for Delivery (Select Multiple) 
-            </label>
+            <label>Preferred File Format for Delivery (Select Multiple)</label>
             <div className={styles.checkboxGroup}>
               <label>
                 <input
@@ -560,13 +562,17 @@ const GetQuoteForm = ({ type = "default" }) => {
           </div>
 
           {/* Terms and Conditions Checkbox */}
-          <div className={styles.terms}>
-            <input id="terms" type="checkbox" {...register("terms")} />
-            <label htmlFor="terms">
+          <div className={styles.termspopup}>
+            <input
+              id="termspopup"
+              type="checkbox"
+              {...register("termspopup")}
+            />
+            <label htmlFor="termspopup">
               I agree to the Terms and Conditions and Privacy Policy.
             </label>
-            {touchedFields.terms && errors.terms && (
-              <span className={styles.error}>{errors.terms.message}</span>
+            {touchedFields.termspopup && errors.termspopup && (
+              <span className={styles.error}>{errors.termspopup.message}</span>
             )}
           </div>
 

@@ -3,6 +3,7 @@ import "@/styles/base.scss";
 import Header from "@/shared/Header/Header";
 import Footer from "@/shared/Footer/Footer";
 import GetQuotePopup from "@/shared/GetQuotePopup/GetQuotePopup";
+import ThanksPopup from "@/shared/ThanksPopup/ThanksPopup";
 
 const urbanist = Urbanist({
   variable: "--font-urbanist",
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
         <main>{children}</main>
         <Footer />
         <GetQuotePopup />
+        <ThanksPopup />
       </body>
     </html>
   );
