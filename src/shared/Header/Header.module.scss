@@ -123,6 +123,21 @@
         height: 24px;
       }
     }
+    .cart {
+      position: relative;
+      span {
+        z-index: 999;
+        position: absolute;
+        display: block;
+        background: #ff4646;
+        border: 3px solid #000;
+        border-radius: 50%;
+        width: 11px;
+        height: 11px;
+        top: -2px;
+        right: -2px;
+      }
+    }
 
     .row {
       flex-grow: 1;
@@ -298,6 +313,7 @@
             display: none;
           }
         }
+
         .contacts {
           display: none;
           @media (max-width: 992px) {
