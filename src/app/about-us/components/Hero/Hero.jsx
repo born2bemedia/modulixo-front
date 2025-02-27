@@ -7,13 +7,12 @@ import SectionLabel from "@/shared/ui/SectionLabel/SectionLabel";
 import SectionTitle from "@/shared/ui/SectionTitle/SectionTitle";
 import TextBlock from "@/shared/ui/TextBlock/TextBlock";
 import WhiteButton from "@/shared/ui/WhiteButton/WhiteButton";
-import Image from "next/image";
 
 const Hero = () => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ["start start", "end start"], 
+    offset: ["start start", "end start"],
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [0, -200]);
@@ -30,34 +29,18 @@ const Hero = () => {
             variants={fadeInUp}
             className={styles.body}
           >
-            <SectionLabel text={"We Design. We Animate. We Create."} />
+            <SectionLabel text={"Every Great Idea Deserves a Dimension — We Make It Happen."} />
             <SectionTitle
-              text={"Where Ideas Take Shape & Stories Come Alive"}
+              text={"Blueprinting the Future, One Layer at a Time"}
               tag={"h1"}
             />
             <TextBlock
               text={
-                "Your vision isn’t just an idea — it’s an experience waiting to happen. Modulixo transforms concepts into stunning 3D visuals, dynamic animations, cinematic productions, and intuitive UI/UX designs. Whether you’re a startup, creator, or brand pushing boundaries, we bring ideas to life with precision and creativity."
+                "At Modulixo, we believe the best ideas deserve to exist beyond the screen. We take imagination, data, and artistry and turn them into tangible digital masterpieces. 3D modeling, animation, video production, or UX/UI design, our work brings depth, motion, and life to every project. From futuristic designs to hyper-realistic environments, we don’t just create — we engineer experiences"
               }
             />
-            <WhiteButton text={"Start Your Project Today"} type={"popup"} />
+            <WhiteButton text={"Start Your Project Today"} type={"button"} />
           </motion.div>
-        </div>
-        <div className={styles.imagesWrap}>
-          <Image src={"/images/home/heroBack.webp"} fill alt="hero back" />
-          <motion.img
-            style={{ y }} // This applies the smooth upward motion
-            src="/images/home/color-picker.svg"
-            alt="color picker"
-          />
-          <motion.img
-            style={{ y }}
-            src="/images/home/tools-bar.svg"
-            alt="tools bar"
-          />
-        </div>
-        <div className={styles.imagesWrapMob}>
-          <img src="/images/home/heroBackMob.png" />
         </div>
       </section>
     </>
