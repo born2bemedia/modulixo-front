@@ -17,6 +17,7 @@ const CategorySection = ({
   description,
   link,
   categorySlug,
+  limit = 4,
 }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -25,7 +26,7 @@ const CategorySection = ({
     const fetchProducts = async () => {
       const products = await fetchLatestProductsFromCategory({
         categorySlug,
-        limit: 4,
+        limit: limit,
         setLoading,
       });
       console.log(products);
@@ -38,30 +39,36 @@ const CategorySection = ({
     <section className={styles.categorySection}>
       <div className="_container">
         <div className={styles.body}>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-          >
-            <SectionLabel text={subtitle} />
-          </motion.div>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-          >
-            <SectionTitle text={title} tag={"h2"} />
-          </motion.div>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-          >
-            <TextBlock text={description} />
-          </motion.div>
+          {subtitle && (
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+            >
+              <SectionLabel text={subtitle} />
+            </motion.div>
+          )}
+          {title && (
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+            >
+              <SectionTitle text={title} tag={"h2"} />
+            </motion.div>
+          )}
+          {description && (
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+            >
+              <TextBlock text={description} />
+            </motion.div>
+          )}
           <div className={styles.products}>
             {loading ? (
               <Skeleton count={4} />
@@ -73,14 +80,16 @@ const CategorySection = ({
               <p>No products found.</p>
             )}
           </div>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-          >
-            <WhiteButton text={"Explore Home & Decor Models"} url={link} />
-          </motion.div>
+          {link && (
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+            >
+              <WhiteButton text={"Explore Home & Decor Models"} url={link} />
+            </motion.div>
+          )}
         </div>
       </div>
     </section>

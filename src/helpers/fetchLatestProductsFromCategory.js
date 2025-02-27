@@ -1,11 +1,6 @@
 import { API_TOKEN, API_URL } from "./constants";
 
-const fetchLatestProductsFromCategory = async ({
-  categorySlug,
-  limit,
-  setLoading,
-}) => {
-  setLoading(true);
+export const fetchCategoryBySlug = async ({ categorySlug }) => {
   try {
     const categoryRes = await fetch(
       `${API_URL}/api/categories?where[slug][in]=${categorySlug}`,
@@ -23,13 +18,27 @@ const fetchLatestProductsFromCategory = async ({
     }
 
     const categoryData = await categoryRes.json();
-    const categoryIds = categoryData.docs.map((cat) => cat.id);
+    //console.log(categoryData.docs[0]);
+    return categoryData.docs[0];
+  } catch (error) {
+    console.error("Failed to fetch category:", error);
+    return null;
+  }
+};
 
-    // Fetch products sorted by createdAt in descending order to get the latest
+const fetchLatestProductsFromCategory = async ({
+  categorySlug,
+  limit,
+  setLoading,
+}) => {
+  setLoading(true);
+  try {
+    const categoryData = await fetchCategoryBySlug({ categorySlug });
+    console.log(categoryData);
+    const categoryId = categoryData.id;
+
     const productsRes = await fetch(
-      `${API_URL}/api/products?where[category][in]=${categoryIds.join(
-        ","
-      )}&sort=-createdAt&limit=${limit}`,
+      `${API_URL}/api/products?where[category][in]=${categoryId}&sort=-createdAt&limit=${limit}`,
       {
         headers: {
           Authorization: `Bearer ${API_TOKEN}`,
