@@ -142,7 +142,7 @@ const GetQuoteForm = ({ type = "default" }) => {
           <div className={styles.field}>
             <label htmlFor="firstName">
               First Name *{" "}
-              {touchedFields.firstName && errors.firstName && (
+              {errors.firstName && (
                 <span className={styles.error}>{errors.firstName.message}</span>
               )}
             </label>
@@ -159,7 +159,7 @@ const GetQuoteForm = ({ type = "default" }) => {
           <div className={styles.field}>
             <label htmlFor="lastName">
               Last Name *
-              {touchedFields.lastName && errors.lastName && (
+              {errors.lastName && (
                 <span className={styles.error}>{errors.lastName.message}</span>
               )}
             </label>
@@ -176,7 +176,7 @@ const GetQuoteForm = ({ type = "default" }) => {
           <div className={styles.field}>
             <label htmlFor="email">
               Email *{" "}
-              {touchedFields.email && errors.email && (
+              {errors.email && (
                 <span className={styles.error}>{errors.email.message}</span>
               )}
             </label>
@@ -193,7 +193,7 @@ const GetQuoteForm = ({ type = "default" }) => {
           <div className={styles.field}>
             <label htmlFor="phone">
               Phone Number{" "}
-              {touchedFields.phone && errors.phone && (
+              {errors.phone && (
                 <span className={styles.error}>{errors.phone.message}</span>
               )}
             </label>
