@@ -20,7 +20,7 @@ const Pricing = () => {
     {
       title: "Need a Custom Quote?",
       url: "#",
-      image: "/images/home/pricing2.png",
+      image: "/images/home/pricing2.webp",
       linkText: "Request Now",
     },
   ];

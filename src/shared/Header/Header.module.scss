@@ -104,7 +104,7 @@
       justify-content: space-between;
       flex-wrap: wrap;
     }
-    a {
+    a, button {
       display: flex;
     }
     .menuButtonWrap {
@@ -139,7 +139,7 @@
               flex-direction: column;
               gap: 24px;
               li {
-                a {
+                a, button {
                   color: #fff;
                 }
               }
@@ -171,7 +171,8 @@
               width: 100%;
             }
             &:hover {
-              > a {
+              > a,
+              button {
                 color: #fff;
                 svg {
                   path {
@@ -180,11 +181,15 @@
                 }
               }
               .subMenu {
-                display: flex;
-                flex-direction: column;
+                display: none;
+
+                @media (max-width: 1100px) {
+                  display: flex;
+                }
               }
             }
-            a {
+            a,
+            button {
               color: #808080;
               display: flex;
               align-items: center;
@@ -194,13 +199,24 @@
               font-style: normal;
               font-weight: 400;
               line-height: normal;
+              @media (max-width: 1100px) {
+                width: 100%;
+                justify-content: center;
+                svg {
+                  path {
+                    fill: #fff;
+                  }
+                }
+              }
             }
             .subMenu {
               position: absolute;
               display: none;
+              flex-direction: column;
               padding-top: 10px;
               left: 50%;
               transform: translateX(-50%);
+
               @media (max-width: 1100px) {
                 position: relative;
                 left: unset;
@@ -210,13 +226,15 @@
               > div {
                 border-radius: 16px;
                 border: 1px solid rgba(255, 255, 255, 0.05);
-                background: rgba(12, 11, 14, 0.05);
+                overflow: hidden;
+                background: rgba(12, 11, 14, 0.2);
                 backdrop-filter: blur(7.5px);
-                z-index: 9;
+                -webkit-backdrop-filter: blur(7.5px);
+                z-index: 999;
                 @media (max-width: 1100px) {
                   width: 100%;
                 }
-                a {
+                a, button {
                   display: flex;
                   padding: 16px 32px;
                   align-items: center;
@@ -224,12 +242,14 @@
                   align-self: stretch;
                   white-space: nowrap;
                   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
                   &:hover {
                     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
                     background: rgba(255, 255, 255, 0.03);
                   }
                   @media (max-width: 1100px) {
                     width: 100%;
+                    justify-content: center;
                   }
                 }
               }
@@ -282,6 +302,63 @@
             }
           }
         }
+      }
+    }
+  }
+}
+
+.subMenuDesktop {
+  position: fixed;
+  display: none;
+  flex-direction: column;
+  padding-top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  z-index: 999;
+  &.open {
+    display: flex;
+  }
+  @media (max-width: 1100px) {
+    display: none !important;
+  }
+
+  @media (max-width: 1100px) {
+    position: relative;
+    left: unset;
+    transform: unset;
+    width: 100%;
+  }
+  > div {
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    background: rgba(12, 11, 14, 0.05);
+    backdrop-filter: blur(7.5px);
+    -webkit-backdrop-filter: blur(7.5px);
+    z-index: 999;
+    @media (max-width: 1100px) {
+      width: 100%;
+    }
+    a {
+      display: flex;
+      padding: 16px 32px;
+      align-items: center;
+      gap: 10px;
+      align-self: stretch;
+      white-space: nowrap;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: #fff;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      &:hover {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        background: rgba(255, 255, 255, 0.03);
+      }
+      @media (max-width: 1100px) {
+        width: 100%;
       }
     }
   }
