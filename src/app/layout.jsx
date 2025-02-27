@@ -24,7 +24,9 @@ export default function RootLayout({ children }) {
         style={{ position: "relative" }}
       >
         <Header />
-        <SmoothScrolling>{children}</SmoothScrolling>
+        <main>
+          <SmoothScrolling>{children}</SmoothScrolling>
+        </main>
         <Footer />
         <GetQuotePopup />
         <ThanksPopup />
