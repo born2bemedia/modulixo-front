@@ -9,6 +9,7 @@ import MenuIcon from "../icons/MenuIcon";
 import { usePathname } from "next/navigation";
 import ChevronDown from "../icons/ChevronDown";
 import HeadAccount from "../ui/HeadAccount/HeadAccount";
+import CloseIcon from "../icons/CloseIcon";
 
 const Header = () => {
   const [isMenuPopupOpen, setIsMenuPopupOpen] = useState(false);
@@ -104,7 +105,7 @@ const Header = () => {
                 <img src="/images/icons/cart.svg" />
               </Link>
               <button className={styles.menuButton} onClick={menuHandler}>
-                <MenuIcon />
+                {isMenuPopupOpen ? <CloseIcon /> : <MenuIcon />}
               </button>
             </div>
 
