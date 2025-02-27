@@ -40,7 +40,7 @@ const Hero = () => {
                 "Your vision isn’t just an idea — it’s an experience waiting to happen. Modulixo transforms concepts into stunning 3D visuals, dynamic animations, cinematic productions, and intuitive UI/UX designs. Whether you’re a startup, creator, or brand pushing boundaries, we bring ideas to life with precision and creativity."
               }
             />
-            <WhiteButton text={"Start Your Project Today"} type={"button"} />
+            <WhiteButton text={"Start Your Project Today"} type={"popup"} />
           </motion.div>
         </div>
         <div className={styles.imagesWrap}>

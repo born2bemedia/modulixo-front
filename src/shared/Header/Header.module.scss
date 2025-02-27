@@ -1,9 +1,23 @@
+.topGradient {
+  position: absolute;
+  z-index: 998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: linear-gradient(180deg, #0c0b0e 0%, rgba(12, 11, 14, 0) 100%);
+  backdrop-filter: blur(7.5px);
+  height: 134px;
+  @media (max-width: 992px) {
+    height: 61px;
+  }
+}
 .topHeader {
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(7.5px);
   position: relative;
-  z-index: 1;
+  z-index: 999;
   padding: 16px 0;
   @media (max-width: 992px) {
     display: none;
@@ -58,6 +72,9 @@
   width: 100%;
   z-index: 999;
   transition: all 0.3s;
+  @media (max-width: 992px) {
+    padding: 16px 0;
+  }
   &.scrolling {
     padding: 16px 0;
   }

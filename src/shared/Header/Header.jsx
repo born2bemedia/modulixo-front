@@ -41,6 +41,7 @@ const Header = () => {
 
   return (
     <>
+      <div className={styles.topGradient} />
       <div className={styles.topHeader}>
         <div className="_container">
           <div className={styles.row}>
@@ -84,7 +85,7 @@ const Header = () => {
               <div className={styles.col1}>
                 <ul>
                   <li>
-                    <Link href="#">Home</Link>
+                    <Link href="/">Home</Link>
                   </li>
                   <li>
                     <Link href="#">About</Link>
@@ -95,7 +96,7 @@ const Header = () => {
                     </Link>
                     <div className={styles.subMenu}>
                       <div>
-                        <Link href="#">3D Modelling</Link>
+                        <Link href="/services/3d-modelling">3D Modelling</Link>
                         <Link href="#">Animation</Link>
                         <Link href="#">Production</Link>
                         <Link href="#">UI/UX Design</Link>

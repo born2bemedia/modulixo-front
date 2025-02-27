@@ -6,6 +6,7 @@ const usePopupStore = create((set) => ({
   thanksPopupOrderDisplay: false,
   signPopupDisplay: false,
   signPopupType: "login",
+  getQuotePopupDisplay: false,
 
   setThanksPopupDisplay: (value) => set({ thanksPopupDisplay: value }),
   setThanksPopupDefaultDisplay: (value) =>
@@ -14,6 +15,7 @@ const usePopupStore = create((set) => ({
     set({ thanksPopupOrderDisplay: value }),
   setSignPopupDisplay: (value) => set({ signPopupDisplay: value }),
   setSignPopupType: (value) => set({ signPopupType: value }),
+  setGetQuotePopupDisplay: (value) => set({ getQuotePopupDisplay: value }),
 }));
 
 export default usePopupStore;

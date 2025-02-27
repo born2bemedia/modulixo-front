@@ -1,0 +1,68 @@
+.modellingHero {
+  padding: 350px 0 250px 0;
+  margin-top: -177px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+      180deg,
+      rgba(12, 11, 14, 0) 0%,
+      rgba(0, 153, 255, 0.2) 100%
+    ),
+    url("/images/square-bg.svg") no-repeat center center / cover;
+  @media (max-width: 992px) {
+    padding: 128px 0 64px 0;
+    margin-top: -61px;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 382px;
+    background: linear-gradient(180deg, rgba(11, 11, 14, 0) 0%, #0b0b0e 100%);
+  }
+  > img {
+    position: absolute;
+    z-index: -1;
+    &:first-child {
+      left: 0;
+      top: 0;
+      @media (max-width: 992px) {
+        width: 152px;
+        height: auto;
+      }
+    }
+    &:nth-child(2) {
+      right: 0;
+      bottom: 0;
+      @media (max-width: 1600px) {
+        right: -50px;
+      }
+      @media (max-width: 992px) {
+        width: 257px;
+        height: auto;
+      }
+    }
+  }
+
+  .body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+    position: relative;
+    z-index: 3;
+    h1 {
+      text-align: center;
+    }
+    p {
+      text-align: center;
+      max-width: 800px;
+      @media (max-width: 992px) {
+        max-width: 100%;
+      }
+    }
+  }
+}

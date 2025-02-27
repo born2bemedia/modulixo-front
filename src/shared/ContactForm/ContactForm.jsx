@@ -210,7 +210,6 @@ const ContactForm = ({ type = "default" }) => {
           <span className={styles.success}>{successMessage}</span>
         )}
       </div>
-      <ThanksPopup />
     </>
   );
 };
