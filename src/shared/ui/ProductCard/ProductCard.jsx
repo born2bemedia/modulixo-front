@@ -7,6 +7,7 @@ import Image from "next/image";
 import { API_URL } from "@/helpers/constants";
 import { motion } from "framer-motion";
 import { fadeInUp } from "@/helpers/animations";
+import Link from "next/link";
 
 const ProductCard = ({ product }) => {
   return (
@@ -17,18 +18,18 @@ const ProductCard = ({ product }) => {
       variants={fadeInUp}
       className={styles.productCard}
     >
-      <div className={styles.image}>
+      <Link href={`/product/${product.slug}`} className={styles.image}>
         <Image
           src={`${API_URL}${product.image.url}`}
           alt={product.title}
           fill
         />
-      </div>
+      </Link>
       <div className={styles.content}>
-        <div className={styles.top}>
+        <Link href={`/product/${product.slug}`} className={styles.top}>
           <h3>{product.title}</h3>
           <TextBlock text={product.excerpt} />
-        </div>
+        </Link>
         <div className={styles.bottom}>
           <span className={styles.price}>€{product.price}</span>
           <AddToCartButton product={product} />

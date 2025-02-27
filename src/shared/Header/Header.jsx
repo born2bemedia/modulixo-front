@@ -60,7 +60,7 @@ const Header = () => {
         const rect = subMenuButtonRef.current.getBoundingClientRect();
         setSubmenuPosition({
           top: rect.bottom,
-          left: rect.left + 20,
+          left: rect.left + 30,
         });
       }
     };
