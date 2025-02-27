@@ -4,6 +4,7 @@ import Header from "@/shared/Header/Header";
 import Footer from "@/shared/Footer/Footer";
 import GetQuotePopup from "@/shared/GetQuotePopup/GetQuotePopup";
 import ThanksPopup from "@/shared/ThanksPopup/ThanksPopup";
+import SmoothScrolling from "@/shared/SmoothScrolling";
 
 const urbanist = Urbanist({
   variable: "--font-urbanist",
@@ -23,7 +24,7 @@ export default function RootLayout({ children }) {
         style={{ position: "relative" }}
       >
         <Header />
-        <main>{children}</main>
+        <SmoothScrolling>{children}</SmoothScrolling>
         <Footer />
         <GetQuotePopup />
         <ThanksPopup />

@@ -5,7 +5,7 @@ import axios from "axios";
 const useCountryCode = () => {
   const [countryCode, setCountryCode] = useState("us"); // Default to "us"
 
-  useEffect(() => {
+  /*useEffect(() => {
     const fetchCountryCode = async () => {
       try {
         const res = await fetch("https://ipapi.co/json/");
@@ -19,7 +19,7 @@ const useCountryCode = () => {
     };
 
     fetchCountryCode();
-  }, []);
+  }, []);*/
 
   return countryCode;
 };
