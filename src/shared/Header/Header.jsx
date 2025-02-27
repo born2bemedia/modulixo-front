@@ -22,6 +22,7 @@ const Header = () => {
 
   useEffect(() => {
     setIsMenuPopupOpen(false);
+    setIsSubMenuOpen(false);
   }, [pathname]);
 
   const menuHandler = () => {
