@@ -10,8 +10,10 @@ import { usePathname } from "next/navigation";
 import ChevronDown from "../icons/ChevronDown";
 import HeadAccount from "../ui/HeadAccount/HeadAccount";
 import CloseIcon from "../icons/CloseIcon";
+import useCartStore from "@/stores/cartStore";
 
 const Header = () => {
+  const { cart } = useCartStore();
   const [isMenuPopupOpen, setIsMenuPopupOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
   const pathname = usePathname();
@@ -98,8 +100,9 @@ const Header = () => {
               <img src="/images/logo.svg" />
             </Link>
             <div className={styles.menuButtonWrap}>
-              <Link href="#">
+              <Link href="#" className={styles.cart}>
                 <img src="/images/icons/cart.svg" />
+                {cart.length > 0 && <span className={styles.inCart} />}
               </Link>
               <button className={styles.menuButton} onClick={menuHandler}>
                 {isMenuPopupOpen ? <CloseIcon /> : <MenuIcon />}
@@ -148,8 +151,9 @@ const Header = () => {
                 </ul>
               </div>
               <div className={styles.col2}>
-                <Link href="#">
+                <Link href="#" className={styles.cart}>
                   <img src="/images/icons/cart.svg" />
+                  {cart.length > 0 && <span className={styles.inCart} />}
                 </Link>
                 <HeadAccount />
                 <div className={styles.contacts}>
