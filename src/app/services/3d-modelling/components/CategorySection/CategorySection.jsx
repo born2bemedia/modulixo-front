@@ -18,6 +18,7 @@ const CategorySection = ({
   link,
   categorySlug,
   limit = 4,
+  buttonText,
 }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -87,7 +88,7 @@ const CategorySection = ({
               viewport={{ once: true }}
               variants={fadeInUp}
             >
-              <WhiteButton text={"Explore Home & Decor Models"} url={link} />
+              <WhiteButton text={buttonText} url={link} />
             </motion.div>
           )}
         </div>
