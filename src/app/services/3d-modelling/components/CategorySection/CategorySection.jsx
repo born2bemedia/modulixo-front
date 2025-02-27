@@ -78,7 +78,15 @@ const CategorySection = ({
                 <ProductCard product={product} key={product.id} />
               ))
             ) : (
-              <p>No products found.</p>
+              <div className={styles.noProducts}>
+                <img src="/images/icons/outOfStock.svg" alt="outOfStock" />
+                <h4>Oops! Empty for now</h4>
+                <TextBlock
+                  text={
+                    " It looks like there are no products here yet. Check back later or explore other categories."
+                  }
+                />
+              </div>
             )}
           </div>
           {link && (
