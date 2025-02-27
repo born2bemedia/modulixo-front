@@ -18,7 +18,6 @@ const Header = () => {
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
   const [submenuPosition, setSubmenuPosition] = useState({ top: 0, left: 0 });
 
-  // Ref for the button that triggers the submenu.
   const subMenuButtonRef = useRef(null);
 
   useEffect(() => {
@@ -43,7 +42,6 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Updates submenu position when clicking the submenu button.
   const subMenuHandler = (e) => {
     e.preventDefault();
     if (subMenuButtonRef.current) {
@@ -56,21 +54,20 @@ const Header = () => {
     setIsSubMenuOpen((prev) => !prev);
   };
 
-  // When submenu is open, update its position on scroll.
   useEffect(() => {
     const updateSubmenuPosition = () => {
-      if (isSubMenuOpen && subMenuButtonRef.current) {
+      if (subMenuButtonRef.current) {
         const rect = subMenuButtonRef.current.getBoundingClientRect();
         setSubmenuPosition({
           top: rect.bottom,
-          left: rect.left + 30,
+          left: rect.left + 20,
         });
       }
     };
-
+    updateSubmenuPosition();
     window.addEventListener("scroll", updateSubmenuPosition);
     return () => window.removeEventListener("scroll", updateSubmenuPosition);
-  }, [isSubMenuOpen]);
+  }, []);
 
   return (
     <>
@@ -170,7 +167,9 @@ const Header = () => {
         </div>
       </header>
       <div
-        className={`${styles.subMenuDesktop} ${isSubMenuOpen ? styles.open : ""}`}
+        className={`${styles.subMenuDesktop} ${
+          isSubMenuOpen ? styles.open : ""
+        }`}
         style={{ top: submenuPosition.top, left: submenuPosition.left }}
       >
         <div>
