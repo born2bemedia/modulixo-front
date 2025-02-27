@@ -13,7 +13,7 @@ import usePopupStore from "@/stores/popupStore";
 import ThanksPopup from "../ThanksPopup/ThanksPopup";
 import ItemTitle from "../ui/ItemTitle/ItemTitle";
 
-// Updated Validation Schema with function syntax for conditional validation
+// Updated Validation Schema with new file field and conditional validation
 const schema = yup.object().shape({
   firstName: yup.string().required("This field is required!"),
   lastName: yup.string().required("This field is required!"),
@@ -50,6 +50,8 @@ const schema = yup.object().shape({
   fileFormats: yup.array().of(yup.string()).notRequired(),
   revisionsProcess: yup.string().notRequired(),
   freeConsultation: yup.string().notRequired(),
+  // New file field – optional, accepts images, PDFs, and docs
+  referenceFile: yup.mixed().notRequired(),
   termspopup: yup.bool().oneOf([true], "This field is required!"),
   type: yup.string().notRequired(),
 });
@@ -57,6 +59,8 @@ const schema = yup.object().shape({
 const GetQuoteForm = ({ type = "default" }) => {
   const [successMessage, setSuccessMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  // New state for tracking file upload status
+  const [fileUploaded, setFileUploaded] = useState(false);
   const countryCode = useCountryCode();
 
   const { thanksPopupDisplay, setThanksPopupDisplay, setGetQuotePopupDisplay } =
@@ -64,7 +68,6 @@ const GetQuoteForm = ({ type = "default" }) => {
 
   const {
     register,
-    reset,
     handleSubmit,
     setValue,
     watch,
@@ -88,6 +91,7 @@ const GetQuoteForm = ({ type = "default" }) => {
       fileFormats: [],
       revisionsProcess: "",
       freeConsultation: "",
+      referenceFile: null,
       termspopup: false,
       type: type,
     },
@@ -96,12 +100,14 @@ const GetQuoteForm = ({ type = "default" }) => {
   const phoneValue = watch("phone");
   const serviceNeedValue = watch("serviceNeed");
 
+  // Destructure the file input registration for proper onChange handling
+  const referenceFileRegistration = register("referenceFile");
+
   const onSubmit = async (data) => {
     setLoading(true);
     // Simulate a network request delay
     setTimeout(() => {
-      setGetQuotePopupDisplay(false);
-      reset();
+      //setGetQuotePopupDisplay(false);
       setThanksPopupDisplay(true);
       setLoading(false);
     }, 3000);
@@ -342,6 +348,43 @@ const GetQuoteForm = ({ type = "default" }) => {
               {...register("projectDescription")}
               placeholder="Describe your project"
             />
+          </div>
+
+          {/* New File Upload Field for Reference/Mood Board */}
+          <div className={styles.field}>
+            <label>Do You Have a Reference or Mood Board?</label>
+            <div className={styles.fileUpload}>
+              <label htmlFor="referenceFile" className={styles.uploadLabel}>
+                {fileUploaded ? (
+                  <div className={styles.uploadButton}>
+                    <img
+                      width={48}
+                      height={48}
+                      src="/images/icons/success.svg"
+                      alt="success"
+                    />
+                    <h4>File uploaded successfully!</h4>
+                  </div>
+                ) : (
+                  <div className={styles.uploadButton}>
+                    <img src="/images/icons/upload.svg" alt="Upload" />
+                    <h4>File Upload </h4>
+                    <p>Accepts images, PDFs, and docs</p>
+                  </div>
+                )}
+              </label>
+              <input
+                id="referenceFile"
+                type="file"
+                accept="image/*,application/pdf,.doc,.docx"
+                style={{ display: "none" }}
+                {...referenceFileRegistration}
+                onChange={(e) => {
+                  referenceFileRegistration.onChange(e);
+                  setFileUploaded(e.target.files && e.target.files.length > 0);
+                }}
+              />
+            </div>
           </div>
 
           <ItemTitle text="03 | Budget & Timeline" tag="h3" />
