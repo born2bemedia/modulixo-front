@@ -89,7 +89,6 @@ const Meet = () => {
                         </motion.div>
                         <WhiteButton text={"Request Now"} url={"#"} />
                     </motion.div>
-
                 </div>
             </section>
         </>
