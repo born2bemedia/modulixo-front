@@ -23,13 +23,13 @@ export default function RootLayout({ children }) {
         className={`${urbanist.variable} ${urbanist.className}`}
         style={{ position: "relative" }}
       >
-        <Header />
-        <main>
-          <SmoothScrolling>{children}</SmoothScrolling>
-        </main>
-        <Footer />
-        <GetQuotePopup />
-        <ThanksPopup />
+        <SmoothScrolling>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <GetQuotePopup />
+          <ThanksPopup />
+        </SmoothScrolling>
       </body>
     </html>
   );

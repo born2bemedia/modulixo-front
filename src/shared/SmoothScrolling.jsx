@@ -13,6 +13,26 @@ function SmoothScrolling({ children }) {
     }
   }, [pathname]);
 
+  useEffect(() => {
+    const handleLoad = () => {
+      if (lenis) {
+        lenis.resize();
+      }
+    };
+
+    window.addEventListener("load", handleLoad);
+
+    document.fonts.ready.then(() => {
+      if (lenis) {
+        lenis.resize();
+      }
+    });
+
+    return () => {
+      window.removeEventListener("load", handleLoad);
+    };
+  }, [lenis]);
+
   return (
     <ReactLenis root options={{ lerp: 1, duration: 1.5, smoothTouch: true }}>
       {children}
