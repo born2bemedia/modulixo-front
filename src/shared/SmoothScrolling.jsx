@@ -19,7 +19,6 @@ function SmoothScrolling({ children }) {
         window.scrollTo(0, 0);
       }
     };
-
     handleScrollToTop();
   }, [pathname, searchParams, lenis]);
 
