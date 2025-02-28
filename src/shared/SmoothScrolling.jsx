@@ -12,12 +12,14 @@ function SmoothScrolling({ children }) {
     if (lenis) {
       lenis.stop();
     }
+    
     const handleScrollToTop = () => {
       if (lenis) {
         lenis.start();
         window.scrollTo(0, 0);
       }
     };
+
     handleScrollToTop();
   }, [pathname, searchParams, lenis]);
 
