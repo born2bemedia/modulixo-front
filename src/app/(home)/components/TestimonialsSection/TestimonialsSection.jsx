@@ -98,7 +98,7 @@ const TestimonialsSection = () => {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <WhiteButton text={"Start a Project"} url={"#"} />
+            <WhiteButton text={"Start a Project"} type={"popup"} />
           </motion.div>
         </div>
       </div>

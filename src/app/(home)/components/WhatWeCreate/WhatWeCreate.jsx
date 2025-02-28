@@ -38,7 +38,7 @@ const WhatWeCreate = () => {
               viewport={{ once: true }}
               variants={fadeInUp}
             >
-              <Link href={"#"} className={styles.item}>
+              <Link href={"/services/3d-modelling"} className={styles.item}>
                 <img src="/images/home/category1.png" alt="3D Modelling" />
                 <div className={styles.info}>
                   <ItemTitle text={"3D Modelling"} tag={"h4"} />
