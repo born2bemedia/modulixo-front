@@ -6,20 +6,21 @@ import { useEffect } from "react";
 function SmoothScrolling({ children }) {
   const lenis = useLenis();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     if (lenis) {
       lenis.stop();
     }
+
     const handleScrollToTop = () => {
       if (lenis) {
         lenis.start();
         window.scrollTo(0, 0);
       }
     };
+
     handleScrollToTop();
-  }, [pathname, searchParams, lenis]);
+  }, [pathname, lenis]);
 
   return (
     <ReactLenis className="h-full" options={{ lerp: 0.1 }} root>
