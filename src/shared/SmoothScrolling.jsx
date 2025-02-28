@@ -12,7 +12,6 @@ function SmoothScrolling({ children }) {
     if (lenis) {
       lenis.stop();
     }
-
     const handleScrollToTop = () => {
       if (lenis) {
         lenis.start();
