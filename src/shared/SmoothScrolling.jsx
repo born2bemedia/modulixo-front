@@ -10,6 +10,7 @@ function SmoothScrolling({ children }) {
   useEffect(() => {
     if (lenis) {
       lenis.scrollTo(0, { immediate: true });
+      lenis.resize();
     }
   }, [pathname]);
 
