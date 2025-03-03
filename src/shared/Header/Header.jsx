@@ -128,7 +128,7 @@ const Header = () => {
                     <div className={styles.subMenu}>
                       <div>
                         <Link href="/services/3d-modelling">3D Modelling</Link>
-                        <Link href="#">Animation</Link>
+                        <Link href="/services/animation">Animation</Link>
                         <Link href="#">Production</Link>
                         <Link href="#">UI/UX Design</Link>
                       </div>
@@ -179,7 +179,7 @@ const Header = () => {
       >
         <div>
           <Link href="/services/3d-modelling">3D Modelling</Link>
-          <Link href="#">Animation</Link>
+          <Link href="/services/animation">Animation</Link>
           <Link href="#">Production</Link>
           <Link href="#">UI/UX Design</Link>
         </div>

@@ -61,13 +61,12 @@ const ContactForm = ({ type = "default" }) => {
 
   const onSubmit = async (data) => {
     setLoading(true);
-    // Simulate a network request delay
-    setTimeout(() => {
+
+    /*setTimeout(() => {
       setThanksPopupDisplay(true);
       setLoading(false);
-    }, 3000);
+    }, 3000);*/
 
-    /* Uncomment below to use a real API call
     try {
       const response = await fetch("/api/emails/contact", {
         method: "POST",
@@ -75,7 +74,7 @@ const ContactForm = ({ type = "default" }) => {
         body: JSON.stringify(data),
       });
       if (response.ok) {
-        setSuccessMessage("Thank you for choosing Modulixo! Our representative will reach out to you shortly.");
+        setThanksPopupDisplay(true);
       } else {
         setSuccessMessage("Failed to send message. Please try again.");
       }
@@ -84,7 +83,7 @@ const ContactForm = ({ type = "default" }) => {
     } finally {
       setLoading(false);
     }
-    */
+    
   };
 
   return (

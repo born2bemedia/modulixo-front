@@ -71,6 +71,7 @@ const GetQuoteForm = ({ type = "default" }) => {
     handleSubmit,
     setValue,
     watch,
+    reset,
     formState: { errors, touchedFields },
   } = useForm({
     resolver: yupResolver(schema),
@@ -104,32 +105,44 @@ const GetQuoteForm = ({ type = "default" }) => {
   const referenceFileRegistration = register("referenceFile");
 
   const onSubmit = async (data) => {
+    console.log("onSubmit triggered", data); // перевіряємо, чи викликається функція
     setLoading(true);
-    // Simulate a network request delay
-    setTimeout(() => {
-      //setGetQuotePopupDisplay(false);
-      setThanksPopupDisplay(true);
-      setLoading(false);
-    }, 3000);
-
-    /* Uncomment below to use a real API call
     try {
-      const response = await fetch("/api/emails/contact", {
+      const prepareFile = async (file) => {
+        if (!file) return null;
+        console.log("file", file);
+        const data = await new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result.split(",")[1]);
+          reader.onerror = (error) => reject(error);
+          reader.readAsDataURL(file);
+        });
+        return { filename: file.name, mimeType: file.type, data };
+      };
+      const fileInput = data.referenceFile;
+      const reference = await prepareFile(fileInput[0]);
+      const formData = { ...data, reference };
+
+      const response = await fetch("/api/emails/get-quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify(formData),
       });
+
+      console.log("Response received:", response);
       if (response.ok) {
-        setSuccessMessage("Thank you for choosing Modulixo! Our representative will reach out to you shortly.");
+        setThanksPopupDisplay(true);
+        reset();
       } else {
+        console.log("Response error:", response);
         setSuccessMessage("Failed to send message. Please try again.");
       }
     } catch (error) {
+      console.error("Error in onSubmit:", error);
       setSuccessMessage("Failed to send message. Please try again.");
     } finally {
       setLoading(false);
     }
-    */
   };
 
   return (
