@@ -5,6 +5,7 @@ import Instagram from "../ui/socials/Instagram";
 import Facebook from "../ui/socials/Facebook";
 import X from "../ui/socials/X";
 import TextBlock from "../ui/TextBlock/TextBlock";
+import { WEBSITE_EMAIL, WEBSITE_PHONE } from "@/helpers/constants";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -65,8 +66,8 @@ const Footer = () => {
             <div>
               <h3>Get in Touch</h3>
               <nav>
-                <Link href="#">example@email.com</Link>
-                <Link href="#">+1(000) 000-0000</Link>
+                <Link href="#">{WEBSITE_EMAIL}</Link>
+                <Link href="#">{WEBSITE_PHONE}</Link>
                 <div className={styles.soc}>
                   <Instagram />
                   <Facebook />
