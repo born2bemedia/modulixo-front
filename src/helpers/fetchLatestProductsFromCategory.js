@@ -33,12 +33,9 @@ const fetchLatestProductsFromCategory = async ({
 }) => {
   setLoading(true);
   try {
-    const categoryData = await fetchCategoryBySlug({ categorySlug });
-    console.log(categoryData);
-    const categoryId = categoryData.id;
 
     const productsRes = await fetch(
-      `${API_URL}/api/products?where[category][in]=${categoryId}&sort=-createdAt&limit=${limit}`,
+      `${API_URL}/api/products?where[category.slug][in]=${categorySlug}&sort=-createdAt&limit=${limit}`,
       {
         headers: {
           Authorization: `Bearer ${API_TOKEN}`,
@@ -55,7 +52,6 @@ const fetchLatestProductsFromCategory = async ({
     const productsData = await productsRes.json();
     //console.log(productsData);
 
-    // Return the latest 4 products
     return productsData.docs;
   } catch (error) {
     console.error("Failed to fetch latest products:", error);
