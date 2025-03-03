@@ -19,7 +19,7 @@ const GetQuotePopup = () => {
 
   const handleClose = () => {
     setGetQuotePopupDisplay(false);
-    router.push("/");
+    //router.push("/");
   };
   return (
     <>
