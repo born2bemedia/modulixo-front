@@ -1,4 +1,7 @@
+"use client";
 import React from "react";
+import { fadeInUp } from "@/helpers/animations";
+import { motion } from "framer-motion";
 import styles from "./PackageCard.module.scss";
 import TextBlock from "../TextBlock/TextBlock";
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
@@ -7,7 +10,13 @@ import { renderBlock } from "@/helpers/renderBlock";
 const PackageCard = ({ product }) => {
   const includes = renderBlock(product.content.root.children[0], 0);
   return (
-    <div className={styles.package}>
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={fadeInUp}
+      className={styles.package}
+    >
       <h3>{product.title}</h3>
       <TextBlock text={product.excerpt} />
       <div className={styles.price}>
@@ -36,7 +45,7 @@ const PackageCard = ({ product }) => {
       </div>
       <div className={styles.includes}>{includes}</div>
       <AddToCartButton product={product} text="Get This Package" icon={false} />
-    </div>
+    </motion.div>
   );
 };
 
