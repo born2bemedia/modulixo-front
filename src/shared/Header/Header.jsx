@@ -11,6 +11,7 @@ import ChevronDown from "../icons/ChevronDown";
 import HeadAccount from "../ui/HeadAccount/HeadAccount";
 import CloseIcon from "../icons/CloseIcon";
 import useCartStore from "@/stores/cartStore";
+import { WEBSITE_EMAIL, WEBSITE_PHONE } from "@/helpers/constants";
 
 const Header = () => {
   const { cart } = useCartStore();
@@ -78,8 +79,8 @@ const Header = () => {
         <div className="_container">
           <div className={styles.row}>
             <div className={styles.contacts}>
-              <Link href="#">example@email.com</Link>
-              <Link href="#">+1(000) 000-0000</Link>
+              <Link href="#">{WEBSITE_EMAIL}</Link>
+              <Link href="#">{WEBSITE_PHONE}</Link>
             </div>
             <div className={styles.soc}>
               <Instagram />
@@ -157,8 +158,8 @@ const Header = () => {
                 </Link>
                 <HeadAccount />
                 <div className={styles.contacts}>
-                  <Link href="#">example@email.com</Link>
-                  <Link href="#">+1(000) 000-0000</Link>
+                  <Link href="#">{WEBSITE_EMAIL}</Link>
+                  <Link href="#">{WEBSITE_PHONE}</Link>
                   <div className={styles.soc}>
                     <Instagram />
                     <Facebook />
