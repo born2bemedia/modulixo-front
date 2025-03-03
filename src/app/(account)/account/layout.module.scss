@@ -1,0 +1,51 @@
+@use "@/styles/mixin.scss" as *;
+
+.dashboard {
+  margin: rem(80) 0;
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: rem(60);
+    @media (max-width: rem(992)) {
+      gap: rem(40);
+    }
+    h2 {
+      font-size: rem(60);
+      font-weight: 800;
+      color: #fff;
+      @media (max-width: rem(992)) {
+        font-size: rem(32);
+      }
+      span {
+        color: #fff;
+        display: block;
+      }
+    }
+    button {
+      display: flex;
+      width: rem(56);
+      height: rem(56);
+      background: #fff;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .body {
+    display: flex;
+    flex-direction: column;
+    @media (max-width: rem(992)) {
+      flex-direction: column;
+    }
+    > div {
+      flex-grow: 1;
+      background: #fff;
+      border-radius: rem(0) rem(16) rem(16);
+      padding: rem(36);
+      @media (max-width: rem(992)) {
+        padding: rem(16);
+      }
+    }
+  }
+}

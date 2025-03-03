@@ -1,0 +1,103 @@
+@use "@/styles/mixin.scss" as *;
+
+.setPassword {
+  display: flex;
+  flex-direction: column;
+  padding: rem(100) 0;
+  align-items: center;
+  h2 {
+    color: #000;
+    font-size: rem(40);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: rem(0);
+    text-align: center;
+    @media (max-width: rem(992)) {
+      font-size: rem(32);
+      margin-bottom: rem(16);
+    }
+  }
+  .setPasswordInner {
+    border-radius: rem(16);
+    background: #fff;
+    padding: rem(16) rem(36);
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: rem(16);
+      .inputWrap {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        @media (max-width: rem(992)) {
+          width: 100%;
+        }
+        label {
+          color: #050505;
+          opacity: 0.5;
+          font-size: rem(14);
+          font-style: normal;
+          font-weight: 400;
+          line-height: 140%;
+          width: 100%;
+          padding-left: rem(16);
+          padding-bottom: rem(8);
+        }
+        > div {
+          position: relative;
+          input {
+            flex-grow: 1;
+            width: 100%;
+            display: flex;
+            height: 49px;
+            padding: 0 rem(16);
+            align-items: center;
+            border-radius: rem(16);
+            box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.05);
+            background: #fff;
+            border: 1px solid #fff;
+            &:disabled {
+              background: #fff;
+              opacity: 0.8;
+            }
+            &.error {
+              border: 1px solid #f00;
+            }
+          }
+          button {
+            position: absolute;
+            right: rem(16);
+            top: 50%;
+            transform: translateY(-50%);
+          }
+          p {
+            position: absolute;
+            font-size: rem(10);
+            color: #f00;
+          }
+        }
+      }
+      .submitButton {
+        display: flex;
+        width: rem(200);
+        height: rem(54);
+        color: #fff;
+        text-align: center;
+        font-size: rem(22);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #2b2b2b;
+        border-radius: rem(27);
+      }
+    }
+    .message {
+      margin-top: rem(16);
+      font-size: rem(14);
+    }
+  }
+}

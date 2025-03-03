@@ -27,8 +27,8 @@ const HeadAccount = () => {
         </div>
       ) : (
         <div className={styles.headAccount}>
-          <button>Login</button>
-          <button>Sign Up</button>
+          <Link href="/log-in">Login</Link>
+          <Link href="/sign-up">Sign Up</Link>
         </div>
       )}
     </>

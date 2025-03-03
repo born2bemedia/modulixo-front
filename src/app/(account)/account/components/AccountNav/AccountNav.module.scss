@@ -1,0 +1,25 @@
+@use "@/styles/mixin.scss" as *;
+
+.nav {
+  display: flex;
+  gap: rem(14);
+  a {
+    font-size: rem(24);
+    color: #fff;
+    font-weight: 600;
+    padding: rem(16) rem(24);
+    background: transparent;
+    border-radius: rem(16) rem(16) 0 0;
+    opacity: 0.5;
+    @media (max-width: rem(992)) {
+      font-size: rem(16);
+      padding: rem(16);
+    }
+    &.current {
+      opacity: 1;
+      background: #fff;
+      color: #000;
+      border-radius: rem(16) rem(16) 0 0;
+    }
+  }
+}
