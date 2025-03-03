@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import styles from "./AddToCartButton.module.scss";
 import PlusIcon from "@/shared/icons/PlusIcon";
 
-const AddToCartButton = ({ product }) => {
+const AddToCartButton = ({ product, text = "Add to cart", icon = true }) => {
   const { cart, addToCart } = useCartStore();
   const inCart = cart.some((item) => item.id === product.id);
   const [isInCart, setIsInCart] = useState(false);
@@ -44,8 +44,8 @@ const AddToCartButton = ({ product }) => {
         onClick={handleAddToCart}
         disabled={isInCart}
       >
-        <PlusIcon />
-        {isInCart ? "In Cart" : "Add to cart"}
+        {icon && <PlusIcon />}
+        {isInCart ? "In Cart" : text}
       </button>
     </>
   );
