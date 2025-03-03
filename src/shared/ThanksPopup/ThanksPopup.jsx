@@ -13,7 +13,11 @@ const ThanksPopup = () => {
 
   const handleClose = () => {
     setThanksPopupDisplay(false);
-    router.push("/");
+    if (router.pathname === "/") {
+      router.refresh();
+    } else {
+      router.push("/");
+    }
   };
   return (
     <div
