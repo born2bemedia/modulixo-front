@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^4.1.2",
+    "@next/third-parties": "^15.2.0",
     "axios": "^1.7.9",
     "framer-motion": "^12.4.7",
     "googleapis": "^144.0.0",

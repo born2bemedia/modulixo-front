@@ -5,6 +5,7 @@ import Footer from "@/shared/Footer/Footer";
 import GetQuotePopup from "@/shared/GetQuotePopup/GetQuotePopup";
 import ThanksPopup from "@/shared/ThanksPopup/ThanksPopup";
 import SmoothScrolling from "@/shared/SmoothScrolling";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const urbanist = Urbanist({
   variable: "--font-urbanist",
@@ -19,6 +20,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <GoogleAnalytics gaId="G-X4YTW1XWJH" />
       <body
         className={`${urbanist.variable} ${urbanist.className}`}
         style={{ position: "relative" }}
