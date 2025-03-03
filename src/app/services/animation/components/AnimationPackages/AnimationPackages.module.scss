@@ -1,0 +1,15 @@
+.packages {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  @media (max-width: 992px) {
+    flex-direction: column;
+  }
+  > div {
+    width: 33.33%;
+    flex-grow: 1;
+    @media (max-width: 992px) {
+      width: 100%;
+    }
+  }
+}

@@ -48,7 +48,7 @@ export const renderBlock = (block, index) => {
             console.log(item);
             return (
               <li key={i} style={{ marginBottom: "8px" }}>
-                {item.children.map((child, j) => renderInline(child, j))}
+                <span>{item.children.map((child, j) => renderInline(child, j))}</span>
               </li>
             );
           })}

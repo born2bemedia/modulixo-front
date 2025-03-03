@@ -10,15 +10,12 @@ function SmoothScrolling({ children }) {
   useEffect(() => {
     if (lenis) {
       lenis.stop();
+      setTimeout(() => {
+        const windowHeight = document.documentElement.scrollHeight;
+        lenis.dimensions.scrollHeight = windowHeight;
+        console.log("lenis instance:", lenis.dimensions.scrollHeight);
+      }, 1000);
     }
-    
-
-    setTimeout(() => {
-      const windowHeight = document.documentElement.scrollHeight;
-      lenis.dimensions.scrollHeight = windowHeight;
-      console.log("lenis instance:", lenis.dimensions.scrollHeight);
-    }, 1000);
-    
 
     const handleScrollToTop = () => {
       if (lenis) {
