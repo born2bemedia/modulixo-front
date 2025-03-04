@@ -33,12 +33,12 @@ const TellUs = () => {
             className={styles.body}
           >
             <SectionTitle
-              text={"Tell Us About Your Animation Project"}
+              text={"Tell Us About Your Video Production Project"}
               tag={"h2"}
             />
             <TextBlock
               text={
-                "The more details you provide, the better we can understand your needs! Please provide your project type, style <br/>preferences, duration, and any elements you want to include."
+                "The more details you provide, the better we can understand your needs! Let us know your video type, preferred style, duration, and any elements you’d like included."
               }
             />
             <div className={styles.links}>
