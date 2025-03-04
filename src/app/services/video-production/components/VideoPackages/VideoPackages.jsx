@@ -33,7 +33,7 @@ const AnimationPackages = () => {
   return (
     <div className={styles.packages}>
       {loading ? (
-        <Skeleton count={3} />
+        <Skeleton count={3} height={1000} />
       ) : products.length > 0 ? (
         products.map((product, index) => (
           <PackageCard product={product} key={product.id} />
