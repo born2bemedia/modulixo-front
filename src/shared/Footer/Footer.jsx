@@ -40,8 +40,8 @@ const Footer = () => {
               <h3>Company</h3>
               <nav>
                 <Link href="/services/3d-modelling">3D Modelling</Link>
-                <Link href="#">Animation</Link>
-                <Link href="#">Video Production</Link>
+                <Link href="/services/animation">Animation</Link>
+                <Link href="/services/video-production">Video Production</Link>
                 <Link href="#">UI/UX Design</Link>
               </nav>
             </div>

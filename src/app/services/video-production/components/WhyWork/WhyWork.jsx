@@ -9,28 +9,28 @@ import TextBlock from "@/shared/ui/TextBlock/TextBlock";
 const WhyWork = () => {
   const offers = [
     {
-      title: "Industry-Leading Expertise",
+      title: "State-of-the-Art Equipment",
       description:
-        "We use cutting-edge software like Blender, Cinema 4D, and Unreal Engine to create stunning visuals.",
-      image: "/images/animation/why1.png",
+        "We use cinema-grade cameras, lenses, and lighting for professional-quality videos.",
+      image: "/images/video-production/why1.png",
     },
     {
-      title: "Tailored Storytelling",
+      title: "Creative Storytelling",
       description:
-        "Every animation is custom-designed to match your brand, product, or creative vision.",
-      image: "/images/animation/why2.png",
+        "Every video is crafted to engage, entertain, and achieve your goals.",
+      image: "/images/video-production/why2.png",
     },
     {
-      title: "Seamless Collaboration",
+      title: "Seamless Process & Collaboration",
       description:
-        "We work closely with you from storyboarding to final rendering for a smooth experience.",
-      image: "/images/animation/why3.png",
+        "We work closely with clients from concept to final edit for the perfect result.",
+      image: "/images/video-production/why3.png",
     },
     {
-      title: "Top-Quality Results",
+      title: "Diverse Expertise",
       description:
-        "Our animations are built for marketing, branding, entertainment, and interactive experiences.",
-      image: "/images/animation/why4.png",
+        "From corporate projects to viral social content, we create videos that stand out.",
+      image: "/images/video-production/why4.png",
     },
   ];
   return (

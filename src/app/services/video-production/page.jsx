@@ -1,8 +1,8 @@
 import React from "react";
-import AnimationHero from "./components/AnimationHero/AnimationHero";
+import VideoHero from "./components/VideoHero/VideoHero";
 import TellUs from "./components/TellUs/TellUs";
 import styles from "./page.module.scss";
-import AnimationPackagesSection from "./components/AnimationPackagesSection/AnimationPackagesSection";
+import VideoPackagesSection from "./components/VideoPackagesSection/VideoPackagesSection";
 import WhatWeOffer from "./components/WhatWeOffer/WhatWeOffer";
 import WhyWork from "./components/WhyWork/WhyWork";
 import NeedCustomQuote from "./components/NeedCustomQuote/NeedCustomQuote";
@@ -11,17 +11,18 @@ import CategorySection from "../3d-modelling/components/CategorySection/Category
 const AnimationPage = () => {
   return (
     <>
-      <AnimationHero />
+      <VideoHero />
       <WhatWeOffer />
-      <AnimationPackagesSection />
-      <CategorySection
-        title={"Browse Ready-Made Animations"}
-        description={
-          "Need high-quality animations fast? Explore our pre-designed, ready-to-use animations, perfect for branding, marketing, and presentations."
-        }
-        categorySlug={"animations"}
-      />
+      <VideoPackagesSection />
       <NeedCustomQuote />
+      <CategorySection
+        title={"Browse Ready-Made Videos"}
+        description={
+          "Need high-quality video assets fast? We offer pre-designed video templates for marketing, branding, and social media campaigns."
+        }
+        categorySlug={"videos"}
+      />
+
       <WhyWork />
       <TellUs />
       <div className={styles.footerImage}></div>
