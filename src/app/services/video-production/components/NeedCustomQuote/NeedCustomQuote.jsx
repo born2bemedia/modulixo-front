@@ -7,6 +7,7 @@ import SectionTitle from "@/shared/ui/SectionTitle/SectionTitle";
 import TextBlock from "@/shared/ui/TextBlock/TextBlock";
 import SectionLabel from "@/shared/ui/SectionLabel/SectionLabel";
 import Image from "next/image";
+import WhiteButton from "@/shared/ui/WhiteButton/WhiteButton";
 
 const NeedCustomQuote = () => {
   const offers = [
