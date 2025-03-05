@@ -23,13 +23,16 @@ const PackageCard = ({ product }) => {
         <span>€{product.price}</span>
       </div>
       <div className={styles.details}>
-        <div className={styles.detailRow}>
-          <span>
-            <img src="/images/icons/duration.svg" alt="duration" />
-            Duration
-          </span>
-          <TextBlock text={product.duration} />
-        </div>
+        {product.duration && (
+          <div className={styles.detailRow}>
+            <span>
+              <img src="/images/icons/duration.svg" alt="duration" />
+              Duration
+            </span>
+            <TextBlock text={product.duration} />
+          </div>
+        )}
+
         <div className={styles.detailRow}>
           <span>
             <img src="/images/icons/bestfor.svg" alt="bestFor" />

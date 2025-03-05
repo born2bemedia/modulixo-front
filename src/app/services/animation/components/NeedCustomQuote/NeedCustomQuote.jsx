@@ -72,6 +72,15 @@ const NeedCustomQuote = () => {
               </div>
             ))}
           </div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className={styles.button}
+          >
+            <WhiteButton text="View Pricing Details" url={"#"} />
+          </motion.div>
         </div>
       </div>
     </section>

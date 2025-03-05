@@ -24,7 +24,7 @@
       height: auto;
     }
     @media (max-width: 768px) {
-      width: 100%;
+      width: 70%;
     }
   }
   .body {
@@ -47,7 +47,7 @@
       overflow: hidden;
       background: rgba(255, 255, 255, 0.05);
       .offer {
-        width: 50%;
+        width: 33.33%;
         overflow: hidden;
         display: flex;
         flex-direction: column;
@@ -58,6 +58,7 @@
         @media (max-width: 992px) {
           padding: 16px;
           gap: 16px;
+          width: 100%;
         }
         &:first-child {
           border-right: 1px solid rgba(255, 255, 255, 0.05);

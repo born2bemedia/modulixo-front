@@ -1,7 +1,5 @@
 .whatWeOffer {
-  padding: 82px 0;
-  position: relative;
-  z-index: 1;
+  padding: 164px 0;
   @media (max-width: 992px) {
     padding: 64px 0;
   }
@@ -19,17 +17,11 @@
       flex-wrap: wrap;
       gap: 24px;
       .offer {
-        width: calc(25% - 18px);
+        width: calc(33.33% - 16px);
         border-radius: 16px;
-        border: 1px solid #1f1f1f;
-        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        background: rgba(255, 255, 255, 0.03);
         overflow: hidden;
-        height: 600px;
-        background-position: center;
-        background-size: cover;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
         @media (max-width: 992px) {
           width: calc(50% - 12px);
         }
@@ -52,10 +44,11 @@
           display: flex;
           flex-direction: column;
           gap: 12px;
-          padding: 32px;
+          padding: 16px;
+          border-top: 1px solid rgba(255, 255, 255, 0.05);
           h3 {
             color: #fff;
-            font-size: 24px;
+            font-size: 32px;
             font-style: normal;
             font-weight: 600;
             line-height: normal;

@@ -7,30 +7,27 @@ import SectionTitle from "@/shared/ui/SectionTitle/SectionTitle";
 import TextBlock from "@/shared/ui/TextBlock/TextBlock";
 import SectionLabel from "@/shared/ui/SectionLabel/SectionLabel";
 import Image from "next/image";
+import WhiteButton from "@/shared/ui/WhiteButton/WhiteButton";
 
 const NeedCustomQuote = () => {
   const offers = [
     {
-      title: "Production complexity (shooting, editing, VFX, animation)",
+      title: "Project complexity (number of screens, UI elements, animations, interactivity)",
       image: "/images/video-production/icon1.svg",
     },
     {
-      title: "Length & distribution format",
+      title: "Research depth (competitor analysis, user behavior studies, A/B testing)",
       image: "/images/video-production/icon2.svg",
     },
     {
-      title: "Required crew & equipment",
+      title: "Development handoff (design system, dev-ready assets, style guides)",
       image: "/images/video-production/icon3.svg",
-    },
-    {
-      title: "Number of filming days & post-production needs",
-      image: "/images/video-production/icon4.svg",
     },
   ];
   return (
     <section className={styles.whatWeOffer}>
       <Image
-        src="/images/video-production/need-custom-quote.png"
+        src="/images/ui/need-custom-quote.png"
         alt="Need Custom Quote"
         width={539}
         height={486}
