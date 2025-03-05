@@ -1,5 +1,5 @@
 .whatWeOffer {
-  padding: 82px 0;
+  padding: 64px 0;
   position: relative;
   z-index: 1;
   @media (max-width: 992px) {
@@ -51,7 +51,7 @@
         .offerContent {
           display: flex;
           flex-direction: column;
-          gap: 12px;
+          gap: 24px;
           padding: 32px;
           h3 {
             color: #fff;

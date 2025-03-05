@@ -28,7 +28,7 @@ const AddToCartButton = ({ product, text = "Add to cart", icon = true }) => {
       });
       toast.success(`${product.title} added to cart!`, {
         position: "bottom-right",
-        autoClose: 3000, // Automatically close after 3 seconds
+        autoClose: 3000, 
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

@@ -20,13 +20,18 @@ const Header = () => {
   const pathname = usePathname();
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
   const [submenuPosition, setSubmenuPosition] = useState({ top: 0, left: 0 });
-
+  const [cartCount, setCartCount] = useState(0);
   const subMenuButtonRef = useRef(null);
+  
 
   useEffect(() => {
     setIsMenuPopupOpen(false);
     setIsSubMenuOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    setCartCount(cart?.length);
+  }, [cart]);
 
   const menuHandler = () => {
     setIsMenuPopupOpen(!isMenuPopupOpen);
@@ -103,7 +108,7 @@ const Header = () => {
             <div className={styles.menuButtonWrap}>
               <Link href="#" className={styles.cart}>
                 <img src="/images/icons/cart.svg" />
-                {cart.length > 0 && <span className={styles.inCart} />}
+                {cartCount > 0 ? <span /> : ""}
               </Link>
               <button className={styles.menuButton} onClick={menuHandler}>
                 {isMenuPopupOpen ? <CloseIcon /> : <MenuIcon />}
@@ -130,7 +135,7 @@ const Header = () => {
                         <Link href="/services/3d-modelling">3D Modelling</Link>
                         <Link href="/services/animation">Animation</Link>
                         <Link href="/services/video-production">Production</Link>
-                        <Link href="#">UI/UX Design</Link>
+                        <Link href="/services/ui-ux-design">UI/UX Design</Link>
                       </div>
                     </div>
                   </li>
@@ -154,7 +159,7 @@ const Header = () => {
               <div className={styles.col2}>
                 <Link href="#" className={styles.cart}>
                   <img src="/images/icons/cart.svg" />
-                  {cart.length > 0 && <span className={styles.inCart} />}
+                  {cartCount > 0 ? <span /> : ""}
                 </Link>
                 <HeadAccount />
                 <div className={styles.contacts}>
@@ -181,7 +186,7 @@ const Header = () => {
           <Link href="/services/3d-modelling">3D Modelling</Link>
           <Link href="/services/animation">Animation</Link>
           <Link href="/services/video-production">Production</Link>
-          <Link href="#">UI/UX Design</Link>
+          <Link href="/services/ui-ux-design">UI/UX Design</Link>
         </div>
       </div>
     </>

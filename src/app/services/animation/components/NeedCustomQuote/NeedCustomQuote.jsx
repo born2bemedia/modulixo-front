@@ -7,6 +7,7 @@ import SectionTitle from "@/shared/ui/SectionTitle/SectionTitle";
 import TextBlock from "@/shared/ui/TextBlock/TextBlock";
 import SectionLabel from "@/shared/ui/SectionLabel/SectionLabel";
 import Image from "next/image";
+import WhiteButton from "@/shared/ui/WhiteButton/WhiteButton";
 
 const NeedCustomQuote = () => {
   const offers = [
@@ -72,6 +73,15 @@ const NeedCustomQuote = () => {
               </div>
             ))}
           </div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className={styles.button}
+          >
+            <WhiteButton text="View Pricing Details" url={"#"} />
+          </motion.div>
         </div>
       </div>
     </section>

@@ -6,6 +6,7 @@ import GetQuotePopup from "@/shared/GetQuotePopup/GetQuotePopup";
 import ThanksPopup from "@/shared/ThanksPopup/ThanksPopup";
 import SmoothScrolling from "@/shared/SmoothScrolling";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { ToastContainer } from "react-toastify";
 
 const urbanist = Urbanist({
   variable: "--font-urbanist",
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
           <GetQuotePopup />
           <ThanksPopup />
         </SmoothScrolling>
+        <ToastContainer />
       </body>
     </html>
   );

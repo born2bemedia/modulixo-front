@@ -42,7 +42,7 @@ const Footer = () => {
                 <Link href="/services/3d-modelling">3D Modelling</Link>
                 <Link href="/services/animation">Animation</Link>
                 <Link href="/services/video-production">Video Production</Link>
-                <Link href="#">UI/UX Design</Link>
+                <Link href="/services/ui-ux-design">UI/UX Design</Link>
               </nav>
             </div>
             <div>
@@ -74,7 +74,7 @@ const Footer = () => {
                   <X />
                 </div>
               </nav>
-            </div>
+            </div>\\
           </div>
         </div>
       </div>
