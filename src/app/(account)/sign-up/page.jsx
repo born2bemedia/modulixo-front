@@ -1,10 +1,11 @@
 "use client";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import useAuthStore from "@/stores/authStore";
 import { useState } from "react";
 import Link from "next/link";
+import PhoneInput from "react-phone-input-2";
 
 // Validation schema with repeat password
 const schema = yup.object().shape({
@@ -19,6 +20,10 @@ const schema = yup.object().shape({
     .string()
     .oneOf([yup.ref("password"), null], "Passwords must match")
     .required("Confirm password is required"),
+  terms: yup
+    .boolean()
+    .required("You must accept the terms and conditions")
+    .oneOf([true], "You must accept the terms and conditions"),
 });
 
 export default function RegisterPage() {
@@ -27,7 +32,10 @@ export default function RegisterPage() {
   const {
     register,
     handleSubmit,
+    reset,
+    control,
     formState: { errors },
+    setValue,
   } = useForm({
     resolver: yupResolver(schema),
   });
@@ -39,6 +47,7 @@ export default function RegisterPage() {
         lastName: data.lastName,
         email: data.email,
         password: data.password,
+        phone: data.phone,
       });
       setSuccessMessage("Registration successful! You can now log in.");
     } catch (error) {
@@ -131,6 +140,22 @@ export default function RegisterPage() {
             {errors.email?.message}
           </p>
 
+          <div className="inputWrap">
+            <div>
+              <Controller
+                name="phone"
+                control={control}
+                render={({ field }) => (
+                  <PhoneInput
+                    {...field}
+                    country={"us"}
+                    onChange={(value) => setValue("phone", value)}
+                  />
+                )}
+              />
+            </div>
+          </div>
+
           <input
             {...register("password")}
             type="password"
@@ -160,6 +185,22 @@ export default function RegisterPage() {
           <p style={{ color: "red", fontSize: "14px" }}>
             {errors.confirmPassword?.message}
           </p>
+
+          <div className="terms">
+            <div>
+              <label>
+                <input
+                  className={errors.terms ? "error" : ""}
+                  type="checkbox"
+                  {...register("terms")}
+                />
+                <span>
+                  I have read and agree to 3Dellium’s Terms and Conditions and
+                  Privacy Policy.
+                </span>
+              </label>
+            </div>
+          </div>
 
           <button
             type="submit"
