@@ -12,6 +12,7 @@ import HeadAccount from "../ui/HeadAccount/HeadAccount";
 import CloseIcon from "../icons/CloseIcon";
 import useCartStore from "@/stores/cartStore";
 import { WEBSITE_EMAIL, WEBSITE_PHONE } from "@/helpers/constants";
+import { Weglot } from "../ui/Weglot";
 
 const Header = () => {
   const { cart } = useCartStore();
@@ -22,7 +23,6 @@ const Header = () => {
   const [submenuPosition, setSubmenuPosition] = useState({ top: 0, left: 0 });
   const [cartCount, setCartCount] = useState(0);
   const subMenuButtonRef = useRef(null);
-  
 
   useEffect(() => {
     setIsMenuPopupOpen(false);
@@ -121,10 +121,20 @@ const Header = () => {
               <div className={styles.col1}>
                 <ul>
                   <li>
-                    <Link href="/">Home</Link>
+                    <Link
+                      href="/"
+                      className={pathname === "/" ? styles.active : ""}
+                    >
+                      Home
+                    </Link>
                   </li>
                   <li>
-                    <Link href="/about-us">About</Link>
+                    <Link
+                      href="/about-us"
+                      className={pathname === "/about-us" ? styles.active : ""}
+                    >
+                      About
+                    </Link>
                   </li>
                   <li>
                     <button ref={subMenuButtonRef} onClick={subMenuHandler}>
@@ -132,27 +142,88 @@ const Header = () => {
                     </button>
                     <div className={styles.subMenu}>
                       <div>
-                        <Link href="/services/3d-modelling">3D Modelling</Link>
-                        <Link href="/services/animation">Animation</Link>
-                        <Link href="/services/video-production">Production</Link>
-                        <Link href="/services/ui-ux-design">UI/UX Design</Link>
+                        <Link
+                          href="/services/3d-modelling"
+                          className={
+                            pathname === "/services/3d-modelling"
+                              ? styles.active
+                              : ""
+                          }
+                        >
+                          3D Modelling
+                        </Link>
+                        <Link
+                          href="/services/animation"
+                          className={
+                            pathname === "/services/animation"
+                              ? styles.active
+                              : ""
+                          }
+                        >
+                          Animation
+                        </Link>
+                        <Link
+                          href="/services/video-production"
+                          className={
+                            pathname === "/services/video-production"
+                              ? styles.active
+                              : ""
+                          }
+                        >
+                          Production
+                        </Link>
+                        <Link
+                          href="/services/ui-ux-design"
+                          className={
+                            pathname === "/services/ui-ux-design"
+                              ? styles.active
+                              : ""
+                          }
+                        >
+                          UI/UX Design
+                        </Link>
                       </div>
                     </div>
                   </li>
                   <li>
-                    <Link href="#">Showcase</Link>
+                    <Link
+                      href="/showcase"
+                      className={pathname === "/showcase" ? styles.active : ""}
+                    >
+                      Showcase
+                    </Link>
                   </li>
                   <li>
-                    <Link href="#">Pricing</Link>
+                    <Link
+                      href="/pricing"
+                      className={pathname === "/pricing" ? styles.active : ""}
+                    >
+                      Pricing
+                    </Link>
                   </li>
                   <li>
-                    <Link href="#">Insights</Link>
+                    <Link
+                      href="/insights"
+                      className={pathname === "/insights" ? styles.active : ""}
+                    >
+                      Insights
+                    </Link>
                   </li>
                   <li>
-                    <Link href="#">Q&A</Link>
+                    <Link
+                      href="/qa"
+                      className={pathname === "/qa" ? styles.active : ""}
+                    >
+                      Q&A
+                    </Link>
                   </li>
                   <li>
-                    <Link href="#">Contacts</Link>
+                    <Link
+                      href="/contacts"
+                      className={pathname === "/contacts" ? styles.active : ""}
+                    >
+                      Contacts
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -183,10 +254,36 @@ const Header = () => {
         style={{ top: submenuPosition.top, left: submenuPosition.left }}
       >
         <div>
-          <Link href="/services/3d-modelling">3D Modelling</Link>
-          <Link href="/services/animation">Animation</Link>
-          <Link href="/services/video-production">Production</Link>
-          <Link href="/services/ui-ux-design">UI/UX Design</Link>
+          <Link
+            href="/services/3d-modelling"
+            className={
+              pathname === "/services/3d-modelling" ? styles.active : ""
+            }
+          >
+            3D Modelling
+          </Link>
+          <Link
+            href="/services/animation"
+            className={pathname === "/services/animation" ? styles.active : ""}
+          >
+            Animation
+          </Link>
+          <Link
+            href="/services/video-production"
+            className={
+              pathname === "/services/video-production" ? styles.active : ""
+            }
+          >
+            Production
+          </Link>
+          <Link
+            href="/services/ui-ux-design"
+            className={
+              pathname === "/services/ui-ux-design" ? styles.active : ""
+            }
+          >
+            UI/UX Design
+          </Link>
         </div>
       </div>
     </>

@@ -25,6 +25,7 @@
     "react-select": "^5.10.0",
     "react-select-country-list": "^2.2.3",
     "react-toastify": "^11.0.5",
+    "react-weglot": "^1.0.4",
     "sass": "^1.85.1",
     "yup": "^1.6.1",
     "zustand": "^5.0.3"
