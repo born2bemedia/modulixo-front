@@ -5,7 +5,12 @@ import Instagram from "../ui/socials/Instagram";
 import Facebook from "../ui/socials/Facebook";
 import X from "../ui/socials/X";
 import TextBlock from "../ui/TextBlock/TextBlock";
-import { WEBSITE_EMAIL, WEBSITE_PHONE } from "@/helpers/constants";
+import {
+  WEBSITE_EMAIL,
+  WEBSITE_OFFICE_ADDRESS,
+  WEBSITE_PHONE,
+  WEBSITE_REGISTRATION_ADDRESS,
+} from "@/helpers/constants";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -23,8 +28,8 @@ const Footer = () => {
               />
             </div>
             <div className={styles.addresses}>
-              <TextBlock text="Office address" />
-              <TextBlock text="Registered address" />
+              {/**<TextBlock text="Office address" /> */}
+              <TextBlock text={WEBSITE_REGISTRATION_ADDRESS} />
             </div>
           </div>
           <div className={styles.col2}>
@@ -74,7 +79,8 @@ const Footer = () => {
                   <X />
                 </div>
               </nav>
-            </div>\\
+            </div>
+            \\
           </div>
         </div>
       </div>
