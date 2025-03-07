@@ -12,7 +12,6 @@ import HeadAccount from "../ui/HeadAccount/HeadAccount";
 import CloseIcon from "../icons/CloseIcon";
 import useCartStore from "@/stores/cartStore";
 import { WEBSITE_EMAIL, WEBSITE_PHONE } from "@/helpers/constants";
-import { Weglot } from "../ui/Weglot";
 
 const Header = () => {
   const { cart } = useCartStore();
