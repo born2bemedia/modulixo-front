@@ -7,6 +7,8 @@ import ThanksPopup from "@/shared/ThanksPopup/ThanksPopup";
 import SmoothScrolling from "@/shared/SmoothScrolling";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { ToastContainer } from "react-toastify";
+import Head from "next/head";
+import Script from "next/script";
 
 const urbanist = Urbanist({
   variable: "--font-urbanist",
@@ -22,6 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <GoogleAnalytics gaId="G-X4YTW1XWJH" />
+
       <body
         className={`${urbanist.variable} ${urbanist.className}`}
         style={{ position: "relative" }}

@@ -55,7 +55,7 @@ const WhatWeCreate = () => {
               viewport={{ once: true }}
               variants={fadeInUp}
             >
-              <Link href={"#"} className={styles.item}>
+              <Link href={"/services/animation"} className={styles.item}>
                 <img src="/images/home/category2.png" alt="Animation" />
                 <div className={styles.info}>
                   <ItemTitle text={"Animation"} tag={"h4"} />
@@ -70,7 +70,7 @@ const WhatWeCreate = () => {
               viewport={{ once: true }}
               variants={fadeInUp}
             >
-              <Link href={"#"} className={styles.item}>
+              <Link href={"/services/video-production"} className={styles.item}>
                 <img src="/images/home/category3.png" alt="Video Production" />
                 <div className={styles.info}>
                   <ItemTitle text={"Video Production"} tag={"h4"} />
@@ -87,7 +87,7 @@ const WhatWeCreate = () => {
               viewport={{ once: true }}
               variants={fadeInUp}
             >
-              <Link href={"#"} className={styles.item}>
+              <Link href={"/services/ui-ux-design"} className={styles.item}>
                 <img src="/images/home/category4.png" alt="UX/UI Design" />
                 <div className={styles.info}>
                   <ItemTitle text={"UX/UI Design"} tag={"h4"} />
