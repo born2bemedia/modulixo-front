@@ -28,8 +28,10 @@ const Footer = () => {
               />
             </div>
             <div className={styles.addresses}>
-              {/**<TextBlock text="Office address" /> */}
-              <TextBlock text={WEBSITE_REGISTRATION_ADDRESS} />
+              <TextBlock text={`Office address: ${WEBSITE_OFFICE_ADDRESS}`} />
+              <TextBlock
+                text={`Registration address: ${WEBSITE_REGISTRATION_ADDRESS}`}
+              />
             </div>
           </div>
           <div className={styles.col2}>
