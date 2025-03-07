@@ -19,7 +19,7 @@ const Footer = () => {
                 <img src="/images/logo.svg" />
               </Link>
               <TextBlock
-                text={`© ${currentYear} COMPANY NAME<br/>All Rights Reserved.`}
+                text={`© ${currentYear} Savedavani Sp. z o.o.<br/>All Rights Reserved.`}
               />
             </div>
             <div className={styles.addresses}>
