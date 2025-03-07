@@ -44,7 +44,7 @@ const Hero = () => {
           </motion.div>
         </div>
         <div className={styles.imagesWrap}>
-          <Image src={"/images/home/heroBack.webp"} fill alt="hero back" />
+          <Image src={"/images/home/heroBack.webp"} fill alt="hero back" quality={100} />
           <motion.img
             style={{ y }} // This applies the smooth upward motion
             src="/images/home/color-picker.svg"

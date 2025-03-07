@@ -16,6 +16,7 @@ const HomeContact = () => {
         alt="home-contact"
         width={470}
         height={620}
+        quality={100}
       />
       <div className="_container">
         <div className={styles.body}>

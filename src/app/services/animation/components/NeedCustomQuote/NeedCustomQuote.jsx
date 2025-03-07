@@ -35,6 +35,7 @@ const NeedCustomQuote = () => {
         alt="Need Custom Quote"
         width={749}
         height={686}
+        quality={100}
       />
       <div className="_container">
         <div className={styles.body}>

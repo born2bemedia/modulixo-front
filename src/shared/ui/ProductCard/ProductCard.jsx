@@ -23,6 +23,7 @@ const ProductCard = ({ product }) => {
           src={`${API_URL}${product.image.url}`}
           alt={product.title}
           fill
+          quality={100}
         />
       </Link>
       <div className={styles.content}>

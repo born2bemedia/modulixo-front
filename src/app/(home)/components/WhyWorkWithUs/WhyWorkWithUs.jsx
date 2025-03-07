@@ -45,6 +45,7 @@ const WhyWorkWithUs = () => {
           width={962}
           height={881}
           alt="whyTop"
+          quality={100}
         />
       </motion.div>
       <motion.div className={styles.image}>
@@ -53,6 +54,7 @@ const WhyWorkWithUs = () => {
           width={962}
           height={881}
           alt="whyBottom"
+          quality={100}
         />
       </motion.div>
       <div className="_container">

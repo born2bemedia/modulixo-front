@@ -15,12 +15,14 @@ const ModellingHero = () => {
         width={470}
         height={452}
         alt="hero1"
+        quality={100}
       />
       <Image
         src={"/images/modelling/hero2.png"}
         width={470}
         height={452}
         alt="hero2"
+        quality={100}
       />
       <div className="_container">
         <div className={styles.body}>
