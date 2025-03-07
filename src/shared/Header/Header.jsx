@@ -169,7 +169,7 @@ const Header = () => {
                               : ""
                           }
                         >
-                          Production
+                          Video Production
                         </Link>
                         <Link
                           href="/services/ui-ux-design"
@@ -273,7 +273,7 @@ const Header = () => {
               pathname === "/services/video-production" ? styles.active : ""
             }
           >
-            Production
+            Video Production
           </Link>
           <Link
             href="/services/ui-ux-design"
