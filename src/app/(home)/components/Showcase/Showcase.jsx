@@ -57,7 +57,7 @@ const Showcase = () => {
               className={styles.item}
               key={index}
             >
-              <Image src={item.image} alt={item.title} fill />
+              <Image src={item.image} alt={item.title} fill quality={100} />
               <h4>{item.title}</h4>
             </motion.div>
           ))}

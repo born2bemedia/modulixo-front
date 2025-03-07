@@ -15,12 +15,14 @@ const AnimationHero = () => {
         alt="hero1"
         width={660}
         height={854}
+        quality={100}
       />
       <Image
         src="/images/animation/hero2.png"
         alt="hero2"
         width={660}
         height={854}
+        quality={100}
       />
       <div className="_container">
         <motion.div

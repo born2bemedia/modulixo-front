@@ -10,8 +10,8 @@ import Image from "next/image";
 const UiUxHero = () => {
   return (
     <section className={styles.hero}>
-      <Image src="/images/ui/hero1.png" alt="hero1" width={660} height={854} />
-      <Image src="/images/ui/hero2.png" alt="hero2" width={660} height={854} />
+      <Image src="/images/ui/hero1.png" alt="hero1" width={660} height={854} quality={100} />
+      <Image src="/images/ui/hero2.png" alt="hero2" width={660} height={854} quality={100} />
       <div className="_container">
         <motion.div
           initial="hidden"
