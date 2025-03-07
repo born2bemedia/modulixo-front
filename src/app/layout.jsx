@@ -9,6 +9,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { ToastContainer } from "react-toastify";
 import Head from "next/head";
 import Script from "next/script";
+import Preloader from "@/shared/ui/Preloader";
 
 const urbanist = Urbanist({
   variable: "--font-urbanist",
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
         className={`${urbanist.variable} ${urbanist.className}`}
         style={{ position: "relative" }}
       >
+        <Preloader />
         <SmoothScrolling>
           <Header />
           <main>{children}</main>
