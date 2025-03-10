@@ -6,7 +6,7 @@ import VideoPackagesSection from "./components/VideoPackagesSection/VideoPackage
 import WhatWeOffer from "./components/WhatWeOffer/WhatWeOffer";
 import WhyWork from "./components/WhyWork/WhyWork";
 import NeedCustomQuote from "./components/NeedCustomQuote/NeedCustomQuote";
-import CategorySection from "../3d-modelling/components/CategorySection/CategorySection";
+import CategorySection from "../../../shared/ui/CategorySection/CategorySection";
 
 const AnimationPage = () => {
   return (
@@ -16,9 +16,9 @@ const AnimationPage = () => {
       <VideoPackagesSection />
       <NeedCustomQuote />
       <CategorySection
-        title={"Browse Ready-Made Videos"}
+        title={"Explore Our Video Showcase"}
         description={
-          "Need high-quality video assets fast? We offer pre-designed video templates for marketing, branding, and social media campaigns."
+          "Discover our portfolio of professionally crafted videos designed for marketing, branding, and social media engagement. See how we bring stories to life through cinematic visuals, dynamic editing, and high-impact storytelling."
         }
         categorySlug={"videos"}
       />

@@ -1,5 +1,5 @@
 import React from "react";
-import CategorySection from "../components/CategorySection/CategorySection";
+import CategorySection from "../../../../shared/ui/CategorySection/CategorySection";
 import { fetchCategoryBySlug } from "@/helpers/fetchLatestProductsFromCategory";
 import ModellingInnerContact from "../components/ModellingInnerContact/ModellingInnerContact";
 
