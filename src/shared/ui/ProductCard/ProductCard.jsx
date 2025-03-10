@@ -8,6 +8,7 @@ import { API_URL } from "@/helpers/constants";
 import { motion } from "framer-motion";
 import { fadeInUp } from "@/helpers/animations";
 import Link from "next/link";
+import AddToWishlistButton from "../AddToWishlistButton/AddToWishlistButton";
 
 const ProductCard = ({ product }) => {
   return (
@@ -18,6 +19,7 @@ const ProductCard = ({ product }) => {
       variants={fadeInUp}
       className={styles.productCard}
     >
+      <AddToWishlistButton product={product} className={styles.wishlistButton} />
       <Link href={`/product/${product.slug}`} className={styles.image}>
         <Image
           src={`${API_URL}${product.image.url}`}

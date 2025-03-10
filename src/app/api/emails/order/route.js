@@ -117,7 +117,7 @@ export async function POST(request) {
     const clientEmailBody = makeBody(
       email,
       process.env.EMAIL_USER,
-      `Your 3Dellium Order Has Been Received!`,
+      `Your Modulixo Order Has Been Received!`,
       `
         <table width="640" style="border-collapse: collapse; margin: 0 auto;  font-family: Roboto, sans-serif;">
     <thead>
@@ -244,7 +244,7 @@ export async function POST(request) {
 
                             <p style="font-size: 16px; line-height: 19px; font-weight: 600;">
                                 Best regards,
-                                <br>The 3DelliumTeam
+                                <br>The ModulixoTeam
                             </p>
                         </td>
                     </tr>

@@ -3,10 +3,10 @@ import Checkout from "./_components/Checkout/Checkout";
 import ThanksPopup from "@/shared/ThanksPopup/ThanksPopup";
 
 export const metadata = {
-  title: "Checkout | 3Dellium",
+  title: "Checkout | Modulixo",
   description: "",
   openGraph: {
-    title: "Checkout | 3Dellium",
+    title: "Checkout | Modulixo",
     description: "",
     //images: "#",
   },

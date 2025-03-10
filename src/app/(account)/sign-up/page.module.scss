@@ -90,17 +90,20 @@
 
       .formGroup {
         position: relative;
+        label {
+          color: #fff;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          margin-bottom: 12px;
+          display: block;
+        }
         > div {
           display: flex;
           justify-content: space-between;
           margin-bottom: 12px;
-          label {
-            color: #fff;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: normal;
-          }
+
           a {
             color: #fff;
             text-align: right;

@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import useCartStore from "@/stores/cartStore"; // Імпорт Zustend Store
 import Image from "next/image";
 import { API_URL } from "@/helpers/constants";
-import TermsAndConditions from "../Checkout/TermsAndConditions";
+import TermsAndConditions from "../../../checkout/_components/Checkout/TermsAndConditions";
 
 const Cart = () => {
   const {

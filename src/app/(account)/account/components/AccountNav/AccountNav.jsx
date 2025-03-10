@@ -16,16 +16,16 @@ const AccountNav = () => {
         Order History
       </Link>
       <Link
-        href="/account/your-data"
-        className={pathname === "/account/your-data" ? styles.current : ""}
+        href="/account/settings"
+        className={pathname === "/account/settings" ? styles.current : ""}
       >
         Account Settings
       </Link>
       <Link
-        href="/account/account-access"
-        className={pathname === "/account/account-access" ? styles.current : ""}
+        href="/account/wishlist"
+        className={pathname === "/account/wishlist" ? styles.current : ""}
       >
-        Account Access
+        Wishlist
       </Link>
       <div className={styles.divider}></div>
       <button onClick={logout}>Log Out</button>
