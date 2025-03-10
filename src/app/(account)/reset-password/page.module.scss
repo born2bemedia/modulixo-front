@@ -91,7 +91,6 @@
           display: flex;
           justify-content: space-between;
           margin-bottom: 12px;
-          position: relative;
           label {
             color: #fff;
             font-size: 16px;
@@ -112,14 +111,6 @@
             text-decoration-thickness: auto;
             text-underline-offset: auto;
             text-underline-position: from-font;
-          }
-          button {
-            position: absolute;
-            right: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: transparent;
-            border: none;
           }
         }
         input {
@@ -157,7 +148,7 @@
         }
       }
 
-      > button {
+      button {
         color: #0c0b0e;
         font-size: 16px;
         font-style: normal;

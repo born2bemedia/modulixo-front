@@ -9,7 +9,7 @@ export const metadata = {
     title: "Cart | 3Dellium",
     description:
       "",
-    images: "https://3dellium.com/images/meta.png",
+    //images: "#",
   },
 };
 
