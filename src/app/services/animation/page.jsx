@@ -6,7 +6,7 @@ import AnimationPackagesSection from "./components/AnimationPackagesSection/Anim
 import WhatWeOffer from "./components/WhatWeOffer/WhatWeOffer";
 import WhyWork from "./components/WhyWork/WhyWork";
 import NeedCustomQuote from "./components/NeedCustomQuote/NeedCustomQuote";
-import CategorySection from "../3d-modelling/components/CategorySection/CategorySection";
+import CategorySection from "@/shared/ui/CategorySection/CategorySection";
 
 const AnimationPage = () => {
   return (
@@ -15,9 +15,9 @@ const AnimationPage = () => {
       <WhatWeOffer />
       <AnimationPackagesSection />
       <CategorySection
-        title={"Browse Ready-Made Animations"}
+        title={"Explore Our Animation Showcase"}
         description={
-          "Need high-quality animations fast? Explore our pre-designed, ready-to-use animations, perfect for branding, marketing, and presentations."
+          "Get inspired by our collection of past animations crafted for branding, marketing, and storytelling. See how our work brings ideas to life with seamless motion, dynamic visuals, and high-quality execution."
         }
         categorySlug={"animations"}
       />

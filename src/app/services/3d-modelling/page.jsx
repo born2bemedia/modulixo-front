@@ -1,6 +1,6 @@
 import React from "react";
 import ModellingHero from "./components/ModellingHero/ModellingHero";
-import CategorySection from "./components/CategorySection/CategorySection";
+import CategorySection from "../../../shared/ui/CategorySection/CategorySection";
 import ModellingContact from "./components/ModellingContact/ModellingContact";
 
 const ModellingPage = () => {

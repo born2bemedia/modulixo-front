@@ -1,3 +1,4 @@
+"use client";
 import ButtonArrow from "@/shared/icons/ButtonArrow";
 import Link from "next/link";
 import React from "react";

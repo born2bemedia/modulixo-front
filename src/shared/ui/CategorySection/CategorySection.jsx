@@ -10,6 +10,7 @@ import WhiteButton from "@/shared/ui/WhiteButton/WhiteButton";
 import fetchLatestProductsFromCategory from "@/helpers/fetchLatestProductsFromCategory";
 import Skeleton from "@/shared/ui/Skeleton/Skeleton";
 import ProductCard from "@/shared/ui/ProductCard/ProductCard";
+import PreviewCard from "../PreviewCard/PreviewCard";
 
 const CategorySection = ({
   title,
@@ -74,9 +75,16 @@ const CategorySection = ({
             {loading ? (
               <Skeleton count={4} />
             ) : products.length > 0 ? (
-              products.map((product, index) => (
-                <ProductCard product={product} key={product.id} />
-              ))
+              categorySlug === "animations" ||
+              categorySlug === "videos" ? (
+                products.map((product, index) => (
+                  <PreviewCard product={product} key={product.id} />
+                ))
+              ) : (
+                products.map((product, index) => (
+                  <ProductCard product={product} key={product.id} />
+                ))
+              )
             ) : (
               <div className={styles.noProducts}>
                 <img src="/images/icons/outOfStock.svg" alt="outOfStock" />
