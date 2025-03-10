@@ -2,24 +2,60 @@
 
 .nav {
   display: flex;
-  gap: rem(14);
+  flex-direction: column;
+  gap: 8px;
+  padding-right: 24px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  @media (max-width: 992px) {
+    flex-direction: row;
+    overflow-x: scroll;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
   a {
-    font-size: rem(24);
     color: #fff;
-    font-weight: 600;
-    padding: rem(16) rem(24);
-    background: transparent;
-    border-radius: rem(16) rem(16) 0 0;
-    opacity: 0.5;
-    @media (max-width: rem(992)) {
-      font-size: rem(16);
-      padding: rem(16);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 16px;
+    border-radius: 16px;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    &:hover {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
     &.current {
       opacity: 1;
       background: #fff;
-      color: #000;
+      color: #fff;
       border-radius: rem(16) rem(16) 0 0;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.05);
+    }
+  }
+  .divider {
+    background: rgba(255, 255, 255, 0.1);
+    height: 1px;
+  }
+  button {
+    white-space: nowrap;
+    color: #ff4646;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 16px;
+    border-radius: 16px;
+    background: transparent;
+    border: 1px solid transparent;
+    text-align: left;
+    &:hover {
+      border-radius: 16px;
+      background: rgba(255, 70, 70, 0.05);
+      border: 1px solid rgba(255, 70, 70, 0.05);
     }
   }
 }

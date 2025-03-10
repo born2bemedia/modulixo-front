@@ -23,12 +23,21 @@ const HeadAccount = () => {
     <>
       {user ? (
         <div className={styles.headAccount}>
-          <Link href="/account">Account</Link>
+          <Link className={styles.user} href="/account">
+            {user?.firstName} {user?.lastName}
+            <span>
+              <img src="/images/icons/user.svg" alt="account" />
+            </span>
+          </Link>
         </div>
       ) : (
         <div className={styles.headAccount}>
-          <Link className={styles.login} href="/log-in">Login</Link>
-          <Link className={styles.signUp} href="/sign-up">Sign Up</Link>
+          <Link className={styles.login} href="/log-in">
+            Login
+          </Link>
+          <Link className={styles.signUp} href="/sign-up">
+            Sign Up
+          </Link>
         </div>
       )}
     </>

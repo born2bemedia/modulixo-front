@@ -78,11 +78,11 @@ export default function DashboardPage() {
             <thead>
               <tr>
                 <th>Order ID</th>
-                <th>Items</th>
-                <th>Date</th>
-                <th>Price</th>
+                <th>Item Purchased</th>
+                <th>Purchase Date</th>
+                <th>Total</th>
+                <th>Payment Method</th>
                 <th>Order Status</th>
-                <th>Download</th>
                 <th>Invoice</th>
               </tr>
             </thead>
@@ -103,39 +103,53 @@ export default function DashboardPage() {
             <thead>
               <tr>
                 <th>Order ID</th>
-                <th>Items</th>
-                <th>Date</th>
-                <th>Price</th>
+                <th>Item Purchased</th>
+                <th>Purchase Date</th>
+                <th>Total</th>
+                <th>Payment Method</th>
                 <th>Order Status</th>
-
-                <th>Download</th>
                 <th>Invoice</th>
               </tr>
             </thead>
             <tbody>
               {orders.map((order) => (
                 <tr key={order.id || order.orderNumber}>
-                  <td>#{order.orderNumber}</td>
                   <td>
-                    {order.items.map((item, index) => (
-                      <div key={index}>{item.product.title}</div>
-                    ))}
+                    <span>#{order.orderNumber}</span>
                   </td>
-                  <td>{new Date(order.createdAt).toLocaleDateString()}</td>
-                  <td>€{order.total.toFixed(2)}</td>
                   <td>
-                    <span
-                      className={
-                        order.status === "completed"
-                          ? styles.completed
-                          : styles.pending
-                      }
-                    >
-                      {order.status}
+                    <span>
+                      {order.items.map((item, index) => (
+                        <div key={index}>{item.product.title}</div>
+                      ))}
+                    </span>
+                  </td>
+                  <td>
+                    <span>
+                      {new Date(order.createdAt).toLocaleDateString()}
+                    </span>
+                  </td>
+                  <td>
+                    <span>€{order.total.toFixed(2)}</span>
+                  </td>
+                  <td>
+                    <span>Bank Transfer</span>
+                  </td>
+                  <td>
+                    <span>
+                      <div
+                        className={
+                          order.status === "completed"
+                            ? styles.completed
+                            : styles.pending
+                        }
+                      >
+                        {order.status}
+                      </div>
                     </span>
                   </td>
 
-                  <td>
+                  {/**<td>
                     {order.items.map((item, itemIndex) => {
                       if (
                         item.product.files?.length > 0 &&
@@ -186,18 +200,25 @@ export default function DashboardPage() {
                       }
                       return null;
                     })}
-                  </td>
+                  </td> */}
 
                   <td>
-                    {order.invoice && (
-                      <a
-                        href={`${API_URL}${order.invoice.url}`}
-                        download
-                        target="_blank"
-                      >
-                        <InvoiceDownload />
-                      </a>
-                    )}
+                    <span>
+                      {order.invoice ? (
+                        <a
+                          href={`${API_URL}${order.invoice.url}`}
+                          download
+                          target="_blank"
+                        >
+                          Download <div className={styles.divider}>
+                            
+                          </div>
+                          <InvoiceDownload />
+                        </a>
+                      ) : (
+                        <a href="#">No Invoice</a>
+                      )}
+                    </span>
                   </td>
                 </tr>
               ))}

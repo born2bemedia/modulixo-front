@@ -23,11 +23,9 @@ const DashboardLayout = ({ children }) => {
       <section className={styles.dashboard}>
         <div className="_container">
           <div className={styles.top}>
-            <h2>
+            <h1>
               Welcome, <span>{user?.firstName}!</span>
-            </h2>
-
-            <button onClick={logout}>Logout</button>
+            </h1>
           </div>
           <div className={styles.body}>
             <AccountNav />
