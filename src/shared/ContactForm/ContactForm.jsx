@@ -43,6 +43,7 @@ const ContactForm = ({ type = "default" }) => {
     handleSubmit,
     setValue,
     watch,
+    reset,
     formState: { errors, touchedFields },
   } = useForm({
     resolver: yupResolver(schema),
@@ -75,6 +76,7 @@ const ContactForm = ({ type = "default" }) => {
       });
       if (response.ok) {
         setThanksPopupDisplay(true);
+        reset();
       } else {
         setSuccessMessage("Failed to send message. Please try again.");
       }

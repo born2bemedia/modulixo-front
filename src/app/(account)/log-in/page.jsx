@@ -24,6 +24,7 @@ export default function LoginPage() {
   const { login, user } = useAuthStore();
   const [successMessage, setSuccessMessage] = useState("");
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -35,11 +36,14 @@ export default function LoginPage() {
 
   const onSubmit = async (data) => {
     try {
+      setLoading(true);
       await login(data.email, data.password);
       //setSuccessMessage("Login successful!");
       router.push("/account");
     } catch (error) {
       setSuccessMessage("Login failed. Please check your credentials.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -99,8 +103,8 @@ export default function LoginPage() {
             )}
           </div>
 
-          <button type="submit">
-            Log In <ButtonArrow />
+          <button type="submit" disabled={loading}>
+            {loading ? "Logging in..." : "Log In"} <ButtonArrow />
           </button>
           <p className={styles.signUpText}>
             Don't have an account? <Link href="/sign-up">Sign up</Link>
