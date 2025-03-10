@@ -21,6 +21,9 @@
     @media (max-width: 992px) {
       height: 360px;
     }
+    > div {
+      width: 100% !important;
+    }
     img,
     video {
       width: 100%;

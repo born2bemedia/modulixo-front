@@ -8,7 +8,7 @@ export const metadata = {
   openGraph: {
     title: "Checkout | 3Dellium",
     description: "",
-    images: "https://3dellium.com/images/meta.png",
+    //images: "#",
   },
 };
 
