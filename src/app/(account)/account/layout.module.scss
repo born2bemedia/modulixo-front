@@ -4,11 +4,11 @@
   margin: rem(80) 0;
   .top {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
     margin-bottom: rem(48);
+    gap: 16px;
     @media (max-width: rem(992)) {
-      gap: rem(40);
+      
     }
     h1 {
       color: #fff;
@@ -16,15 +16,17 @@
       font-style: normal;
       font-weight: 700;
       line-height: normal;
+      @media (max-width: 992px) {
+        text-align: center;
+      }
     }
-    button {
-      display: flex;
-      width: rem(56);
-      height: rem(56);
-      background: #fff;
-      border-radius: 50%;
-      align-items: center;
-      justify-content: center;
+    p{
+      width: 650px;
+      max-width: 100%;
+      @media (max-width: 992px) {
+        width: 100%;
+        text-align: center;
+      }
     }
   }
   .body {
@@ -36,6 +38,7 @@
     gap: 24px;
     @media (max-width: rem(992)) {
       flex-direction: column;
+      padding: 16px;
     }
     > div {
       flex-grow: 1;

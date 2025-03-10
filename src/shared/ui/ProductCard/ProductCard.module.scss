@@ -5,11 +5,18 @@
   flex-direction: column;
   width: 25%;
   flex-grow: 1;
+  position: relative;
   @media (max-width: 992px) {
     width: calc(50% - 12px);
   }
   @media (max-width: 768px) {
     width: 100%;
+  }
+  > button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 100;
   }
   .image {
     position: relative;

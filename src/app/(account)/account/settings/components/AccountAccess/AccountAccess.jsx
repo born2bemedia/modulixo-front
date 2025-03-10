@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import { useState, Suspense, useEffect } from "react";
 import useAuthStore from "@/stores/authStore";
-import styles from "../../account-access/page.module.scss";
+import styles from "./AccountAccess.module.scss";
 import usePopupStore from "@/stores/popupStore";
 
 // Validation Schema
@@ -24,6 +24,7 @@ const schema = yup.object().shape({
 function SetPasswordForm() {
   const { thanksPopupDisplay, setThanksPopupDisplay } = usePopupStore();
   const { user, token, isHydrated } = useAuthStore();
+  const [isLoading, setIsLoading] = useState(false);
 
   const [showPasswords, setShowPasswords] = useState({
     currentPassword: false,
@@ -59,6 +60,7 @@ function SetPasswordForm() {
 
   const onSubmit = async (data) => {
     try {
+      setIsLoading(true);
       const response = await axios.patch(
         `${process.env.NEXT_PUBLIC_CMS_URL}/api/users/${user.id}`,
         {
@@ -78,15 +80,15 @@ function SetPasswordForm() {
       setMessage(
         "Failed to update password. Please check your current password."
       );
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <div className={styles.accountAccess}>
-      <h2>Account Access Details</h2>
-
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className={styles.inputWrap}>
+        <div className={styles.formGroup}>
           <label>Your Password:</label>
           <div>
             <input
@@ -110,7 +112,7 @@ function SetPasswordForm() {
           </div>
         </div>
 
-        <div className={styles.inputWrap}>
+        <div className={styles.formGroup}>
           <label>New Password:</label>
           <div>
             <input
@@ -134,7 +136,7 @@ function SetPasswordForm() {
           </div>
         </div>
 
-        <div className={styles.inputWrap}>
+        <div className={styles.formGroup}>
           <label>Confirm Password:</label>
           <div>
             <input
@@ -158,9 +160,9 @@ function SetPasswordForm() {
           </div>
         </div>
 
-        <div className={styles.buttonWrap}>
-          <button type="submit">Save</button>
-        </div>
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? "Saving..." : "Save"}
+        </button>
       </form>
 
       {message && (

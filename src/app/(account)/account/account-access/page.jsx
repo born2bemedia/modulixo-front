@@ -1,5 +1,5 @@
 import React from "react";
-import AccountAccess from "../components/AccountAccess/AccountAccess";
+import AccountAccess from "../settings/components/AccountAccess/AccountAccess";
 
 const AccountAccessPage = () => {
   return (

@@ -101,21 +101,35 @@ export default function RegisterPage() {
           <h1>Join Modulixo Today!</h1>
           <TextBlock text="Create your account and unlock exclusive updates, new features, and special offers designed to elevate your design projects. Sign up now and be part of the Modulixo community!" />
           <div className={styles.formGroup}>
-            <input {...register("firstName")} placeholder="First Name" />
+            <label htmlFor="firstName">First Name*</label>
+            <input
+              {...register("firstName")}
+              placeholder="Enter your first name"
+            />
             <span className={styles.error}>{errors.firstName?.message}</span>
           </div>
 
           <div className={styles.formGroup}>
-            <input {...register("lastName")} placeholder="Last Name" />
+            <label htmlFor="lastName">Last Name*</label>
+            <input
+              {...register("lastName")}
+              placeholder="Enter your last name"
+            />
             <span className={styles.error}>{errors.lastName?.message}</span>
           </div>
 
           <div className={styles.formGroup}>
-            <input {...register("email")} type="email" placeholder="Email" />
+            <label htmlFor="email">Email*</label>
+            <input
+              {...register("email")}
+              type="email"
+              placeholder="Enter your email"
+            />
             <span className={styles.error}>{errors.email?.message}</span>
           </div>
 
           <div className={styles.formGroup}>
+            <label htmlFor="phone">Phone Number</label>
             <div>
               <Controller
                 name="phone"
@@ -146,19 +160,21 @@ export default function RegisterPage() {
           </div>
 
           <div className={styles.formGroup}>
+            <label htmlFor="password">Password*</label>
             <input
               {...register("password")}
               type="password"
-              placeholder="Password"
+              placeholder="Enter your password"
             />
             <span className={styles.error}>{errors.password?.message}</span>
           </div>
 
           <div className={styles.formGroup}>
+            <label htmlFor="confirmPassword">Confirm Password*</label>
             <input
               {...register("confirmPassword")}
               type="password"
-              placeholder="Confirm Password"
+              placeholder="Re-enter your password"
             />
             <span className={styles.error}>
               {errors.confirmPassword?.message}

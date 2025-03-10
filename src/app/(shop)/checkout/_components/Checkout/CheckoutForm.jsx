@@ -6,7 +6,7 @@ import { validationSchema } from "./validation";
 import useCartStore from "@/stores/cartStore";
 import useAuthStore from "@/stores/authStore";
 import { useRouter } from "next/navigation";
-import Cart from "../Cart/Cart";
+import Cart from "../../../cart/_components/Cart/Cart";
 import BillingForm from "./BillingForm";
 import OrderSummary from "./OrderSummary";
 import TermsAndConditions from "./TermsAndConditions";

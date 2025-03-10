@@ -19,7 +19,7 @@ const TermsAndConditions = ({ formMethods, isSubmitting, submitError }) => {
                 {...register("terms")}
               />
               <span>
-                I have read and agree to 3Dellium’s Terms and Conditions.
+                I have read and agree to Modulixo’s Terms and Conditions.
               </span>
             </label>
           </div>

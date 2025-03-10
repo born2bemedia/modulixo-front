@@ -1,12 +1,12 @@
 import React from "react";
-import Cart from "../checkout/_components/Cart/Cart";
+import Cart from "./_components/Cart/Cart";
 
 export const metadata = {
-  title: "Cart | 3Dellium",
+  title: "Cart | Modulixo",
   description:
     "",
   openGraph: {
-    title: "Cart | 3Dellium",
+    title: "Cart | Modulixo",
     description:
       "",
     //images: "#",
