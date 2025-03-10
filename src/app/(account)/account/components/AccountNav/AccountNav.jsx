@@ -2,8 +2,10 @@ import React from "react";
 import styles from "./AccountNav.module.scss";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import useAuthStore from "@/stores/authStore";
 
 const AccountNav = () => {
+  const { logout } = useAuthStore();
   const pathname = usePathname();
   return (
     <nav className={styles.nav}>
@@ -11,13 +13,13 @@ const AccountNav = () => {
         href="/account"
         className={pathname === "/account" ? styles.current : ""}
       >
-        Your orders
+        Order History
       </Link>
       <Link
         href="/account/your-data"
         className={pathname === "/account/your-data" ? styles.current : ""}
       >
-        Your Data
+        Account Settings
       </Link>
       <Link
         href="/account/account-access"
@@ -25,6 +27,8 @@ const AccountNav = () => {
       >
         Account Access
       </Link>
+      <div className={styles.divider}></div>
+      <button onClick={logout}>Log Out</button>
     </nav>
   );
 };

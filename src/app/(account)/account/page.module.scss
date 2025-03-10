@@ -1,29 +1,29 @@
 @use "@/styles/mixin.scss" as *;
 
 .orderWrap {
-  @media (max-width: rem(992)) {
-    overflow-x: hidden;
+  @media (max-width: 1600px) {
+    overflow-x: auto;
   }
   table {
     border-collapse: collapse;
     border: none;
     min-width: 100%;
-    @media (max-width: rem(992)) {
-      width: 100%;
-      thead {
-        display: none;
-      }
+    @media (max-width: 1600px) {
+      width: 956px;
     }
     th {
       text-align: left;
       font-size: rem(16);
-      color: #1d4c29;
+      color: #fff;
       padding: rem(16);
-      background: #fff;
+      background: #363538;
+      border-right: 1px solid rgba(255, 255, 255, 0.05);
+      white-space: nowrap;
       &:last-child {
         padding-right: 0;
         border-top-right-radius: rem(16);
         border-bottom-right-radius: rem(16);
+        border-right: none;
       }
       &:first-child {
         border-top-left-radius: rem(16);
@@ -33,84 +33,94 @@
 
     tbody {
       tr {
-        @media (max-width: rem(992)) {
-          display: flex;
-          flex-wrap: wrap;
-        }
         td {
-          padding: rem(16);
-          font-size: rem(16);
-          @media (max-width: rem(992)) {
-            padding: rem(8);
-            font-size: rem(14);
-            &:first-child {
-              width: 100%;
-              font-weight: 600;
-              order: 1;
-            }
-            &:nth-child(2) {
-              padding: rem(8) rem(12);
-              order: 4;
-            }
-            &:nth-child(3) {
-              padding: rem(8) rem(12);
-              position: relative;
-              order: 2;
-              &:after {
-                content: "";
-                display: block;
-                width: 1px;
-                height: 20px;
-                background: #000;
-                position: absolute;
-                right: 0;
-                top: calc(50% - 10px);
-              }
-            }
-            &:nth-child(4) {
-              padding: rem(8) rem(12);
-              position: relative;
-              order: 3;
-              &:after {
-                content: "";
-                display: block;
-                width: 1px;
-                height: 20px;
-                background: #000;
-                position: absolute;
-                right: 0;
-                top: calc(50% - 10px);
-              }
-            }
-            &:nth-child(5) {
-              order: 5;
-            }
-            &:nth-child(6) {
-              order: 6;
-            }
-            &:nth-child(7) {
-              order: 7;
+          white-space: nowrap;
+          padding: 12px 0;
+          &:last-child {
+            span {
+              border-top-right-radius: rem(16);
+              border-bottom-right-radius: rem(16);
+              border-right: none;
             }
           }
-          a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: rem(56);
-            height: rem(40);
-            background: #fff;
-            border-radius: rem(16);
+          &:first-child {
+            span {
+              border-top-left-radius: rem(16);
+              border-bottom-left-radius: rem(16);
+            }
+          }
+          &:nth-child(6) {
+            span {
+              padding: 12px 12px;
+            }
+          }
+          &:nth-child(7) {
+            span {
+              padding: 14px 12px;
+            }
           }
           span {
-            background: #fff;
-            padding: 0 rem(16);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: rem(40);
-            border-radius: rem(16);
-            &.completed {
-              color: #29c939;
+            display: block;
+            padding: 20px 12px;
+            font-size: rem(16);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.05);
+            color: #808080;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            height: 100%;
+            white-space: nowrap;
+            > div {
+              white-space: nowrap;
+              &.pending {
+                color: #f99a00;
+                text-align: center;
+                border-radius: 8px;
+                background: rgba(249, 154, 0, 0.15);
+                padding: 8px;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+              }
+              &.completed {
+                color: #00ff80;
+                text-align: center;
+                border-radius: 8px;
+                background: rgba(0, 255, 128, 0.15);
+                padding: 8px;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+              }
+            }
+            a {
+              white-space: nowrap;
+              border-radius: 8px;
+              display: flex;
+              align-items: center;
+              gap: 12px;
+              color: #fff;
+              background: rgba(255, 255, 255, 0.05);
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+              height: 31px;
+              padding-left: 12px;
+              width: 100%;
+              .divider {
+                height: 31px;
+                width: 1px;
+                background: rgba(255, 255, 255, 0.05);
+              }
+              svg {
+                margin-right: -10px;
+                margin-left: -10px;
+              }
             }
           }
         }
