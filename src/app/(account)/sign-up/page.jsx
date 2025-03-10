@@ -11,6 +11,7 @@ import styles from "./page.module.scss";
 import Image from "next/image";
 import TextBlock from "@/shared/ui/TextBlock/TextBlock";
 import useCountryCode from "@/helpers/useCountryCode";
+import { useRouter } from "next/navigation";
 
 // Validation schema with repeat password
 const schema = yup.object().shape({
@@ -35,6 +36,10 @@ export default function RegisterPage() {
   const { registerUser } = useAuthStore();
   const [successMessage, setSuccessMessage] = useState("");
   const countryCode = useCountryCode();
+
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -51,6 +56,7 @@ export default function RegisterPage() {
 
   const onSubmit = async (data) => {
     try {
+      setLoading(true);
       await registerUser({
         firstName: data.firstName,
         lastName: data.lastName,
@@ -62,6 +68,8 @@ export default function RegisterPage() {
       router.push("/account");
     } catch (error) {
       setSuccessMessage("Registration failed. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -169,8 +177,8 @@ export default function RegisterPage() {
             </label>
           </div>
 
-          <button type="submit">
-            Join Modulixo <ButtonArrow />
+          <button type="submit" disabled={loading}>
+            {loading ? "Loading..." : "Join Modulixo"} <ButtonArrow />
           </button>
           <p className={styles.signUpText}>
             Already have an account? <Link href="/log-in">Log in</Link>

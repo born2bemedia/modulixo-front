@@ -40,8 +40,11 @@ function SetPasswordForm() {
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
 
+  const [loading, setLoading] = useState(false);
+
   const onSubmit = async (data) => {
     try {
+      setLoading(true);
       await axios.post(
         `${process.env.NEXT_PUBLIC_CMS_URL}/api/users/reset-password`,
         {
@@ -52,6 +55,8 @@ function SetPasswordForm() {
       setMessage("Your password has been successfully updated!");
     } catch (error) {
       setMessage("Failed to reset password. Try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -127,8 +132,12 @@ function SetPasswordForm() {
             </div>
           </div>
 
-          <button className={styles.submitButton} type="submit">
-            Set
+          <button
+            className={styles.submitButton}
+            type="submit"
+            disabled={loading}
+          >
+            {loading ? "Setting..." : "Set"}
             <ButtonArrow />
           </button>
         </form>

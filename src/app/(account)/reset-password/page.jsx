@@ -15,8 +15,11 @@ export default function ResetPasswordPage() {
   } = useForm();
   const [message, setMessage] = useState("");
 
+  const [loading, setLoading] = useState(false);
+
   const onSubmit = async (data) => {
     try {
+      setLoading(true);
       await axios.post(
         `${process.env.NEXT_PUBLIC_CMS_URL}/api/users/forgot-password`,
         {
@@ -26,6 +29,8 @@ export default function ResetPasswordPage() {
       setMessage("Check your email for the password reset link.");
     } catch (error) {
       setMessage("Error sending reset email.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -71,8 +76,8 @@ export default function ResetPasswordPage() {
             )}
           </div>
 
-          <button type="submit">
-            Send Reset Link <ButtonArrow />
+          <button type="submit" disabled={loading}>
+            {loading ? "Sending..." : "Send Reset Link"} <ButtonArrow />
           </button>
         </form>
 

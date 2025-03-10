@@ -1,71 +1,8 @@
-import ClientRequestEmail from "@/shared/emails/ClientRequestEmail/ClientRequestEmail";
-import { NextResponse } from "next/server";
-const { google } = require("googleapis");
+import React from "react";
 
-function makeBody(to, from, subject, message) {
-  const email = [
-    `To: ${to}`,
-    `From: ${from}`,
-    `Subject: ${subject}`,
-    `MIME-Version: 1.0`,
-    `Content-Type: text/html; charset=UTF-8`,
-    "",
-    message.trim(),
-  ].join("\r\n");
-
-  return Buffer.from(email)
-    .toString("base64")
-    .replace(/\+/g, "-")
-    .replace(/\//g, "_")
-    .replace(/=+$/, "");
-}
-
-export async function POST(request) {
-  try {
-    const bodyJSON = await request.json();
-
-    const { firstName, lastName, email, phone, message, type } = bodyJSON;
-
-    const OAuth2 = google.auth.OAuth2;
-    const oauth2Client = new OAuth2(
-      process.env.EMAIL_CLIENT_ID,
-      process.env.EMAIL_CLIENT_SECRET,
-      "https://developers.google.com/oauthplayground"
-    );
-
-    oauth2Client.setCredentials({
-      refresh_token: process.env.EMAIL_REFRESH_TOKEN,
-    });
-
-    const accessToken = await oauth2Client.getAccessToken();
-    if (!accessToken.token) {
-      throw new Error("Failed to generate access token.");
-    }
-
-    const gmail = google.gmail({ version: "v1", auth: oauth2Client });
-
-    const adminEmailBody = makeBody(
-      process.env.EMAIL_USER,
-      process.env.EMAIL_USER,
-      `New Request from contact form`,
-      `
-      <p><b>Full Name:</b> ${firstName} ${lastName}</p>
-      <p><b>Email:</b> ${email}</p>
-      <p><b>Phone:</b> ${phone}</p>
-      <p><b>Message:</b> ${message || "N/A"}</p>
-      `
-    );
-
-    const emailSubject = `We've Received Your Request - Modulixo`;
-    const emailBody = (
-      <ClientRequestEmail userName={`${firstName} ${lastName}`} />
-    );
-
-    const clientEmailBody = makeBody(
-      email,
-      process.env.EMAIL_USER,
-      emailSubject,
-      `<table
+const ClientRequestEmail = ({ userName }) => {
+  return (
+    <table
       width="640"
       style="border-collapse: collapse; margin: 0 auto;  font-family: Roboto, sans-serif;border: none;background: #141316;"
     >
@@ -100,7 +37,7 @@ export async function POST(request) {
                 font-weight: 400;
                 line-height: normal;"
             >
-              Dear ${firstName},
+              Dear ${userName},
             </p>
             <p
               style="color: #808080;
@@ -121,7 +58,7 @@ export async function POST(request) {
                 line-height: normal;
                 margin: 40px 0 20px 0;"
             >
-              What's Next?
+              What’s Next?
             </h3>
             <p
               style="color: #808080;
@@ -180,6 +117,7 @@ export async function POST(request) {
                                 font-weight: 400;
                                 line-height: normal;"
                     >
+                      {" "}
                       +48573589252
                     </a>
                   </p>
@@ -212,25 +150,8 @@ export async function POST(request) {
           </td>
         </tr>
       </tfoot>
-    </table>`
-    );
+    </table>
+  );
+};
 
-    await gmail.users.messages.send({
-      userId: "me",
-      resource: { raw: adminEmailBody },
-    });
-
-    await gmail.users.messages.send({
-      userId: "me",
-      resource: { raw: clientEmailBody },
-    });
-
-    return NextResponse.json({ message: "Request sent successfully." });
-  } catch (error) {
-    console.error("Error:", error.message);
-    return NextResponse.json(
-      { message: "Failed to send the request.", error: error.message },
-      { status: 500 }
-    );
-  }
-}
+export default ClientRequestEmail;
