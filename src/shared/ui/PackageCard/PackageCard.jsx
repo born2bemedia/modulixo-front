@@ -7,7 +7,7 @@ import TextBlock from "../TextBlock/TextBlock";
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
 import { renderBlock } from "@/helpers/renderBlock";
 
-const PackageCard = ({ product }) => {
+const PackageCard = ({ product, color = "#09f" }) => {
   const includes = renderBlock(product.content.root.children[0], 0);
   return (
     <motion.div
@@ -17,6 +17,7 @@ const PackageCard = ({ product }) => {
       variants={fadeInUp}
       className={styles.package}
     >
+      <div className={styles.light} style={{ background: color }}></div>
       <h3>{product.title}</h3>
       <TextBlock text={product.excerpt} />
       <div className={styles.price}>
