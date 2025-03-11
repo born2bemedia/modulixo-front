@@ -9,6 +9,8 @@ import styles from "./page.module.scss";
 import ButtonArrow from "@/shared/icons/ButtonArrow";
 import Link from "next/link";
 import Image from "next/image";
+import EyeClosed from "@/shared/icons/EyeClosed";
+import EyeOpened from "@/shared/icons/EyeOpened";
 
 // Validation Schema
 const schema = yup.object().shape({
@@ -87,12 +89,13 @@ function SetPasswordForm() {
         <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
           <h1>Set New Password</h1>
           <div className={styles.formGroup}>
-            <label>New Password:</label>
+            <label>New Password</label>
             <div>
               <input
                 className={errors.password ? styles.error : ""}
                 type={showPasswords.password ? "text" : "password"}
                 {...register("password")}
+                placeholder="Enter your new password"
               />
               <button
                 type="button"
@@ -104,18 +107,19 @@ function SetPasswordForm() {
                 }
                 className={styles.eyeIcon}
               >
-                {showPasswords.password ? "👁️" : "👁️‍🗨️"}
+                {showPasswords.password ? <EyeClosed /> : <EyeOpened />}
               </button>
             </div>
           </div>
 
           <div className={styles.formGroup}>
-            <label>Confirm Password:</label>
+            <label>Confirm new password</label>
             <div>
               <input
                 className={errors.confirmPassword ? styles.error : ""}
                 type={showPasswords.confirmPassword ? "text" : "password"}
                 {...register("confirmPassword")}
+                placeholder="Enter your new password again"
               />
               <button
                 type="button"
@@ -127,7 +131,7 @@ function SetPasswordForm() {
                 }
                 className={styles.eyeIcon}
               >
-                {showPasswords.confirmPassword ? "👁️" : "👁️‍🗨️"}
+                {showPasswords.password ? <EyeClosed /> : <EyeOpened />}
               </button>
             </div>
           </div>
@@ -140,6 +144,9 @@ function SetPasswordForm() {
             {loading ? "Setting..." : "Set"}
             <ButtonArrow />
           </button>
+          <p className={styles.signUpText}>
+            Already have an account? <Link href="/log-in">Log in</Link>
+          </p>
         </form>
 
         {message && (

@@ -204,20 +204,20 @@
             }
           }
           ul {
-            width: rem(269);
-            border-radius: rem(20);
-            background: #000;
+            width: 416px;
+            border-radius: 0;
+            background: #fff;
             li {
               color: #1e1e1e;
               &.highlight,
               &:hover {
-                background: #1d4c29 !important;
-                color: #000;
+                background: #1e1e1e !important;
+                color: #fff;
               }
             }
             &::-webkit-scrollbar {
               background: transparent;
-              width: rem(5);
+              width: 8px;
             }
 
             &::-webkit-scrollbar-track {

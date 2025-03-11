@@ -39,7 +39,7 @@ const Hero = () => {
                 "At Modulixo, we believe the best ideas deserve to exist beyond the screen. We take imagination, data, and artistry and turn them into tangible digital masterpieces. 3D modeling, animation, video production, or UX/UI design, our work brings depth, motion, and life to every project. From futuristic designs to hyper-realistic environments, we don’t just create — we engineer experiences"
               }
             />
-            <WhiteButton text={"Start Your Project Today"} type={"button"} />
+            <WhiteButton text={"Start Your Project Today"} type={"popup"} />
           </motion.div>
         </div>
       </section>

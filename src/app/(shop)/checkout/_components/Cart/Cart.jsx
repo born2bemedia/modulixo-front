@@ -38,16 +38,19 @@ const Cart = () => {
                 </div>
                 <div className={styles.cartItemInfo}>
                   <div className={styles.cartItemInfoHeader}>
-                    <button onClick={() => deleteFromCart(item.id)}>
-                      <DeleteIcon />
-                    </button>
-                    <h3>{item.name}</h3>
+                    <div className={styles.cartItemInfoHeaderLeft}>
+                      <h3>{item.name}</h3>
+                      <div className={styles.cartItemInfoPrice}>
+                        <span>€</span>
+                        {item.attributes.price}
+                      </div>
+                    </div>
+                    <div className={styles.cartItemTotal}>
+                      <span>€</span>
+                      {item.quantity * item.attributes.price}
+                    </div>
                   </div>
                   <div className={styles.cartItemInfoFooter}>
-                    <div className={styles.cartItemInfoPriceItem}>
-                      {item.quantity * item.attributes.price}
-                      <span>€</span>
-                    </div>
                     <div className={styles.cartItemInfoQuantity}>
                       <img
                         src="/images/cart/minus.svg"
@@ -61,6 +64,12 @@ const Cart = () => {
                         onClick={() => increaseQuantity(item.id)}
                       />
                     </div>
+                    <button onClick={() => deleteFromCart(item.id)}>
+                      Delete{" "}
+                      <span>
+                        <DeleteIcon />
+                      </span>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -68,14 +77,10 @@ const Cart = () => {
           </div>
 
           <div className={styles.cartTotal}>
-            <span>
-              Total cost:
-              <p className={styles.delievery}>
-                Delivery method: by email <br />
-                (within 3 business days)
-              </p>
-            </span>
-            <span>€{totalAmount}</span>
+            <div>
+              <span>Total</span>
+              <span>€{totalAmount}</span>
+            </div>
           </div>
         </>
       ) : (

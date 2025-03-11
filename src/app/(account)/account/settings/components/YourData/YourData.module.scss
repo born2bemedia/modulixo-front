@@ -78,6 +78,18 @@
         bottom: -12px;
       }
 
+      .countryWrap {
+        width: 100%;
+        > div {
+          width: 100%;
+          input {
+            background: transparent !important;
+            border: none !important;
+            backdrop-filter: unset !important;
+          }
+        }
+      }
+
       .phoneWrap {
         width: 100%;
         &.invalid {
@@ -121,20 +133,20 @@
             }
           }
           ul {
-            width: 269px;
-            border-radius: 20px;
-            background: #000;
+            width: 416px;
+            border-radius: 0;
+            background: #fff;
             li {
               color: #1e1e1e;
               &.highlight,
               &:hover {
-                background: #1d4c29 !important;
-                color: #000;
+                background: #1e1e1e !important;
+                color: #fff;
               }
             }
             &::-webkit-scrollbar {
               background: transparent;
-              width: 5px;
+              width: 8px;
             }
 
             &::-webkit-scrollbar-track {

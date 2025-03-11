@@ -1,6 +1,7 @@
 import React from "react";
 import Checkout from "./_components/Checkout/Checkout";
 import ThanksPopup from "@/shared/ThanksPopup/ThanksPopup";
+import ThanksPopupOrder from "@/shared/ThanksPopupOrder/ThanksPopupOrder";
 
 export const metadata = {
   title: "Checkout | Modulixo",
@@ -16,7 +17,7 @@ const CheckoutPage = () => {
   return (
     <>
       <Checkout />
-      <ThanksPopup />
+      <ThanksPopupOrder />
     </>
   );
 };

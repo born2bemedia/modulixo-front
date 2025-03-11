@@ -20,6 +20,12 @@ export const handleCreateOrder = async (
         lastName: data.lastName,
         email: data.email,
         password,
+        phone: data.phone,
+        country: data.country.value,
+        city: data.city,
+        address1: data.address1,
+        address2: data.address2,
+        postalCode: data.postalCode,
       });
 
       userId = newUser.id;
@@ -39,8 +45,8 @@ export const handleCreateOrder = async (
       status: "pending",
       paymentMethod: "bank_transfer",
       billingAddress: {
-        street: data.street,
-        address: data.address,
+        address1: data.address1,
+        address2: data.address2,
         city: data.city,
         state: data.state || "N/A",
         zip: data.postalCode,
@@ -104,8 +110,8 @@ export const updateUserProfile = async (userId, data, user) => {
       firstName: data.firstName,
       lastName: data.lastName,
       phone: data.phone,
-      street: data.street,
-      address: data.address,
+      address1: data.address1,
+      address2: data.address2,
       city: data.city,
       country: data.country.value,
       postalCode: data.postalCode,

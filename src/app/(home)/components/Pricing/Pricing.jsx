@@ -8,8 +8,15 @@ import { motion } from "framer-motion";
 import { fadeInUp } from "@/helpers/animations";
 import Link from "next/link";
 import Image from "next/image";
+import usePopupStore from "@/stores/popupStore";
 
 const Pricing = () => {
+  const { setGetQuotePopupDisplay } = usePopupStore();
+
+  const handleClick = () => {
+    setGetQuotePopupDisplay(true);
+  };
+
   const items = [
     {
       title: "Browse Our Packages",
@@ -55,13 +62,23 @@ const Pricing = () => {
                 className={styles.item}
                 key={index}
               >
-                <Link href={item.url}>
-                  <Image src={item.image} alt={item.title} fill />
-                  <h4>{item.title}</h4>
-                  <div className={styles.button}>
-                    <MoreLink text={item.linkText} />
-                  </div>
-                </Link>
+                {index !== 1 ? (
+                  <Link href={item.url}>
+                    <Image src={item.image} alt={item.title} fill />
+                    <h4>{item.title}</h4>
+                    <div className={styles.button}>
+                      <MoreLink text={item.linkText} />
+                    </div>
+                  </Link>
+                ) : (
+                  <button onClick={handleClick}>
+                    <Image src={item.image} alt={item.title} fill />
+                    <h4>{item.title}</h4>
+                    <div className={styles.button}>
+                      <MoreLink text={item.linkText} />
+                    </div>
+                  </button>
+                )}
               </motion.div>
             ))}
           </div>

@@ -88,7 +88,7 @@ const WhyWorkWithUs = () => {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <WhiteButton text={"Discover Our Team"} url={"#"} />
+            <WhiteButton text={"Discover Our Team"} url={"/about-us"} />
           </motion.div>
         </div>
       </div>

@@ -10,6 +10,8 @@ import TextBlock from "@/shared/ui/TextBlock/TextBlock";
 import styles from "./page.module.scss";
 import Image from "next/image";
 import ButtonArrow from "@/shared/icons/ButtonArrow";
+import EyeClosed from "@/shared/icons/EyeClosed";
+import EyeOpened from "@/shared/icons/EyeOpened";
 
 // Validation Schema
 const schema = yup.object().shape({
@@ -25,6 +27,10 @@ export default function LoginPage() {
   const [successMessage, setSuccessMessage] = useState("");
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+
+  const [showPasswords, setShowPasswords] = useState({
+    password: false,
+  });
 
   const {
     register,
@@ -93,11 +99,25 @@ export default function LoginPage() {
               <label htmlFor="password">Password </label>
               <Link href="/reset-password">Forgot password?</Link>
             </div>
-            <input
-              type="password"
-              {...register("password")}
-              placeholder="Enter your password"
-            />
+            <div>
+              <input
+                type={showPasswords.password ? "text" : "password"}
+                {...register("password")}
+                placeholder="Enter your password"
+              />
+              <button
+                type="button"
+                onClick={() =>
+                  setShowPasswords((prev) => ({
+                    ...prev,
+                    password: !prev.password,
+                  }))
+                }
+                className={styles.eyeIcon}
+              >
+                {showPasswords.password ? <EyeClosed /> : <EyeOpened />}
+              </button>
+            </div>
             {errors.password && (
               <span className={styles.error}>{errors.password.message}</span>
             )}
