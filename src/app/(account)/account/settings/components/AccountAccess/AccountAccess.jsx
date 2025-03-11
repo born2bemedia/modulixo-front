@@ -7,6 +7,8 @@ import { useState, Suspense, useEffect } from "react";
 import useAuthStore from "@/stores/authStore";
 import styles from "./AccountAccess.module.scss";
 import usePopupStore from "@/stores/popupStore";
+import EyeClosed from "@/shared/icons/EyeClosed";
+import EyeOpened from "@/shared/icons/EyeOpened";
 
 // Validation Schema
 const schema = yup.object().shape({
@@ -89,12 +91,12 @@ function SetPasswordForm() {
     <div className={styles.accountAccess}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.formGroup}>
-          <label>Your Password:</label>
+          <label>Current password</label>
           <div>
             <input
               {...register("currentPassword")}
               type={showPasswords.currentPassword ? "text" : "password"}
-              placeholder=""
+              placeholder="Enter your current password"
             />
             <button
               type="button"
@@ -106,19 +108,19 @@ function SetPasswordForm() {
               }
               className={styles.eyeIcon}
             >
-              {showPasswords.currentPassword ? "👁️" : "👁️‍🗨️"}
+              {showPasswords.currentPassword ? <EyeClosed /> : <EyeOpened />}
             </button>
             <p>{errors.currentPassword?.message}</p>
           </div>
         </div>
 
         <div className={styles.formGroup}>
-          <label>New Password:</label>
+          <label>New password</label>
           <div>
             <input
               {...register("password")}
               type={showPasswords.password ? "text" : "password"}
-              placeholder=""
+              placeholder="Enter your new password"
             />
             <button
               type="button"
@@ -130,19 +132,19 @@ function SetPasswordForm() {
               }
               className={styles.eyeIcon}
             >
-              {showPasswords.password ? "👁️" : "👁️‍🗨️"}
+              {showPasswords.password ? <EyeClosed /> : <EyeOpened />}
             </button>
             <p>{errors.password?.message}</p>
           </div>
         </div>
 
         <div className={styles.formGroup}>
-          <label>Confirm Password:</label>
+          <label>Confirm new password</label>
           <div>
             <input
               {...register("confirmPassword")}
               type={showPasswords.confirmPassword ? "text" : "password"}
-              placeholder=""
+              placeholder="Enter your new password again"
             />
             <button
               type="button"
@@ -154,7 +156,7 @@ function SetPasswordForm() {
               }
               className={styles.eyeIcon}
             >
-              {showPasswords.confirmPassword ? "👁️" : "👁️‍🗨️"}
+              {showPasswords.confirmPassword ? <EyeClosed /> : <EyeOpened />}
             </button>
             <p>{errors.confirmPassword?.message}</p>
           </div>

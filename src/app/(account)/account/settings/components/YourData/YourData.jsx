@@ -14,6 +14,8 @@ import "react-phone-input-2/lib/style.css";
 import { filteredCountries } from "@/helpers/excludedCountries";
 import EditIcon from "@/shared/icons/EditIcon";
 import useCountryCode from "@/helpers/useCountryCode";
+import CountrySelect from "@/shared/ui/CountrySelect/CountrySelect";
+import CustomPhoneInput from "@/shared/ui/CustomPhoneInput/CustomPhoneInput";
 
 const schema = yup.object().shape({
   firstName: yup.string().required("First name is required"),
@@ -24,98 +26,6 @@ const schema = yup.object().shape({
 const getCountryOptionByCode = (code) => {
   const countries = countryList().getData();
   return countries.find((country) => country.value === code);
-};
-
-const customStyles = {
-  control: (provided, state) => ({
-    ...provided,
-    width: "100%",
-    color: "#fff",
-    height: "53px",
-    borderRadius: "16px",
-    background: "rgba(255, 255, 255, 0.03)",
-    border: "none",
-    fontSize: "16px",
-    fontWeight: "400",
-    lineHeight: "1.2",
-    textAlign: "left",
-    padding: "0 16px",
-    boxShadow: "0px 2px 2px 0px rgba(0, 0, 0, 0.1)",
-    "&:hover": {
-      borderColor: "#ffffff",
-    },
-  }),
-  valueContainer: (provided) => ({
-    ...provided,
-    height: "36px",
-    margin: "0",
-    padding: "0",
-    border: "none",
-  }),
-  input: (provided) => ({
-    ...provided,
-    height: "36px",
-    margin: "0",
-    padding: "0",
-    border: "none",
-    color: "#fff",
-  }),
-  singleValue: (provided) => ({
-    ...provided,
-    color: "#fff",
-  }),
-  indicatorsContainer: (provided) => ({
-    ...provided,
-    "> span": {
-      display: "none",
-    },
-    "> div": {
-      padding: "0",
-      width: "24px",
-      height: "24px",
-      backgroundImage: "url(/images/icons/selectArrow.svg)",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "contain",
-    },
-    "> div > svg": {
-      display: "none",
-    },
-  }),
-  indicatorContainer: (provided) => ({
-    ...provided,
-    padding: "0",
-  }),
-  menu: (provided) => ({
-    ...provided,
-
-    background: "#fff",
-    display: "block",
-    "> div": {
-      "&::-webkit-scrollbar": {
-        background: "transparent",
-        width: "8px",
-      },
-
-      "&::-webkit-scrollbar-track": {
-        background: "#ffffff0d",
-      },
-
-      "&::-webkit-scrollbar-thumb": {
-        backgroundColor: "#121321",
-        borderRadius: "100px",
-      },
-    },
-  }),
-  option: (provided, state) => ({
-    ...provided,
-    background: state.isSelected ? "#fff" : "#fff",
-    color: "#0d0d0d",
-    "&:hover": {
-      background: "#2b2b2b",
-      color: "#ffffff",
-    },
-  }),
 };
 
 export default function YourData() {
@@ -195,7 +105,7 @@ export default function YourData() {
         lastName: user.lastName || "",
         email: user.email || "",
         address1: user?.address1 || "",
-        address2: user.address || "",
+        address2: user.address2 || "",
         city: user.city || "",
         zip: user.zip || "",
         country: user.country ? getCountryOptionByCode(user.country) : null,
@@ -249,7 +159,7 @@ export default function YourData() {
               name="phone"
               control={control}
               render={({ field }) => (
-                <PhoneInput
+                <CustomPhoneInput
                   country={countryCode}
                   value={phoneValue}
                   className={`${styles.phoneWrap} ${
@@ -303,20 +213,11 @@ export default function YourData() {
 
         <div className={styles.formGroup}>
           <label>Country</label>
-          <div>
+          <div className={styles.countryWrap}>
             <Controller
               name="country"
               control={control}
-              render={({ field }) => (
-                <Select
-                  {...field}
-                  options={filteredCountries}
-                  onChange={(value) => field.onChange(value)}
-                  styles={customStyles}
-                  onWheel={(e) => e.stopPropagation()}
-                  onTouchMove={(e) => e.stopPropagation()}
-                />
-              )}
+              render={({ field }) => <CountrySelect field={field} />}
             />
             <p>{errors.country?.message}</p>
           </div>

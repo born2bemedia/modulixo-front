@@ -12,6 +12,7 @@ import PrivacyIcon from "../icons/PrivacyIcon";
 import usePopupStore from "@/stores/popupStore";
 import ThanksPopup from "../ThanksPopup/ThanksPopup";
 import ItemTitle from "../ui/ItemTitle/ItemTitle";
+import CustomPhoneInput from "../ui/CustomPhoneInput/CustomPhoneInput";
 
 // Updated Validation Schema with new file field and conditional validation
 const schema = yup.object().shape({
@@ -210,11 +211,11 @@ const GetQuoteForm = ({ type = "default" }) => {
                 <span className={styles.error}>{errors.phone.message}</span>
               )}
             </label>
-            <PhoneInput
+            <CustomPhoneInput
               country={countryCode}
               value={phoneValue}
               className={`${styles.phoneWrap} ${
-                errors.phone && styles.invalid
+                errors.email && styles.invalid
               }`}
               onChange={(phone) =>
                 setValue("phone", phone, {

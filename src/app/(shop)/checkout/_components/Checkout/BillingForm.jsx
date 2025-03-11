@@ -8,113 +8,31 @@ import useAuthStore from "@/stores/authStore";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { filteredCountries } from "@/helpers/excludedCountries";
+import CustomPhoneInput from "@/shared/ui/CustomPhoneInput/CustomPhoneInput";
+import useCountryCode from "@/helpers/useCountryCode";
+import CountrySelect from "@/shared/ui/CountrySelect/CountrySelect";
+import PrivacyIcon from "@/shared/icons/PrivacyIcon";
 
 const getCountryOptionByCode = (code) => {
   const countries = countryList().getData();
   return countries.find((country) => country.value === code);
 };
 
-const customStyles = {
-  control: (provided, state) => ({
-    ...provided,
-    width: "100%",
-    color: "#000",
-    height: "49px",
-    borderRadius: "16px",
-    background: "#fff",
-    border: "none",
-    fontSize: "14px",
-    fontWeight: "400",
-    lineHeight: "1.2",
-    textAlign: "left",
-    padding: "0 16px",
-    boxShadow: "0px 2px 2px 0px rgba(0, 0, 0, 0.1)",
-
-    "&:hover": {
-      borderColor: "#ffffff",
-    },
-  }),
-  valueContainer: (provided) => ({
-    ...provided,
-    height: "36px",
-    margin: "0",
-    padding: "0",
-    border: "none",
-  }),
-  input: (provided) => ({
-    ...provided,
-    height: "36px",
-    margin: "0",
-    padding: "0",
-    border: "none",
-    color: "#000",
-  }),
-  singleValue: (provided) => ({
-    ...provided,
-    color: "#000",
-  }),
-  indicatorsContainer: (provided) => ({
-    ...provided,
-    "> span": {
-      display: "none",
-    },
-    "> div": {
-      padding: "0",
-      width: "24px",
-      height: "24px",
-      backgroundImage: "url(/images/selectArrow.svg)",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "contain",
-    },
-    "> div > svg": {
-      display: "none",
-    },
-  }),
-  indicatorContainer: (provided) => ({
-    ...provided,
-    padding: "0",
-  }),
-  menu: (provided) => ({
-    ...provided,
-    background: "#fff",
-    display: "block",
-    "> div": {
-      "&::-webkit-scrollbar": {
-        background: "transparent",
-        width: "5px",
-      },
-
-      "&::-webkit-scrollbar-track": {
-        background: "#ffffff0d",
-      },
-
-      "&::-webkit-scrollbar-thumb": {
-        backgroundColor: "#121321",
-        borderRadius: "100px",
-      },
-    },
-  }),
-  option: (provided, state) => ({
-    ...provided,
-    background: state.isSelected ? "#fff" : "#fff",
-    color: "#0d0d0d",
-    "&:hover": {
-      background: "#2b2b2b",
-      color: "#ffffff",
-    },
-  }),
-};
-
 const BillingForm = ({ formMethods }) => {
   const { user, updateUser, isHydrated } = useAuthStore();
   const router = useRouter();
+  const countryCode = useCountryCode();
+
   const {
     register,
     control,
     reset,
+    watch,
+    setValue,
     formState: { errors },
   } = formMethods;
+
+  const phoneValue = watch("phone");
 
   /*useEffect(() => {
     if (!isHydrated) return;
@@ -123,7 +41,7 @@ const BillingForm = ({ formMethods }) => {
         firstName: user.firstName || "",
         lastName: user.lastName || "",
         email: user.email || "",
-        street: user?.street || "",
+        address1: user?.address1 || "",
         adress: user.address || "",
         city: user.city || "",
         postalCode: user.zip || "",
@@ -136,144 +54,206 @@ const BillingForm = ({ formMethods }) => {
   return (
     <div className={styles.billingForm}>
       <div className={styles.inputWrap}>
-        <label>First name:</label>
+        <label>
+          First name
+          {errors.firstName && (
+            <span className={styles.error}>{errors.firstName.message}</span>
+          )}
+        </label>
         <div>
           <input
             type="text"
             id="firstName"
             {...register("firstName")}
-            className={errors.firstName ? styles.error : ""}
+            className={errors.firstName ? styles.invalid : ""}
+            placeholder="Enter your first name"
           />
-          <p>{errors.firstName?.message}</p>
         </div>
       </div>
 
       <div className={styles.inputWrap}>
-        <label>Last Name:</label>
+        <label>
+          Last Name
+          {errors.lastName && (
+            <span className={styles.error}>{errors.lastName.message}</span>
+          )}
+        </label>
         <div>
           <input
             type="text"
             id="lastName"
             {...register("lastName")}
-            className={errors.lastName ? styles.error : ""}
+            className={errors.lastName ? styles.invalid : ""}
+            placeholder="Enter your last name"
           />
-          <p>{errors.lastName?.message}</p>
         </div>
       </div>
 
       <div className={styles.inputWrap}>
-        <label>City:</label>
+        <label>
+          Address line 1
+          {errors.address1 && (
+            <span className={styles.error}>{errors.address1.message}</span>
+          )}
+        </label>
+        <div>
+          <input
+            type="text"
+            id="address1"
+            {...register("address1")}
+            className={errors.address1 ? styles.invalid : ""}
+            placeholder="Enter your address line 1"
+          />
+        </div>
+      </div>
+
+      <div className={styles.inputWrap}>
+        <label>
+          Address line 2
+          {errors.address2 && (
+            <span className={styles.error}>{errors.address2.message}</span>
+          )}
+        </label>
+        <div>
+          <input
+            type="text"
+            id="address2"
+            {...register("address2")}
+            className={errors.address2 ? styles.invalid : ""}
+            placeholder="Enter your address line 2"
+          />
+        </div>
+      </div>
+
+      <div className={styles.inputWrap}>
+        <label>
+          City
+          {errors.city && (
+            <span className={styles.error}>{errors.city.message}</span>
+          )}
+        </label>
         <div>
           <input
             type="text"
             id="city"
             {...register("city")}
-            className={errors.city ? styles.error : ""}
+            className={errors.city ? styles.invalid : ""}
+            placeholder="Enter your city"
           />
-          <p>{errors.city?.message}</p>
         </div>
       </div>
 
       <div className={styles.inputWrap}>
-        <label>Address 1: </label>
-        <div>
-          <input
-            type="text"
-            id="street"
-            {...register("street")}
-            className={errors.street ? styles.error : ""}
-          />
-          <p>{errors.street?.message}</p>
-        </div>
-      </div>
-
-      <div className={styles.inputWrap}>
-        <label>Country:</label>
-        <div>
+        <label>
+          Country
+          {errors.country && (
+            <span className={styles.error}>{errors.country.message}</span>
+          )}
+        </label>
+        <div className={styles.countryWrap}>
           <Controller
             name="country"
             control={control}
-            render={({ field }) => (
-              <Select
-                {...field}
-                options={filteredCountries}
-                onChange={(value) => field.onChange(value)}
-                styles={customStyles}
-              />
-            )}
+            render={({ field }) => <CountrySelect field={field} />}
           />
-          <p>{errors.country?.message}</p>
         </div>
       </div>
 
       <div className={styles.inputWrap}>
-        <label>Address 2: </label>
-        <div>
-          <input
-            type="text"
-            id="address"
-            {...register("address")}
-            className={errors.address ? styles.error : ""}
-          />
-          <p>{errors.address?.message}</p>
-        </div>
-      </div>
-
-      <div className={styles.inputWrap}>
-        <label>ZIP:</label>
+        <label>
+          Postal code
+          {errors.postalCode && (
+            <span className={styles.error}>{errors.postalCode.message}</span>
+          )}
+        </label>
         <div>
           <input
             type="text"
             id="postalCode"
             {...register("postalCode")}
-            className={errors.postalCode ? styles.error : ""}
+            className={errors.postalCode ? styles.invalid : ""}
+            placeholder="Enter your postal code"
           />
-          <p>{errors.postalCode?.message}</p>
         </div>
       </div>
 
       <div className={styles.inputWrap}>
-        <label>Phone:</label>
-        <div>
+        <label>
+          Phone Number
+          {errors.phone && (
+            <span className={styles.error}>{errors.phone.message}</span>
+          )}
+        </label>
+        <div className={styles.phoneWrapper}>
           <Controller
             name="phone"
             control={control}
             render={({ field }) => (
-              <PhoneInput
-                {...field}
-                country={"us"}
-                onChange={(value) => setValue("phone", value)}
+              <CustomPhoneInput
+                country={countryCode}
+                value={phoneValue}
+                className={`${styles.phoneWrap} ${
+                  errors.email && styles.invalid
+                }`}
+                onChange={(phone) =>
+                  setValue("phone", phone, {
+                    shouldTouch: true,
+                    shouldValidate: true,
+                  })
+                }
+                inputProps={{
+                  name: "phone",
+                  id: "phone",
+                  placeholder: "Phone Number",
+                }}
+                containerClass={errors.phone ? styles.invalid : ""}
               />
             )}
           />
-          <p>{errors.email?.phone}</p>
         </div>
       </div>
 
       <div className={styles.inputWrap}>
-        <label>ZIP:</label>
+        <label>
+          Email
+          {errors.email && (
+            <span className={styles.error}>{errors.email.message}</span>
+          )}
+        </label>
         <div>
           <input
             type="email"
             id="email"
             {...register("email")}
-            className={errors.email ? styles.error : ""}
+            className={errors.email ? styles.invalid : ""}
+            placeholder="Enter your email"
           />
-          <p>{errors.email?.message}</p>
         </div>
-      </div>
-      <div className={styles.inputWrap}>
-        <label className={styles.paymentInfo}>
-          * After placing your order, you'll receive an email with payment
-          instructions, including our bank details and a summary of your order.{" "}
-        </label>
       </div>
 
       <div className={styles.inputWrap}>
-        <label>Message:</label>
+        <label>Payment method</label>
         <div>
-          <textarea id="orderNotes" {...register("orderNotes")} />
+          <div className={styles.paymentMethod}>Bank Transfer*</div>
         </div>
+      </div>
+
+      <div className={styles.inputWrap}>
+        <label>Message</label>
+        <div>
+          <textarea
+            id="orderNotes"
+            {...register("orderNotes")}
+            placeholder="Add special notes for your order"
+          />
+        </div>
+      </div>
+      <div className={styles.privacy}>
+        <PrivacyIcon />
+        <p>
+          After placing your order, you'll receive an email with payment
+          instructions, including our bank details and a summary of your order.
+        </p>
       </div>
     </div>
   );

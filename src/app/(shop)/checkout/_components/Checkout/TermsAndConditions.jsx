@@ -37,7 +37,7 @@ const TermsAndConditions = ({ formMethods, isSubmitting, submitError }) => {
         </div>
         <button type="submit" disabled={isSubmitting}>
           <div>
-            <span>{isSubmitting ? "Loading..." : "Order"}</span>
+            <span>{isSubmitting ? "Loading..." : "Pay"}</span>
           </div>
         </button>
       </div>

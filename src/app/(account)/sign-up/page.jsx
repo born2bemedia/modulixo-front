@@ -12,6 +12,9 @@ import Image from "next/image";
 import TextBlock from "@/shared/ui/TextBlock/TextBlock";
 import useCountryCode from "@/helpers/useCountryCode";
 import { useRouter } from "next/navigation";
+import CustomPhoneInput from "@/shared/ui/CustomPhoneInput/CustomPhoneInput";
+import EyeClosed from "@/shared/icons/EyeClosed";
+import EyeOpened from "@/shared/icons/EyeOpened";
 
 // Validation schema with repeat password
 const schema = yup.object().shape({
@@ -39,6 +42,11 @@ export default function RegisterPage() {
 
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+
+  const [showPasswords, setShowPasswords] = useState({
+    password: false,
+    confirmPassword: false,
+  });
 
   const {
     register,
@@ -130,12 +138,12 @@ export default function RegisterPage() {
 
           <div className={styles.formGroup}>
             <label htmlFor="phone">Phone Number</label>
-            <div>
+            <div className={styles.phoneWrapper}>
               <Controller
                 name="phone"
                 control={control}
                 render={({ field }) => (
-                  <PhoneInput
+                  <CustomPhoneInput
                     country={countryCode}
                     value={phoneValue}
                     className={`${styles.phoneWrap} ${
@@ -161,21 +169,49 @@ export default function RegisterPage() {
 
           <div className={styles.formGroup}>
             <label htmlFor="password">Password*</label>
-            <input
-              {...register("password")}
-              type="password"
-              placeholder="Enter your password"
-            />
+            <div>
+              <input
+                {...register("password")}
+                type={showPasswords.password ? "text" : "password"}
+                placeholder="Enter your password"
+              />
+              <button
+                type="button"
+                onClick={() =>
+                  setShowPasswords((prev) => ({
+                    ...prev,
+                    password: !prev.password,
+                  }))
+                }
+                className={styles.eyeIcon}
+              >
+                {showPasswords.password ? <EyeClosed /> : <EyeOpened />}
+              </button>
+            </div>
             <span className={styles.error}>{errors.password?.message}</span>
           </div>
 
           <div className={styles.formGroup}>
             <label htmlFor="confirmPassword">Confirm Password*</label>
-            <input
-              {...register("confirmPassword")}
-              type="password"
-              placeholder="Re-enter your password"
-            />
+            <div>
+              <input
+                {...register("confirmPassword")}
+                type={showPasswords.confirmPassword ? "text" : "password"}
+                placeholder="Re-enter your password"
+              />
+              <button
+                type="button"
+                onClick={() =>
+                  setShowPasswords((prev) => ({
+                    ...prev,
+                    confirmPassword: !prev.confirmPassword,
+                  }))
+                }
+                className={styles.eyeIcon}
+              >
+                {showPasswords.confirmPassword ? <EyeClosed /> : <EyeOpened />}
+              </button>
+            </div>
             <span className={styles.error}>
               {errors.confirmPassword?.message}
             </span>

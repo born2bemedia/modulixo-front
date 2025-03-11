@@ -78,231 +78,239 @@ const Header = () => {
 
   return (
     <>
-      {pathname !== "/log-in" && pathname !== "/sign-up" && pathname !== "/set-password" && pathname !== "/reset-password" && (
-        <>
-          <div className={styles.topGradient} />
-          <div className={styles.topHeader}>
-            <div className="_container">
-              <div className={styles.row}>
-                <div className={styles.contacts}>
-                  <Link href="#">{WEBSITE_EMAIL}</Link>
-                  <Link href="#">{WEBSITE_PHONE}</Link>
-                </div>
-                <div className={styles.soc}>
-                  <Instagram />
-                  <Facebook />
-                  <X />
+      {pathname !== "/log-in" &&
+        pathname !== "/sign-up" &&
+        pathname !== "/set-password" &&
+        pathname !== "/reset-password" && (
+          <>
+            <div className={styles.topGradient} />
+            <div className={styles.topHeader}>
+              <div className="_container">
+                <div className={styles.row}>
+                  <div className={styles.contacts}>
+                    <Link href="#">{WEBSITE_EMAIL}</Link>
+                    <Link href="#">{WEBSITE_PHONE}</Link>
+                  </div>
+                  <div className={styles.soc}>
+                    <Instagram />
+                    <Facebook />
+                    <X />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <header
-            className={`${styles.header} ${scrolling ? styles.scrolling : ""} ${
-              isMenuPopupOpen ? styles.open : ""
-            }`}
-          >
-            <div className="_container">
-              <div className={styles.headerWrap}>
-                <Link href="/">
-                  <img src="/images/logo.svg" />
-                </Link>
-                <div className={styles.menuButtonWrap}>
-                  <Link href="#" className={styles.cart}>
-                    <img src="/images/icons/cart.svg" />
-                    {cartCount > 0 ? <span /> : ""}
+            <header
+              className={`${styles.header} ${
+                scrolling ? styles.scrolling : ""
+              } ${isMenuPopupOpen ? styles.open : ""}`}
+            >
+              <div className="_container">
+                <div className={styles.headerWrap}>
+                  <Link href="/">
+                    <img src="/images/logo.svg" />
                   </Link>
-                  <button className={styles.menuButton} onClick={menuHandler}>
-                    {isMenuPopupOpen ? <CloseIcon /> : <MenuIcon />}
-                  </button>
-                </div>
-
-                <div
-                  className={`${styles.row} ${
-                    isMenuPopupOpen ? styles.open : ""
-                  }`}
-                >
-                  <div className={styles.col1}>
-                    <ul>
-                      <li>
-                        <Link
-                          href="/"
-                          className={pathname === "/" ? styles.active : ""}
-                        >
-                          Home
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/about-us"
-                          className={
-                            pathname === "/about-us" ? styles.active : ""
-                          }
-                        >
-                          About
-                        </Link>
-                      </li>
-                      <li>
-                        <button ref={subMenuButtonRef} onClick={subMenuHandler}>
-                          Services <ChevronDown />
-                        </button>
-                        <div className={styles.subMenu}>
-                          <div>
-                            <Link
-                              href="/services/3d-modelling"
-                              className={
-                                pathname === "/services/3d-modelling"
-                                  ? styles.active
-                                  : ""
-                              }
-                            >
-                              3D Modelling
-                            </Link>
-                            <Link
-                              href="/services/animation"
-                              className={
-                                pathname === "/services/animation"
-                                  ? styles.active
-                                  : ""
-                              }
-                            >
-                              Animation
-                            </Link>
-                            <Link
-                              href="/services/video-production"
-                              className={
-                                pathname === "/services/video-production"
-                                  ? styles.active
-                                  : ""
-                              }
-                            >
-                              Video Production
-                            </Link>
-                            <Link
-                              href="/services/ui-ux-design"
-                              className={
-                                pathname === "/services/ui-ux-design"
-                                  ? styles.active
-                                  : ""
-                              }
-                            >
-                              UI/UX Design
-                            </Link>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <Link
-                          href="/showcase"
-                          className={
-                            pathname === "/showcase" ? styles.active : ""
-                          }
-                        >
-                          Showcase
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/pricing"
-                          className={
-                            pathname === "/pricing" ? styles.active : ""
-                          }
-                        >
-                          Pricing
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/insights"
-                          className={
-                            pathname === "/insights" ? styles.active : ""
-                          }
-                        >
-                          Insights
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/qa"
-                          className={pathname === "/qa" ? styles.active : ""}
-                        >
-                          Q&A
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/contacts"
-                          className={
-                            pathname === "/contacts" ? styles.active : ""
-                          }
-                        >
-                          Contacts
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className={styles.col2}>
+                  <div className={styles.menuButtonWrap}>
                     <Link href="#" className={styles.cart}>
                       <img src="/images/icons/cart.svg" />
                       {cartCount > 0 ? <span /> : ""}
                     </Link>
-                    <HeadAccount />
-                    <div className={styles.contacts}>
-                      <Link href="#">{WEBSITE_EMAIL}</Link>
-                      <Link href="#">{WEBSITE_PHONE}</Link>
-                      <div className={styles.soc}>
-                        <Instagram />
-                        <Facebook />
-                        <X />
+                    <button className={styles.menuButton} onClick={menuHandler}>
+                      {isMenuPopupOpen ? <CloseIcon /> : <MenuIcon />}
+                    </button>
+                  </div>
+
+                  <div
+                    className={`${styles.row} ${
+                      isMenuPopupOpen ? styles.open : ""
+                    }`}
+                  >
+                    <div className={styles.col1}>
+                      <ul>
+                        <li>
+                          <Link
+                            href="/"
+                            className={pathname === "/" ? styles.active : ""}
+                          >
+                            Home
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/about-us"
+                            className={
+                              pathname === "/about-us" ? styles.active : ""
+                            }
+                          >
+                            About
+                          </Link>
+                        </li>
+                        <li>
+                          <button
+                            ref={subMenuButtonRef}
+                            onClick={subMenuHandler}
+                          >
+                            Services <ChevronDown />
+                          </button>
+                          <div className={styles.subMenu}>
+                            <div>
+                              <Link
+                                href="/services/3d-modelling"
+                                className={
+                                  pathname === "/services/3d-modelling"
+                                    ? styles.active
+                                    : ""
+                                }
+                              >
+                                3D Modelling
+                              </Link>
+                              <Link
+                                href="/services/animation"
+                                className={
+                                  pathname === "/services/animation"
+                                    ? styles.active
+                                    : ""
+                                }
+                              >
+                                Animation
+                              </Link>
+                              <Link
+                                href="/services/video-production"
+                                className={
+                                  pathname === "/services/video-production"
+                                    ? styles.active
+                                    : ""
+                                }
+                              >
+                                Video Production
+                              </Link>
+                              <Link
+                                href="/services/ui-ux-design"
+                                className={
+                                  pathname === "/services/ui-ux-design"
+                                    ? styles.active
+                                    : ""
+                                }
+                              >
+                                UI/UX Design
+                              </Link>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <Link
+                            href="/showcase"
+                            className={
+                              pathname === "/showcase" ? styles.active : ""
+                            }
+                          >
+                            Showcase
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/pricing"
+                            className={
+                              pathname === "/pricing" ? styles.active : ""
+                            }
+                          >
+                            Pricing
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/insights"
+                            className={
+                              pathname === "/insights" ? styles.active : ""
+                            }
+                          >
+                            Insights
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/qa"
+                            className={pathname === "/qa" ? styles.active : ""}
+                          >
+                            Q&A
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/contacts"
+                            className={
+                              pathname === "/contacts" ? styles.active : ""
+                            }
+                          >
+                            Contacts
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className={styles.col2}>
+                      <Link href="/checkout" className={styles.cart}>
+                        <img src="/images/icons/cart.svg" />
+                        {cartCount > 0 ? <span /> : ""}
+                      </Link>
+                      <HeadAccount />
+                      <div className={styles.contacts}>
+                        <Link href="#">{WEBSITE_EMAIL}</Link>
+                        <Link href="#">{WEBSITE_PHONE}</Link>
+                        <div className={styles.soc}>
+                          <Instagram />
+                          <Facebook />
+                          <X />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+            </header>
+            <div
+              className={`${styles.subMenuDesktop} ${
+                isSubMenuOpen ? styles.open : ""
+              }`}
+              style={{ top: submenuPosition.top, left: submenuPosition.left }}
+            >
+              <div>
+                <Link
+                  href="/services/3d-modelling"
+                  className={
+                    pathname === "/services/3d-modelling" ? styles.active : ""
+                  }
+                >
+                  3D Modelling
+                </Link>
+                <Link
+                  href="/services/animation"
+                  className={
+                    pathname === "/services/animation" ? styles.active : ""
+                  }
+                >
+                  Animation
+                </Link>
+                <Link
+                  href="/services/video-production"
+                  className={
+                    pathname === "/services/video-production"
+                      ? styles.active
+                      : ""
+                  }
+                >
+                  Video Production
+                </Link>
+                <Link
+                  href="/services/ui-ux-design"
+                  className={
+                    pathname === "/services/ui-ux-design" ? styles.active : ""
+                  }
+                >
+                  UI/UX Design
+                </Link>
+              </div>
             </div>
-          </header>
-          <div
-            className={`${styles.subMenuDesktop} ${
-              isSubMenuOpen ? styles.open : ""
-            }`}
-            style={{ top: submenuPosition.top, left: submenuPosition.left }}
-          >
-            <div>
-              <Link
-                href="/services/3d-modelling"
-                className={
-                  pathname === "/services/3d-modelling" ? styles.active : ""
-                }
-              >
-                3D Modelling
-              </Link>
-              <Link
-                href="/services/animation"
-                className={
-                  pathname === "/services/animation" ? styles.active : ""
-                }
-              >
-                Animation
-              </Link>
-              <Link
-                href="/services/video-production"
-                className={
-                  pathname === "/services/video-production" ? styles.active : ""
-                }
-              >
-                Video Production
-              </Link>
-              <Link
-                href="/services/ui-ux-design"
-                className={
-                  pathname === "/services/ui-ux-design" ? styles.active : ""
-                }
-              >
-                UI/UX Design
-              </Link>
-            </div>
-          </div>
-        </>
-      )}
+          </>
+        )}
     </>
   );
 };

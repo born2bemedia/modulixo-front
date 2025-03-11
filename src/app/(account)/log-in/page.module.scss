@@ -91,6 +91,7 @@
           display: flex;
           justify-content: space-between;
           margin-bottom: 12px;
+          position: relative;
           label {
             color: #fff;
             font-size: 16px;
@@ -135,6 +136,16 @@
           &.invalid {
             border-color: #ff4646;
           }
+        }
+
+        button {
+          position: absolute;
+          right: 16px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: transparent;
+          border: none;
+          padding: 0;
         }
         .error {
           color: #ff4646;

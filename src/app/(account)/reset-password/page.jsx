@@ -79,6 +79,9 @@ export default function ResetPasswordPage() {
           <button type="submit" disabled={loading}>
             {loading ? "Sending..." : "Send Reset Link"} <ButtonArrow />
           </button>
+          <p className={styles.signUpText}>
+            Don't have an account? <Link href="/sign-up">Sign up</Link>
+          </p>
         </form>
 
         {message && (

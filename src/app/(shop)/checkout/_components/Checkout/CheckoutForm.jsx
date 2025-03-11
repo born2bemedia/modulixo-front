@@ -6,13 +6,13 @@ import { validationSchema } from "./validation";
 import useCartStore from "@/stores/cartStore";
 import useAuthStore from "@/stores/authStore";
 import { useRouter } from "next/navigation";
-import Cart from "../../../cart/_components/Cart/Cart";
 import BillingForm from "./BillingForm";
 import OrderSummary from "./OrderSummary";
 import TermsAndConditions from "./TermsAndConditions";
 import { handleCreateOrder } from "./orderUtils";
 import countryList from "react-select-country-list";
 import usePopupStore from "@/stores/popupStore";
+import Cart from "../Cart/Cart";
 
 const getCountryOptionByCode = (code) => {
   const countries = countryList().getData();
@@ -32,8 +32,8 @@ const CheckoutForm = () => {
       firstName: user?.firstName || "",
       lastName: user?.lastName || "",
       city: user?.city || "",
-      street: user?.street || "",
-      address: user?.address || "",
+      address1: user?.address1 || "",
+      address2: user?.address2 || "",
       country: user?.country ? getCountryOptionByCode(user?.country) : null,
       postalCode: user?.zip || "",
       phone: user?.phone || "",
@@ -75,19 +75,18 @@ const CheckoutForm = () => {
         onSubmit={formMethods.handleSubmit(onSubmit)}
         className={styles.body}
       >
+        <div className={styles.col2}>
+          <h2>Checkout</h2>
+          <BillingForm formMethods={formMethods} />
+        </div>
         <div className={styles.col1}>
-          <h2>Your Order</h2>
+          <h2>Cart</h2>
           <Cart />
           <TermsAndConditions
             formMethods={formMethods}
             isSubmitting={isSubmitting}
             submitError={submitError}
           />
-        </div>
-
-        <div className={styles.col2}>
-          <h2>Billing Data</h2>
-          <BillingForm formMethods={formMethods} />
         </div>
       </form>
     </>

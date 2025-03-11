@@ -11,6 +11,7 @@ import ButtonArrow from "../icons/ButtonArrow";
 import PrivacyIcon from "../icons/PrivacyIcon";
 import usePopupStore from "@/stores/popupStore";
 import ThanksPopup from "../ThanksPopup/ThanksPopup";
+import CustomPhoneInput from "../ui/CustomPhoneInput/CustomPhoneInput";
 
 // Validation Schema with updated fields and messages
 const schema = yup.object().shape({
@@ -85,7 +86,6 @@ const ContactForm = ({ type = "default" }) => {
     } finally {
       setLoading(false);
     }
-    
   };
 
   return (
@@ -151,7 +151,7 @@ const ContactForm = ({ type = "default" }) => {
                 <span className={styles.error}>{errors.phone.message}</span>
               )}
             </label>
-            <PhoneInput
+            <CustomPhoneInput
               country={countryCode}
               value={phoneValue}
               className={`${styles.phoneWrap} ${
