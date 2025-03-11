@@ -13,14 +13,16 @@ const API_URL = process.env.NEXT_PUBLIC_CMS_URL;
 
 const ProductHero = ({ product }) => {
   const [currentImage, setCurrentImage] = useState(0);
-  //console.log(product);
 
   const imageClick = (index) => {
     setCurrentImage(index);
   };
 
   return (
-    <section className={styles.productHero} style={{ paddingTop: "100px", marginBottom: "500px" }}>
+    <section
+      className={styles.productHero}
+      style={{ paddingTop: "100px", marginBottom: "500px" }}
+    >
       <div className={"_container"}>
         <div
           className={`${styles.body} ${

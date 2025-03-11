@@ -13,12 +13,9 @@ const useAuthStore = create(
 
       registerUser: async (userData) => {
         try {
-          //console.log("Sending registration data:", userData);
           const response = await axios.post(`${cmsUrl}/api/users`, userData, {
             withCredentials: true,
           });
-
-          //console.log("Registration successful:", response.data);
 
           const loginResponse = await axios.post(
             `${cmsUrl}/api/users/login`,
@@ -56,7 +53,6 @@ const useAuthStore = create(
       logout: async () => {
         set({ user: null, token: null });
         localStorage.removeItem("token");
-        //console.log("Logged out locally.");
       },
       fetchUserByEmail: async (email) => {
         try {
@@ -85,8 +81,6 @@ const useAuthStore = create(
           const { token, user } = get();
           if (!user) throw new Error("User not found");
 
-          //console.log("Updating user data:", updatedData);
-
           const response = await axios.patch(
             `${cmsUrl}/api/users/${user.id}`,
             updatedData,
@@ -98,8 +92,6 @@ const useAuthStore = create(
             }
           );
 
-          //console.log("User updated successfully:", response.data);
-
           set({ user: response.data.doc });
           localStorage.setItem("user", JSON.stringify(response.data.doc));
 
@@ -109,7 +101,7 @@ const useAuthStore = create(
           throw new Error("Failed to update user");
         }
       },
-      
+
       _setHydrated: () => set({ isHydrated: true }),
     }),
     {

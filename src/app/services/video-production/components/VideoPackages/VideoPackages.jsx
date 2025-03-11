@@ -24,7 +24,6 @@ const AnimationPackages = () => {
         limit,
         setLoading,
       });
-      console.log(products);
       setProducts(products.reverse());
     };
     fetchProducts();

@@ -38,8 +38,6 @@ async function getProductBySlug(slug) {
     return null;
   }
 
-  console.log(data.docs[0]);
-
   return data.docs[0];
 }
 
@@ -50,7 +48,6 @@ const ProductPage = async ({ params }) => {
   if (!product) {
     return <p>Product not found.</p>;
   }
-  //console.log(product);
 
   return (
     <>

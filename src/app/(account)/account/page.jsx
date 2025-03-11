@@ -96,7 +96,7 @@ export default function DashboardPage() {
       ) : ordersError ? (
         <p style={{ color: "red" }}>{ordersError}</p>
       ) : orders.length === 0 ? (
-        <p>No orders found.</p>
+        <p style={{ color: "#fff" }}>No orders found.</p>
       ) : (
         <div className={styles.orderWrap}>
           <table>

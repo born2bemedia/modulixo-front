@@ -2,7 +2,14 @@
   background: none;
   border: none;
   cursor: pointer;
-  svg{
+  &.inWishlist {
+    svg {
+      path {
+        fill: #fff;
+      }
+    }
+  }
+  svg {
     width: 24px;
     height: 24px;
   }

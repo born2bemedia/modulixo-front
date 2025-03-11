@@ -81,7 +81,6 @@ const GetQuoteForm = ({ type = "default" }) => {
       lastName: "",
       email: "",
       phone: "",
-      // New fields default values
       preferredContactMethod: "",
       serviceNeed: "",
       otherService: "",
@@ -102,16 +101,13 @@ const GetQuoteForm = ({ type = "default" }) => {
   const phoneValue = watch("phone");
   const serviceNeedValue = watch("serviceNeed");
 
-  // Destructure the file input registration for proper onChange handling
   const referenceFileRegistration = register("referenceFile");
 
   const onSubmit = async (data) => {
-    console.log("onSubmit triggered", data); // перевіряємо, чи викликається функція
     setLoading(true);
     try {
       const prepareFile = async (file) => {
         if (!file) return null;
-        console.log("file", file);
         const data = await new Promise((resolve, reject) => {
           const reader = new FileReader();
           reader.onload = () => resolve(reader.result.split(",")[1]);
@@ -130,16 +126,13 @@ const GetQuoteForm = ({ type = "default" }) => {
         body: JSON.stringify(formData),
       });
 
-      console.log("Response received:", response);
       if (response.ok) {
         setThanksPopupDisplay(true);
         reset();
       } else {
-        console.log("Response error:", response);
         setSuccessMessage("Failed to send message. Please try again.");
       }
     } catch (error) {
-      console.error("Error in onSubmit:", error);
       setSuccessMessage("Failed to send message. Please try again.");
     } finally {
       setLoading(false);
