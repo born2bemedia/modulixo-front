@@ -37,6 +37,7 @@ export async function POST(request) {
       paymentMethod,
       billingAddress,
       notes,
+      itemsNames,
     } = bodyJSON;
 
     const customerName =
@@ -68,23 +69,21 @@ export async function POST(request) {
     const gmail = google.gmail({ version: "v1", auth: oauth2Client });
 
     let itemsHtml = "";
-    if (items && Array.isArray(items)) {
+    if (itemsNames && Array.isArray(itemsNames)) {
       itemsHtml = `<ul style="
                                             list-style-type: none;
                                             padding: 0;
                                             margin: 0;
 
                                         ">`;
-      items.forEach((item) => {
+      itemsNames.forEach((item) => {
         const itemName = item.name ? item.name : `Product ID: ${item.product}`;
-        itemsHtml += `<li style="color: #1D4C29;
-                                            font-size: 16px;
-                                            font-style: normal;
-                                            font-weight: 700;
-                                            line-height: 1.4;
-                                            letter-spacing: -0.1px;
-                                            margin-left: 0;
-                                            ">${itemName} — Quantity: ${item.quantity}, Price: €${item.price}</li>`;
+        itemsHtml += `<li style="color: #808080;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                                            ">${itemName}</li>`;
       });
       itemsHtml += `</ul>`;
     }
@@ -102,7 +101,7 @@ export async function POST(request) {
         <p><strong>Payment Method:</strong> ${paymentMethod}</p>
         <h3>Billing Address</h3>
         <p>
-          ${billingAddress.street}<br/>
+          ${billingAddress.address1}<br/>
           ${billingAddress.city}, ${billingAddress.state}<br/>
           ${billingAddress.zip}<br/>
           ${billingAddress.country}
@@ -119,194 +118,254 @@ export async function POST(request) {
       process.env.EMAIL_USER,
       `Your Modulixo Order Has Been Received!`,
       `
-        <table width="640" style="border-collapse: collapse; margin: 0 auto;  font-family: Roboto, sans-serif;">
-    <thead>
-        <tr>
-            <td>
-                <img style="width: 100%" src="https://3dellium.com/images/email_header.png" alt="Header" />
+        <table width="640"
+    style="border-collapse: collapse; margin: 0 auto;  font-family: Roboto, sans-serif;border: none;background: #141316;">
+    <thead style="border: none;">
+        <tr style="border: none;">
+            <td style="border: none;">
+                <img style="width: 100%;display: block;" src="https://modulixo.com/images/email_header.png"
+                    alt="Header" />
             </td>
         </tr>
     </thead>
-    <tbody style="
-    padding: 0 8px;
-    display: block;
-    ">
-        <tr>
-            <td style="padding: 8px;border-radius: 16px;background: #EFF3F0;width: 18%;">
-                <table style="width: 100%;border-collapse:collapse;">
-                    <tr>
-                        <td
-                            style="padding: 36px 36px 24px 36px; color:#0A0A0A;border-radius: 16px 16px 0 0;background: #D4DDD7;">
-                            <h2 style="text-align: left; font-size: 20px;">Dear ${customerName},</h2>
-                            <p style="font-size: 16px; line-height: 19px;">
-                                Thank you for your order! We’ve successfully received your request, and we’re preparing
-                                everything for you. Below, you’ll find the details of your order.</p>
-                        </td>
+    <tbody style="border: none;">
+        <tr style="border: none;">
+            <td style="padding: 40px 40px 0 40px;background: #141316;border: none;">
+                <h2 style="color: #FFF;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                margin-bottom: 40px;">Your Order Has Been Accepted - #${orderNumber}</h2>
+                <p style="color: #808080;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;">Dear ${customerName},</p>
+                <p style="color: #808080;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;">
+                    We're happy to confirm that we have received and accepted your order! Our team is committed to
+                    delivering exceptional quality and ensuring your complete satisfaction.</p>
+                <p style="color: #808080;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;">
+                    To proceed, we will soon send you the bank details for payment. Once we receive your payment, we
+                    will begin processing your order immediately.</p>
+                <h3 style="color: #FFF;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                margin: 40px 0 0 0;">
+                    Here are the details of your order:
+                </h3>
+
+            </td>
+        </tr>
+        <tr style="border: none;">
+            <td style="padding: 20px 40px 40px 40px;background: #141316;border: none;">
+                <table style="width:100%;border-collapse: collapse;border:none;">
+                    <tr style="border: none;">
+                        <th style="color: #FFF;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: normal;
+                        border-right: 1px solid rgba(255, 255, 255, 0.05);
+                        background: #363538;
+                        padding: 12px;
+                        border-top-left-radius: 16px;
+                        text-align: left;
+                        width: 50%;
+                        ">Order Details</th>
+                        <th style="color: #FFF;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: normal;
+                        background: #363538;
+                        padding: 12px;
+                        border-top-right-radius: 16px;
+                        text-align: left;
+                        width: 50%;
+                        ">Information</th>
+
                     </tr>
                     <tr>
-                        <td style="padding: 0 36px 0 36px;background: #D4DDD7;">
-                            <table style="width: 100%;border-collapse:collapse;">
-                                <tr>
-                                    <td style="
-                                        border-radius: 16px;
-                                        background: #FFF;
-                                        padding: 24px;
-                                        ">
-                                        <p style="color: #1D4C29;
-                                        margin-bottom: 16px;
-                                        font-size: 16px;
-                                        font-style: normal;
-                                        font-weight: 600;
-                                        line-height: normal;">Order Summary:</p>
-
-                                        <table style="width: 100%;border-collapse:collapse;">
-                                            <tr>
-                                                <td style="color: #222;
-                                                font-size: 10px;
-                                                font-style: normal;
-                                                font-weight: 500;
-                                                line-height: 1.4;
-                                                letter-spacing: -0.1px;
-                                                ">Order Number:</td>
-                                                <td style="color: #222;
-                                                font-size: 14px;
-                                                font-style: normal;
-                                                font-weight: 700;
-                                                line-height: 1.4;
-                                                letter-spacing: -0.1px;
-                                                ">${orderNumber}</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="color: #222;
-                                                font-size: 10px;
-                                                font-style: normal;
-                                                font-weight: 500;
-                                                line-height: 1.4;
-                                                letter-spacing: -0.1px;
-                                                ">Date:</td>
-                                                <td style="color: #222;
-                                                font-size: 14px;
-                                                font-style: normal;
-                                                font-weight: 700;
-                                                line-height: 1.4;
-                                                letter-spacing: -0.1px;
-                                                ">${orderDate}</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="color: #222;
-                                                font-size: 10px;
-                                                font-style: normal;
-                                                font-weight: 500;
-                                                line-height: 1.4;
-                                                letter-spacing: -0.1px;
-                                                ">Total Amount:</td>
-                                                <td style="color: #222;
-                                                font-size: 14px;
-                                                font-style: normal;
-                                                font-weight: 700;
-                                                line-height: 1.4;
-                                                letter-spacing: -0.1px;
-                                                ">€${total}</td>
-                                            </tr>
-                                        </table>
-
-                                        <p style="color: #222;
-                                        font-size: 10px;
-                                        font-style: normal;
-                                        font-weight: 500;
-                                        line-height: normal;
-                                        letter-spacing: -0.1px;
-                                        margin: 8px 0 4px 0;
-                                        padding-top: 8px;
-                                        border-top: 1px solid #1D4C29;
-                                        ">Items Ordered:</p>
-
-                                        ${itemsHtml}
-
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
+                        <td style="color: #808080;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                        border: none;
+                        border-right: 1px solid rgba(255, 255, 255, 0.05);
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                        background: rgba(255, 255, 255, 0.05);
+                        padding: 12px;
+                        text-align: left;
+                        width: 50%;
+                        ">Order Number</td>
+                        <td style="color: #808080;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                        border: none;
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                        background: rgba(255, 255, 255, 0.05);
+                        padding: 12px;
+                        text-align: left;
+                        width: 50%;
+                        ">${orderNumber}</td>
                     </tr>
                     <tr>
-                        <td
-                            style="padding: 24px 36px 36px 36px; color:#0A0A0A;border-radius: 0 0 16px 16px;background: #D4DDD7;">
-
-
-                            <p style="font-size: 16px; line-height: 19px;">
-                                <b>Payment instructions will be sent in a separate email shortly.</b>
-                                Once payment is completed, we will proceed with processing your order.
-                            </p>
-
-                            <p style="font-size: 16px; line-height: 19px;">
-                                If you have any questions, feel free to contact us.
-                            </p>
-
-                            <p style="font-size: 16px; line-height: 19px; font-weight: 600;">
-                                Best regards,
-                                <br>The ModulixoTeam
-                            </p>
-                        </td>
+                        <td style="color: #808080;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                        border: none;
+                        border-right: 1px solid rgba(255, 255, 255, 0.05);
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                        background: rgba(255, 255, 255, 0.05);
+                        padding: 12px;
+                        text-align: left;
+                        width: 50%;
+                        ">Order Date</td>
+                        <td style="color: #808080;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                        border: none;
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                        background: rgba(255, 255, 255, 0.05);
+                        padding: 12px;
+                        text-align: left;
+                        width: 50%;
+                        ">${orderDate}</td>
+                    </tr>
+                    <tr>
+                        <td style="color: #808080;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                        border: none;
+                        border-right: 1px solid rgba(255, 255, 255, 0.05);
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                        background: rgba(255, 255, 255, 0.05);
+                        padding: 12px;
+                        text-align: left;
+                        width: 50%;
+                        ">Description</td>
+                        <td style="color: #808080;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                        border: none;
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                        background: rgba(255, 255, 255, 0.05);
+                        padding: 12px;
+                        text-align: left;
+                        width: 50%;
+                        ">${itemsHtml}</td>
+                    </tr>
+                    <tr>
+                        <td style="color: #808080;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                        border: none;
+                        border-right: 1px solid rgba(255, 255, 255, 0.05);
+                        background: rgba(255, 255, 255, 0.05);
+                        padding: 12px;
+                        text-align: left;
+                        width: 50%;
+                        border-bottom-left-radius: 16px;
+                        ">Total Amount Due</td>
+                        <td style="color: #808080;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                        border: none;
+                        background: rgba(255, 255, 255, 0.05);
+                        padding: 12px;
+                        text-align: left;
+                        width: 50%;
+                        border-bottom-right-radius: 16px;
+                        ">${total}</td>
                     </tr>
                 </table>
             </td>
         </tr>
+        <tr style="border: none;">
+            <td style="padding: 0 40px 40px 40px;background: #141316;border: none;">
+
+                <p style="color: #808080;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;">
+                    To avoid delays, please complete the payment as soon as possible. Feel free to contact us if you
+                    have any questions or need assistance.<br><br>
+
+                    Thank you for choosing Modulixo - we're excited to bring your vision to life!</p>
+                <h3 style="color: #FFF;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                margin: 40px 0 20px 0;">
+                    Best regards,<br>
+                    The Modulixo Team
+                </h3>
+            </td>
+        </tr>
     </tbody>
-    <tfoot>
+    <tfoot
+        style="background-color: #0B0B0E; background-image: url(https://modulixo.com/images/email_footer.png);background-position: center right; background-size: cover;">
         <tr>
-            <td style="padding: 10px 0;">
-                <table style="width: 100%;">
+            <td style="padding: 50px 40px;">
+                <table>
                     <tr>
-                        <td style="width: 130px; padding: 0 8px;vertical-align: middle;">
-                            <img width="130" height="23" src="https://3dellium.com/images/email_logo.png"
-                                alt="Header" />
-                        </td>
                         <td style="width: 100px; padding: 0 8px;vertical-align: baseline;">
-                            <p style="color: #1D4C29;
-                            font-size: 10px;
+                            <p style="color: #808080;
+                            font-size: 12px;
                             font-style: normal;
-                            font-weight: 700;
-                            line-height: 100%;">Email: </p>
+                            font-weight: 400;
+                            line-height: normal;">Phone</p>
                             <p style="margin: 0;">
-                                <a href="tel:+34951748379" style="color: #000;
-                                font-size: 10px;
+                                <a href="tel: +48573589252" style="color: #FFF;
+                                font-size: 12px;
                                 font-style: normal;
-                                font-weight: 300;
-                                line-height: 120%;
-                                text-decoration: none;">+34951748379</a>
+                                font-weight: 400;
+                                line-height: normal;"> +48573589252</a>
                             </p>
                         </td>
                         <td style="width: 100px; padding: 0 8px;vertical-align: baseline;">
-                            <p style="color: #1D4C29;
-                            font-size: 10px;
+                            <p style="color: #808080;
+                            font-size: 12px;
                             font-style: normal;
-                            font-weight: 700;
-                            line-height: 100%;">Email: </p>
+                            font-weight: 400;
+                            line-height: normal;">Email</p>
                             <p style="margin: 0;">
-                                <a href="mailto:info@3dellium.com" style="color: #000;
-                                font-size: 10px;
+                                <a href="mailto:info@modulixo.com" style="color: #FFF;
+                                font-size: 12px;
                                 font-style: normal;
-                                font-weight: 300;
-                                line-height: 120%;
-                                text-decoration: none;">info@3dellium.com</a>
+                                font-weight: 400;
+                                line-height: normal;">info@modulixo.com</a>
                             </p>
                         </td>
 
-                        <td style="width: 150px; padding: 0 8px;vertical-align: baseline;">
-                            <p style="color: #1D4C29;
-                            font-size: 10px;
-                            font-style: normal;
-                            font-weight: 700;
-                            line-height: 100%;">Registration Address:</p>
-
-                            <p style="color: #000;
-                                font-size: 10px;
-                                font-style: normal;
-                                font-weight: 300;
-                                line-height: 120%;margin: 0s;">Calle Aguamarina, S/N - Local 1-2, Marbella, 29670,
-                                Malaga</p>
-
-                        </td>
 
                     </tr>
                 </table>

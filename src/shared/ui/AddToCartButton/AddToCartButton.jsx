@@ -16,7 +16,6 @@ const AddToCartButton = ({ product, text = "Add to cart", icon = true }) => {
   }, [cart]);
 
   const handleAddToCart = () => {
-    //console.log(product);
     if (!isInCart) {
       addToCart({
         id: product.id,
@@ -28,7 +27,7 @@ const AddToCartButton = ({ product, text = "Add to cart", icon = true }) => {
       });
       toast.success(`${product.title} added to cart!`, {
         position: "bottom-right",
-        autoClose: 3000, 
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

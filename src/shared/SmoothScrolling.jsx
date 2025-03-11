@@ -13,7 +13,7 @@ function SmoothScrolling({ children }) {
       setTimeout(() => {
         const windowHeight = document.documentElement.scrollHeight;
         lenis.dimensions.scrollHeight = windowHeight;
-        console.log("lenis instance:", lenis.dimensions.scrollHeight);
+        //console.log("lenis instance:", lenis.dimensions.scrollHeight);
       }, 1500);
     }
 

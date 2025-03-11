@@ -1,9 +1,6 @@
 export const renderBlock = (block, index) => {
-  //console.log(block);
-
   const renderInline = (child, i) => {
     if (child.type === "autolink") {
-      // console.log(child.fields);
       return (
         <a
           key={i}
@@ -15,7 +12,6 @@ export const renderBlock = (block, index) => {
         </a>
       );
     } else if (child.type === "link") {
-      //console.log(child.fields);
       return (
         <a
           key={i}
@@ -52,7 +48,6 @@ export const renderBlock = (block, index) => {
       );
     }
     case "list":
-      console.log(block);
       if (block.tag === "ul") {
         return (
           <ul key={index}>

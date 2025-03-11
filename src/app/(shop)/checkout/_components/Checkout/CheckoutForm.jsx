@@ -21,11 +21,12 @@ const getCountryOptionByCode = (code) => {
 
 const CheckoutForm = () => {
   const { cart, clearCart, totalAmount } = useCartStore();
-  const { user, fetchUserByEmail, registerUser } = useAuthStore();
+  const { user, fetchUserByEmail, registerUser, updateUser } = useAuthStore();
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(null);
   const { thanksPopupDisplay, setThanksPopupOrderDisplay } = usePopupStore();
+
 
   const formMethods = useForm({
     defaultValues: {
@@ -44,7 +45,6 @@ const CheckoutForm = () => {
   });
 
   const onSubmit = async (data) => {
-    //console.log("data", data);
     try {
       setIsSubmitting(true);
       setSubmitError(null);
@@ -55,7 +55,8 @@ const CheckoutForm = () => {
         totalAmount,
         clearCart,
         fetchUserByEmail,
-        registerUser
+        registerUser,
+        updateUser
       );
       setIsSubmitting(false);
       setThanksPopupOrderDisplay(true);

@@ -5,11 +5,13 @@ import "react-toastify/dist/ReactToastify.css";
 import styles from "./AddToWishlistButton.module.scss";
 import useWishlistStore from "@/stores/wishlistStore";
 import WishListIcon from "@/shared/icons/WishListIcon";
+import useAuthStore from "@/stores/authStore";
 
 const AddToWishlistButton = ({ product }) => {
   const { wishlist, addToWishlist, removeFromWishlist } = useWishlistStore();
   const inWishlist = wishlist.some((item) => item.id === product.id);
   const [isInWishList, setIsInWishList] = useState(false);
+  const { user } = useAuthStore();
 
   useEffect(() => {
     setIsInWishList(inWishlist);
@@ -45,6 +47,10 @@ const AddToWishlistButton = ({ product }) => {
       });
     }
   };
+
+  if (!user) {
+    return null;
+  }
 
   return (
     <>

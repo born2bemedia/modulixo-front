@@ -15,7 +15,6 @@ const useCartStore = create((set, get) => ({
     const { cart, totalAmount } = get();
     const existingIndex = cart.findIndex((item) => item.id === product.id);
     let newTotalAmount = totalAmount;
-    //console.log(product);
     if (existingIndex === -1) {
       newTotalAmount += product.attributes.price * product.quantity;
       set((state) => ({

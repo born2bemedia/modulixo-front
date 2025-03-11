@@ -18,7 +18,6 @@ export const fetchCategoryBySlug = async ({ categorySlug }) => {
     }
 
     const categoryData = await categoryRes.json();
-    //console.log(categoryData.docs[0]);
     return categoryData.docs[0];
   } catch (error) {
     console.error("Failed to fetch category:", error);
@@ -33,7 +32,6 @@ const fetchLatestProductsFromCategory = async ({
 }) => {
   setLoading(true);
   try {
-
     const productsRes = await fetch(
       `${API_URL}/api/products?where[category.slug][in]=${categorySlug}&sort=-createdAt&limit=${limit}`,
       {
@@ -50,7 +48,6 @@ const fetchLatestProductsFromCategory = async ({
     }
 
     const productsData = await productsRes.json();
-    //console.log(productsData);
 
     return productsData.docs;
   } catch (error) {

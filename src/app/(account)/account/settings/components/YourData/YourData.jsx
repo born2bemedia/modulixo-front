@@ -45,7 +45,6 @@ export default function YourData() {
 
   useEffect(() => {
     setUserCountry(user?.country);
-    ////console.log(user?.country);
   }, [user]);
 
   const {

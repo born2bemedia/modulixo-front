@@ -31,7 +31,6 @@ const CategorySection = ({
         limit: limit,
         setLoading,
       });
-      console.log(products);
       setProducts(products);
     };
     fetchProducts();
@@ -75,8 +74,7 @@ const CategorySection = ({
             {loading ? (
               <Skeleton count={4} />
             ) : products.length > 0 ? (
-              categorySlug === "animations" ||
-              categorySlug === "videos" ? (
+              categorySlug === "animations" || categorySlug === "videos" ? (
                 products.map((product, index) => (
                   <PreviewCard product={product} key={product.id} />
                 ))

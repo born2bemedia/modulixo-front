@@ -5,7 +5,8 @@ export const handleCreateOrder = async (
   totalAmount,
   clearCart,
   fetchUserByEmail,
-  registerUser
+  registerUser,
+  updateUser
 ) => {
   try {
     let userId = null;
@@ -25,13 +26,13 @@ export const handleCreateOrder = async (
         city: data.city,
         address1: data.address1,
         address2: data.address2,
-        postalCode: data.postalCode,
+        zip: data.postalCode,
       });
 
       userId = newUser.id;
     }
 
-    await updateUserProfile(userId, data, user);
+    await updateUserProfile(userId, data, user, updateUser);
 
     const orderData = {
       orderNumber: `ORD_${Math.floor(Math.random() * 900000) + 100000}`,
@@ -41,6 +42,7 @@ export const handleCreateOrder = async (
         quantity: item.quantity,
         price: item.attributes.price,
       })),
+
       total: totalAmount,
       status: "pending",
       paymentMethod: "bank_transfer",
@@ -83,6 +85,9 @@ export const handleCreateOrder = async (
       paymentMethod: orderData.paymentMethod,
       billingAddress: orderData.billingAddress,
       notes: orderData.orderNotes,
+      itemsNames: cart.map((item) => ({
+        name: item.name,
+      })),
     };
 
     const emailResponse = await fetch("/api/emails/order", {
@@ -104,7 +109,7 @@ export const handleCreateOrder = async (
   }
 };
 
-export const updateUserProfile = async (userId, data, user) => {
+export const updateUserProfile = async (userId, data, user, updateUser) => {
   try {
     const userUpdatePayload = {
       firstName: data.firstName,
@@ -114,31 +119,12 @@ export const updateUserProfile = async (userId, data, user) => {
       address2: data.address2,
       city: data.city,
       country: data.country.value,
-      postalCode: data.postalCode,
+      zip: data.postalCode,
     };
 
-    //console.log("Updating user with:", userUpdatePayload);
+    const response = await updateUser(userUpdatePayload);
 
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_CMS_URL}/api/users/${userId}`,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${user?.token}`,
-        },
-        body: JSON.stringify(userUpdatePayload),
-      }
-    );
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      console.error("Failed to update user:", errorData);
-      throw new Error("User update failed");
-    }
-
-    //console.log("User profile updated successfully");
-    return await response.json();
+    return await response.data;
   } catch (error) {
     console.error("Error updating user:", error);
   }
