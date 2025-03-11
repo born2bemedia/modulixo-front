@@ -1,14 +1,18 @@
 "use client";
 import { useEffect, useRef } from "react";
-import PhoneInput from "react-phone-input-2";
+import dynamic from "next/dynamic";
 import "react-phone-input-2/lib/style.css";
+
+// Dynamically import PhoneInput with SSR disabled.
+const DynamicPhoneInput = dynamic(() => import("react-phone-input-2"), {
+  ssr: false,
+});
 
 export default function CustomPhoneInput(props) {
   const containerRef = useRef(null);
 
   useEffect(() => {
     const handleWheel = (e) => {
-      // If the wheel event occurs within the flag dropdown, stop propagation so Lenis doesn't capture it.
       if (e.target.closest(".flag-dropdown")) {
         e.stopPropagation();
       }
@@ -28,7 +32,7 @@ export default function CustomPhoneInput(props) {
 
   return (
     <div ref={containerRef}>
-      <PhoneInput {...props} />
+      <DynamicPhoneInput {...props} />
     </div>
   );
 }
