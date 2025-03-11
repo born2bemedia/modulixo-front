@@ -13,6 +13,7 @@ const YourDataPage = () => {
         </div>
         <div>
           <h2>Account Access</h2>
+          <AccountAccess />
         </div>
       </div>
     </>
