@@ -155,7 +155,31 @@ export default function YourData() {
         <div className={styles.formGroup}>
           <label htmlFor="phone">Phone Number</label>
           <div>
-            
+            <Controller
+              name="phone"
+              control={control}
+              render={({ field }) => (
+                <CustomPhoneInput
+                  country={countryCode}
+                  value={phoneValue}
+                  className={`${styles.phoneWrap} ${
+                    errors.email && styles.invalid
+                  }`}
+                  onChange={(phone) =>
+                    setValue("phone", phone, {
+                      shouldTouch: true,
+                      shouldValidate: true,
+                    })
+                  }
+                  inputProps={{
+                    name: "phone",
+                    id: "phone",
+                    placeholder: "Phone Number",
+                  }}
+                  containerClass={errors.phone ? styles.invalid : ""}
+                />
+              )}
+            />
           </div>
         </div>
 
@@ -190,11 +214,7 @@ export default function YourData() {
         <div className={styles.formGroup}>
           <label>Country</label>
           <div className={styles.countryWrap}>
-            <Controller
-              name="country"
-              control={control}
-              render={({ field }) => <CountrySelect field={field} />}
-            />
+            
             <p>{errors.country?.message}</p>
           </div>
         </div>
