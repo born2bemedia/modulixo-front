@@ -88,8 +88,8 @@ const Footer = () => {
                   <div>
                     <h3>Get in Touch</h3>
                     <nav>
-                      <Link href="#">{WEBSITE_EMAIL}</Link>
-                      <Link href="#">{WEBSITE_PHONE}</Link>
+                      <Link href={`mailto:${WEBSITE_EMAIL}`}>{WEBSITE_EMAIL}</Link>
+                      <Link href={`tel:${WEBSITE_PHONE}`}>{WEBSITE_PHONE}</Link>
                       <div className={styles.soc}>
                         <Instagram />
                         <Facebook />

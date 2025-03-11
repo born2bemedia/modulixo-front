@@ -184,13 +184,15 @@ const ContactForm = ({ type = "default" }) => {
 
           {/* Terms and Conditions Checkbox */}
           <div className={styles.terms}>
-            <input id="terms" type="checkbox" {...register("terms")} />
+            <input
+              id="terms"
+              type="checkbox"
+              {...register("terms")}
+              className={errors.terms ? styles.error : ""}
+            />
             <label htmlFor="terms">
               I agree to the Terms and Conditions and Privacy Policy.
             </label>
-            {errors.terms && (
-              <span className={styles.error}>{errors.terms.message}</span>
-            )}
           </div>
 
           <input type="hidden" {...register("type")} value={type} />

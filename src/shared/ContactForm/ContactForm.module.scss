@@ -60,6 +60,9 @@
           background-position: center;
           background-repeat: no-repeat;
         }
+        &.error {
+          border-color: #ff4646;
+        }
       }
       label {
         color: #fff;
