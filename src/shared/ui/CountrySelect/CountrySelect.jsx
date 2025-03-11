@@ -117,8 +117,6 @@ function CountrySelect({ field, ...props }) {
       options={filteredCountries}
       onChange={(value) => field.onChange(value)}
       styles={customStyles}
-      menuPortalTarget={document.body}
-      menuPosition="fixed"
       onMenuOpen={handleMenuOpen}
       onMenuClose={handleMenuClose}
       {...props}
@@ -136,9 +134,7 @@ const MenuList = (props) => {
       innerProps={{
         ...props.innerProps,
         onWheel: (e) => {
-          // Prevent wheel events from reaching Lenis.
           e.stopPropagation();
-          // If there's an existing onWheel handler, call it.
           if (props.innerProps.onWheel) {
             props.innerProps.onWheel(e);
           }

@@ -214,7 +214,11 @@ export default function YourData() {
         <div className={styles.formGroup}>
           <label>Country</label>
           <div className={styles.countryWrap}>
-            
+            <Controller
+              name="country"
+              control={control}
+              render={({ field }) => <CountrySelect field={field} />}
+            />
             <p>{errors.country?.message}</p>
           </div>
         </div>
