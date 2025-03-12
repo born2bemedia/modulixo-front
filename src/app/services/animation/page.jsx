@@ -24,6 +24,8 @@ const AnimationPage = () => {
           "Get inspired by our collection of past animations crafted for branding, marketing, and storytelling. See how our work brings ideas to life with seamless motion, dynamic visuals, and high-quality execution."
         }
         showcase={showcase}
+        buttonText="Discover Our Work"
+        buttonLink="/showcase"
         length={"three"}
       />
       <NeedCustomQuote />
