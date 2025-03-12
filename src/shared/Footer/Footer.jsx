@@ -70,7 +70,7 @@ const Footer = () => {
                     <nav>
                       <Link href="#">Showcase</Link>
                       <Link href="/pricing">Pricing</Link>
-                      <Link href="#">Insights</Link>
+                      <Link href="/insights">Insights</Link>
                       <Link href="/qa">Q&A</Link>
                     </nav>
                   </div>
@@ -88,7 +88,9 @@ const Footer = () => {
                   <div>
                     <h3>Get in Touch</h3>
                     <nav>
-                      <Link href={`mailto:${WEBSITE_EMAIL}`}>{WEBSITE_EMAIL}</Link>
+                      <Link href={`mailto:${WEBSITE_EMAIL}`}>
+                        {WEBSITE_EMAIL}
+                      </Link>
                       <Link href={`tel:${WEBSITE_PHONE}`}>{WEBSITE_PHONE}</Link>
                       <div className={styles.soc}>
                         <Instagram />
