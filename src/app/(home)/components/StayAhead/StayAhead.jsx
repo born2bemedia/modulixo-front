@@ -57,7 +57,7 @@ const StayAhead = () => {
                 <Link href={post.slug}>
                   <div className={styles.top}>
                     <h3>{post.title}</h3>
-                    <TextBlock text={post.excerpt} />
+                    <TextBlock text={post.excerpt_home} />
                   </div>
                   <div className={styles.bottom}>
                     <MoreLink text="Read More" />
