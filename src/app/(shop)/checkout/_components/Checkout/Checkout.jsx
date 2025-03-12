@@ -33,7 +33,7 @@ const Checkout = () => {
               <div className="_container">
                 <div className={styles.content}>
                   <Image
-                    src="/images/empty.png"
+                    src="/images/cart.webp"
                     alt="404"
                     width={126}
                     height={120}

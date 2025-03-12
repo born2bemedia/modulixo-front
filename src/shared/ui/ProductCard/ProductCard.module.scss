@@ -40,6 +40,7 @@
     backdrop-filter: blur(5px);
     padding: 24px;
     gap: 32px;
+    flex-grow: 1;
     .top {
       display: flex;
       flex-direction: column;

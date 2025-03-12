@@ -7,19 +7,24 @@ import WhatWeOffer from "./components/WhatWeOffer/WhatWeOffer";
 import WhyWork from "./components/WhyWork/WhyWork";
 import NeedCustomQuote from "./components/NeedCustomQuote/NeedCustomQuote";
 import CategorySection from "@/shared/ui/CategorySection/CategorySection";
+import { animationShowcase } from "@/lib/showcase";
+import ShowcaseSection from "@/app/showcase/components/ShowcaseSection/ShowcaseSection";
 
 const AnimationPage = () => {
+  const showcase = animationShowcase.slice(0, 3);
+
   return (
     <>
       <AnimationHero />
       <WhatWeOffer />
       <AnimationPackagesSection />
-      <CategorySection
+      <ShowcaseSection
         title={"Explore Our Animation Showcase"}
-        description={
+        text={
           "Get inspired by our collection of past animations crafted for branding, marketing, and storytelling. See how our work brings ideas to life with seamless motion, dynamic visuals, and high-quality execution."
         }
-        categorySlug={"animations"}
+        showcase={showcase}
+        length={"three"}
       />
       <NeedCustomQuote />
       <WhyWork />

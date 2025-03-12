@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import SectionTitle from "@/shared/ui/SectionTitle/SectionTitle";
+import TextBlock from "@/shared/ui/TextBlock/TextBlock";
 
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
@@ -24,12 +25,21 @@ const ProductHero = ({ product }) => {
       style={{ paddingTop: "100px", marginBottom: "500px" }}
     >
       <div className={"_container"}>
-        <div
-          className={`${styles.body} ${
-            product.category?.id == 6 && styles.animation
-          }`}
-        >
-          <h1 style={{ fontSize: "100px", color: "white" }}>{product.title}</h1>
+        <div className={`${styles.body}`}>
+          <div className={styles.col1}>
+            <Image
+              alt={product.title}
+              src={`${API_URL}${product.image?.url}`}
+              width={747}
+              height={747}
+              quality={100}
+            />
+          </div>
+          <div className={styles.col2}>
+            <h1>{product.title}</h1>
+            <TextBlock text={product.excerpt} />
+            <span className={styles.price}>€{product.price}</span>
+          </div>
         </div>
       </div>
     </section>
