@@ -112,7 +112,7 @@ const Header = () => {
                     <img src="/images/logo.svg" />
                   </Link>
                   <div className={styles.menuButtonWrap}>
-                    <Link href="#" className={styles.cart}>
+                    <Link href="/checkout" className={styles.cart}>
                       <img src="/images/icons/cart.svg" />
                       {cartCount > 0 ? <span /> : ""}
                     </Link>
