@@ -1,0 +1,32 @@
+.card {
+  height: 100%;
+  position: relative;
+  border-radius: 24px;
+  background: #17171a;
+  overflow: hidden;
+  @media (max-width: 1600px) {
+    height: 100%;
+  }
+  @media (max-width: 992px) {
+    width: calc(50% - 12px);
+    height: 100%;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+  img {
+    object-fit: cover;
+  }
+  > div {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    video {
+      object-fit: cover;
+      width: 105% !important;
+      height: 105% !important;
+    }
+  }
+}

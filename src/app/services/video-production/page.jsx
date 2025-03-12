@@ -7,20 +7,26 @@ import WhatWeOffer from "./components/WhatWeOffer/WhatWeOffer";
 import WhyWork from "./components/WhyWork/WhyWork";
 import NeedCustomQuote from "./components/NeedCustomQuote/NeedCustomQuote";
 import CategorySection from "../../../shared/ui/CategorySection/CategorySection";
+import ShowcaseSection from "@/app/showcase/components/ShowcaseSection/ShowcaseSection";
+import { videoShowcase } from "@/lib/showcase";
 
 const AnimationPage = () => {
+  const showcase = videoShowcase.slice(0, 3);
+
   return (
     <>
       <VideoHero />
       <WhatWeOffer />
       <VideoPackagesSection />
       <NeedCustomQuote />
-      <CategorySection
+
+      <ShowcaseSection
         title={"Explore Our Video Showcase"}
-        description={
+        text={
           "Discover our portfolio of professionally crafted videos designed for marketing, branding, and social media engagement. See how we bring stories to life through cinematic visuals, dynamic editing, and high-impact storytelling."
         }
-        categorySlug={"videos"}
+        showcase={showcase}
+        length={"three"}
       />
 
       <WhyWork />
