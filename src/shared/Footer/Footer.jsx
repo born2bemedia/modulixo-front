@@ -68,7 +68,7 @@ const Footer = () => {
                   <div>
                     <h3>Resources</h3>
                     <nav>
-                      <Link href="#">Showcase</Link>
+                      <Link href="/showcase">Showcase</Link>
                       <Link href="/pricing">Pricing</Link>
                       <Link href="/insights">Insights</Link>
                       <Link href="/qa">Q&A</Link>
