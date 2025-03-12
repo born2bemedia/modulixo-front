@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SectionTitle from "@/shared/ui/SectionTitle/SectionTitle";
 import TextBlock from "@/shared/ui/TextBlock/TextBlock";
 import MoreLink from "@/shared/ui/MoreLink/MoreLink";
@@ -8,31 +8,21 @@ import { fadeInUp } from "@/helpers/animations";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./StayAhead.module.scss";
-
+import fetchFromAPI from "@/helpers/fetchFromAPI";
+import { CACHE_TAG_IDEAS } from "@/helpers/constants";
 const StayAhead = () => {
-  const posts = [
-    {
-      title: "The Future of 3D Modelling: What’s Next in Digital Design?",
-      url: "#",
-      text: "From AI-powered modeling to real-time rendering, the 3D industry is evolving quickly. Find out what’s next and how to stay ahead of the competition.",
-    },
-    {
-      title: "Motion Magic: How Animation is Transforming Branding & Marketing",
-      url: "#",
-      text: "Animation isn’t just for entertainment — it’s a game-changer for marketing. Discover why brands embrace animated content to connect with audiences like never before.",
-    },
-    {
-      title:
-        "The Art of Storytelling in Video Production: More Than Just a Pretty Edit",
-      url: "#",
-      text: "A great video is more than visuals — it’s about impact. Learn how narrative-driven editing creates unforgettable experiences that captivate and convert.",
-    },
-    {
-      title: "UI/UX Trends Redefining Digital Experiences in 2025",
-      url: "#",
-      text: "Minimalism? Micro-interactions? AI-driven interfaces? See what’s reshaping user experiences in web and app design and how to implement them in your next project.",
-    },
-  ];
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const data = await fetchFromAPI("/api/ideas", {
+        tag: CACHE_TAG_IDEAS,
+      });
+      const posts = (data.docs || []).reverse();
+      setPosts(posts);
+    };
+    fetchPosts();
+  }, []);
 
   return (
     <section className={styles.stayAhead}>
@@ -64,10 +54,10 @@ const StayAhead = () => {
                 className={styles.item}
                 key={index}
               >
-                <Link href={post.url}>
+                <Link href={post.slug}>
                   <div className={styles.top}>
                     <h3>{post.title}</h3>
-                    <TextBlock text={post.text} />
+                    <TextBlock text={post.excerpt} />
                   </div>
                   <div className={styles.bottom}>
                     <MoreLink text="Read More" />

@@ -50,8 +50,8 @@ const Footer = () => {
                     <h3>Company</h3>
                     <nav>
                       <Link href="/">Home</Link>
-                      <Link href="#">About</Link>
-                      <Link href="#">Contacts</Link>
+                      <Link href="/about-us">About</Link>
+                      <Link href="/contacts">Contacts</Link>
                     </nav>
                   </div>
                   <div>

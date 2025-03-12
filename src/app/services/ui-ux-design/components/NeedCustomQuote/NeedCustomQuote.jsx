@@ -77,7 +77,7 @@ const NeedCustomQuote = () => {
             variants={fadeInUp}
             className={styles.button}
           >
-            <WhiteButton text="View Pricing Details" url={"#"} />
+            <WhiteButton text="View Pricing Details" url={"/pricing"} />
           </motion.div>
         </div>
       </div>

@@ -76,7 +76,7 @@ const Showcase = () => {
           viewport={{ once: true }}
           variants={fadeInUp}
         >
-          <WhiteButton text={"View Showcase"} url={"#"} />
+          <WhiteButton text={"View Showcase"} url={"/showcase"} />
         </motion.div>
       </div>
     </section>
