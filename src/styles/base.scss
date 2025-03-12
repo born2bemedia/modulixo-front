@@ -97,7 +97,7 @@ h6 {
 */
 
 body {
-  background: #0C0B0E;
+  background: #0c0b0e;
   margin: 0;
   height: auto;
   @media (max-width: rem(992)) {
@@ -211,4 +211,19 @@ body {
 
 .Toastify__toast-icon {
   display: none !important;
+}
+
+.szh-accordion {
+  img {
+    transition: all 0.3s;
+    transform: rotate(0);
+  }
+  &__item-content {
+    transition: height 0.25s cubic-bezier(0, 0, 0, 1);
+  }
+  &__item--expanded {
+    img {
+      transform: rotate(180deg);
+    }
+  }
 }
