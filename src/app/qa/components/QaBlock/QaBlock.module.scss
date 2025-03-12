@@ -1,0 +1,50 @@
+.qaBlock {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  @media (max-width: 992px) {
+    max-width: 100%;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 96px;
+    @media (max-width: 992px) {
+      margin-bottom: 48px;
+    }
+  }
+  .questions {
+    width: 100%;
+    .accordion {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+      button {
+        width: 100%;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      }
+      .qaHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        span {
+          color: #fff;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          text-align: left;
+        }
+      }
+      .qaAnswer {
+        color: #808080;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: 12px;
+      }
+    }
+  }
+}

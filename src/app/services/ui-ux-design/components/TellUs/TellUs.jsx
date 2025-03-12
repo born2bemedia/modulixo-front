@@ -49,11 +49,11 @@ const TellUs = () => {
                 Start a Project
                 <ArrowWhite />
               </button>
-              <Link href="#" className={styles.link}>
+              <Link href="/showcase" className={styles.link}>
                 Explore Our Portfolio
                 <ArrowWhite />
               </Link>
-              <Link href="#" className={styles.link}>
+              <Link href="/contacts" className={styles.link}>
                 Contact Us
                 <ArrowWhite />
               </Link>

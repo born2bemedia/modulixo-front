@@ -71,7 +71,7 @@ const Footer = () => {
                       <Link href="#">Showcase</Link>
                       <Link href="/pricing">Pricing</Link>
                       <Link href="#">Insights</Link>
-                      <Link href="#">Q&A</Link>
+                      <Link href="/qa">Q&A</Link>
                     </nav>
                   </div>
                   <div>
@@ -97,7 +97,6 @@ const Footer = () => {
                       </div>
                     </nav>
                   </div>
-                  \\
                 </div>
               </div>
             </div>

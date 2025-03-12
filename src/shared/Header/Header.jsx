@@ -88,8 +88,10 @@ const Header = () => {
               <div className="_container">
                 <div className={styles.row}>
                   <div className={styles.contacts}>
-                    <Link href="#">{WEBSITE_EMAIL}</Link>
-                    <Link href="#">{WEBSITE_PHONE}</Link>
+                    <Link href={`mailto:${WEBSITE_EMAIL}`}>
+                      {WEBSITE_EMAIL}
+                    </Link>
+                    <Link href={`tel:${WEBSITE_PHONE}`}>{WEBSITE_PHONE}</Link>
                   </div>
                   <div className={styles.soc}>
                     <Instagram />
@@ -253,8 +255,12 @@ const Header = () => {
                       </Link>
                       <HeadAccount />
                       <div className={styles.contacts}>
-                        <Link href="#">{WEBSITE_EMAIL}</Link>
-                        <Link href="#">{WEBSITE_PHONE}</Link>
+                        <Link href={`mailto:${WEBSITE_EMAIL}`}>
+                          {WEBSITE_EMAIL}
+                        </Link>
+                        <Link href={`tel:${WEBSITE_PHONE}`}>
+                          {WEBSITE_PHONE}
+                        </Link>
                         <div className={styles.soc}>
                           <Instagram />
                           <Facebook />
