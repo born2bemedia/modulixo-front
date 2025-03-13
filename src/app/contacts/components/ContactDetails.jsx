@@ -46,7 +46,7 @@ const ContactDetails = () => {
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2440.6127708715953!2d21.018400976551856!3d52.28673167200099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471eceac8e1fd7b7%3A0x3d916edfa3af8a43!2zxbt5dG9taWVyc2thIDUsIDAzLTM2MCBXYXJzemF3YSwg0J_QvtC70YzRiNCw!5e0!3m2!1sru!2sua!4v1741706201177!5m2!1sru!2sua&language=en"
                   width="370"
                   height="244"
-                  allowfullscreen=""
+                  allowFullScreen=""
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
                 ></iframe>
@@ -58,7 +58,7 @@ const ContactDetails = () => {
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2444.040814911675!2d21.00408047654785!3d52.224476271985175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471eccecfd4f37cb%3A0x38c31ba5cb5ac520!2zSG_FvGEgODYsIDAwLTY4MiBXYXJzemF3YSwg0J_QvtC70YzRiNCw!5e0!3m2!1sru!2sua!4v1741706376352!5m2!1sru!2sua&language=en"
                   width="370"
                   height="244"
-                  allowfullscreen=""
+                  allowFullScreen=""
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
                 ></iframe>

@@ -43,7 +43,7 @@ const PricingDownload = () => {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <Link href="#" target="_blank">
+            <Link href="/Price_List.pdf" target="_blank">
               <DownloadIcon />
               Download Price List
             </Link>
