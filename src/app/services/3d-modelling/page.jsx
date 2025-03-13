@@ -3,6 +3,18 @@ import ModellingHero from "./components/ModellingHero/ModellingHero";
 import CategorySection from "../../../shared/ui/CategorySection/CategorySection";
 import ModellingContact from "./components/ModellingContact/ModellingContact";
 
+export const metadata = {
+  title: "3D Modelling Services | Print-Ready, High-Quality Digital Designs",
+  description:
+    "Explore our expertly crafted 3D models designed for printing. From home decor to custom prototypes, Modulixo delivers precision in every design.",
+  openGraph: {
+    title: "3D Modelling Services | Print-Ready, High-Quality Digital Designs",
+    description:
+      "Explore our expertly crafted 3D models designed for printing. From home decor to custom prototypes, Modulixo delivers precision in every design.",
+    images: "https://modulixo.com/images/meta.png",
+  },
+};
+
 const ModellingPage = () => {
   return (
     <>

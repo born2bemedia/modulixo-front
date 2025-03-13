@@ -3,6 +3,19 @@ import PackageSection from "./components/PackageSection/PackageSection";
 import PricingDownload from "./components/PricingDownload/PricingDownload";
 import PricingHero from "./components/PricingHero/PricingHero";
 
+export const metadata = {
+  title: "Modulixo Pricing | Transparent Rates for 3D, Video & UI/UX Services",
+  description:
+    "Get clear, upfront pricing for 3D modelling, animation, video production, and UI/UX design services. Browse our packages or request a custom quote.",
+  openGraph: {
+    title:
+      "Modulixo Pricing | Transparent Rates for 3D, Video & UI/UX Services",
+    description:
+      "Get clear, upfront pricing for 3D modelling, animation, video production, and UI/UX design services. Browse our packages or request a custom quote.",
+    images: "https://modulixo.com/images/meta.png",
+  },
+};
+
 const page = () => {
   return (
     <>

@@ -24,8 +24,8 @@ export async function generateMetadata({ params }) {
   }
 
   return createMetadata({
-    title: `${idea.title} | Modulixo`,
-    description: "",
+    title: idea.seo_title,
+    description: idea.seo_description,
   });
 }
 

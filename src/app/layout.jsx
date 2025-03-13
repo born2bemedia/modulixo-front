@@ -17,8 +17,15 @@ const urbanist = Urbanist({
 });
 
 export const metadata = {
-  title: "Modulixo",
-  description: "",
+  title: "Modulixo | 3D Modelling, Animation, Video & UI/UX Solutions",
+  description:
+    "Bring your ideas to life with Modulixo! Explore expert 3D modelling, animation, video production, and UI/UX design services tailored for creatives and businesses.",
+  openGraph: {
+    title: "Modulixo | 3D Modelling, Animation, Video & UI/UX Solutions",
+    description:
+      "Bring your ideas to life with Modulixo! Explore expert 3D modelling, animation, video production, and UI/UX design services tailored for creatives and businesses.",
+    images: "https://modulixo.com/images/meta.png",
+  },
 };
 
 export default function RootLayout({ children }) {

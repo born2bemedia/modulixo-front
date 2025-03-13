@@ -10,6 +10,18 @@ import StepByStep from "./components/StepByStep/StepByStep";
 import { uxShowcase } from "@/lib/showcase";
 import ShowcaseSection from "@/app/showcase/components/ShowcaseSection/ShowcaseSection";
 
+export const metadata = {
+  title: "UI/UX Design Services | Stunning Interfaces & Digital Experiences",
+  description:
+    "Modulixo designs seamless, user-friendly digital experiences for websites, apps, and platforms, blending creativity with functionality.",
+  openGraph: {
+    title: "UI/UX Design Services | Stunning Interfaces & Digital Experiences",
+    description:
+      "Modulixo designs seamless, user-friendly digital experiences for websites, apps, and platforms, blending creativity with functionality.",
+    images: "https://modulixo.com/images/meta.png",
+  },
+};
+
 const AnimationPage = () => {
   const showcase = uxShowcase.slice(0, 3);
 

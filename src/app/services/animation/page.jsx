@@ -10,6 +10,18 @@ import CategorySection from "@/shared/ui/CategorySection/CategorySection";
 import { animationShowcase } from "@/lib/showcase";
 import ShowcaseSection from "@/app/showcase/components/ShowcaseSection/ShowcaseSection";
 
+export const metadata = {
+  title: "Animation Services | Modulixo’s High-Quality Motion Design",
+  description:
+    "From explainer videos to cinematic animations, Modulixo creates stunning motion visuals that enhance branding, storytelling, and marketing.",
+  openGraph: {
+    title: "Animation Services | Modulixo’s High-Quality Motion Design",
+    description:
+      "From explainer videos to cinematic animations, Modulixo creates stunning motion visuals that enhance branding, storytelling, and marketing.",
+    images: "https://modulixo.com/images/meta.png",
+  },
+};
+
 const AnimationPage = () => {
   const showcase = animationShowcase.slice(0, 3);
 
