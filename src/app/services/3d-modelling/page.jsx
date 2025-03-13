@@ -25,7 +25,7 @@ const ModellingPage = () => {
         }
         link={"/services/3d-modelling/toys-and-collectibles"}
         buttonText={"Browse Toys & Collectibles"}
-        categorySlug={"home-and-decor"}
+        categorySlug={"toys-and-collectibles"}
       />
       <CategorySection
         title={"Office & Stationery"}
@@ -35,7 +35,7 @@ const ModellingPage = () => {
         }
         link={"/services/3d-modelling/office-and-stationery"}
         buttonText={"Shop Office Essentials"}
-        categorySlug={"home-and-decor"}
+        categorySlug={"office-and-stationery"}
       />
       <CategorySection
         title={"Tech & Gaming"}
@@ -45,7 +45,7 @@ const ModellingPage = () => {
         }
         link={"/services/3d-modelling/tech-and-gaming"}
         buttonText={"Level Up with 3D Accessories"}
-        categorySlug={"home-and-decor"}
+        categorySlug={"tech-and-gaming"}
       />
       <CategorySection
         title={"DIY & Tools"}
@@ -55,7 +55,7 @@ const ModellingPage = () => {
         }
         link={"/services/3d-modelling/diy-and-tools"}
         buttonText={"Discover DIY & Tool Prints"}
-        categorySlug={"home-and-decor"}
+        categorySlug={"diy-and-tools"}
       />
       <CategorySection
         title={"Fitness & Lifestyle"}
@@ -65,7 +65,7 @@ const ModellingPage = () => {
         }
         link={"/services/3d-modelling/fitness-and-lifestyle"}
         buttonText={"Enhance Your Fitness Gear"}
-        categorySlug={"home-and-decor"}
+        categorySlug={"fitness-and-lifestyle"}
       />
       <ModellingContact />
     </>
