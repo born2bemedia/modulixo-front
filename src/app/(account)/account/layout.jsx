@@ -38,7 +38,7 @@ const DashboardLayout = ({ children }) => {
           </div>
           <div className={styles.body}>
             <AccountNav />
-            <div>{children}</div>
+            <div className={styles.content}>{children}</div>
           </div>
         </div>
       </section>

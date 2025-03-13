@@ -148,77 +148,19 @@ export default function DashboardPage() {
                       </div>
                     </span>
                   </td>
-
-                  {/**<td>
-                    {order.items.map((item, itemIndex) => {
-                      if (
-                        item.product.files?.length > 0 &&
-                        order.status === "completed"
-                      ) {
-                        return (
-                          <div
-                            key={`order-${order.orderNumber}-item-${itemIndex}`}
-                          >
-                            {item.product.files.map((file, fileIndex) => (
-                              <div
-                                key={`order-${order.orderNumber}-item-${itemIndex}-file-${fileIndex}`}
-                              >
-                                <a
-                                  href={`${API_URL}${file.file.url}`}
-                                  download
-                                  target="_blank"
-                                >
-                                  <FileDownload />
-                                </a>
-                              </div>
-                            ))}
-                          </div>
-                        );
-                      } else if (
-                        item.product.filesurl?.length > 0 &&
-                        order.status === "completed"
-                      ) {
-                        return (
-                          <div
-                            key={`order-${order.orderNumber}-item-${itemIndex}`}
-                          >
-                            {item.product.filesurl.map((file, fileIndex) => (
-                              <div
-                                key={`order-${order.orderNumber}-item-${itemIndex}-file-${fileIndex}`}
-                              >
-                                <a
-                                  href={`${file.fileurl}`}
-                                  download
-                                  target="_blank"
-                                >
-                                  <FileDownload />
-                                </a>
-                              </div>
-                            ))}
-                          </div>
-                        );
-                      }
-                      return null;
-                    })}
-                  </td> */}
-
                   <td>
-                    <span>
-                      {order.invoice ? (
-                        <a
-                          href={`${API_URL}${order.invoice.url}`}
-                          download
-                          target="_blank"
-                        >
-                          Download <div className={styles.divider}>
-                            
-                          </div>
-                          <InvoiceDownload />
-                        </a>
-                      ) : (
-                        <a href="#">No Invoice</a>
-                      )}
-                    </span>
+                    {order.invoice ? (
+                      <a
+                        href={`${API_URL}${order.invoice.url}`}
+                        download
+                        target="_blank"
+                      >
+                        Download <div className={styles.divider}></div>
+                        <InvoiceDownload />
+                      </a>
+                    ) : (
+                      <a href="#">No Invoice</a>
+                    )}
                   </td>
                 </tr>
               ))}

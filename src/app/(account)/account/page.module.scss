@@ -1,29 +1,38 @@
 @use "@/styles/mixin.scss" as *;
 
 .orderWrap {
+  width: 100%;
   @media (max-width: 1600px) {
     overflow-x: auto;
   }
   table {
-    border-collapse: collapse;
+    //border-collapse: collapse;
     border: none;
     min-width: 100%;
+    border-spacing: 0 12px;
     @media (max-width: 1600px) {
       width: 956px;
     }
     th {
       text-align: left;
-      font-size: rem(16);
+      font-size: rem(15);
       color: #fff;
       padding: rem(16);
       background: #363538;
       border-right: 1px solid rgba(255, 255, 255, 0.05);
-      white-space: nowrap;
+
+      @media (max-width: 1600px) {
+        white-space: nowrap;
+      }
       &:last-child {
         padding-right: 0;
         border-top-right-radius: rem(16);
         border-bottom-right-radius: rem(16);
         border-right: none;
+        width: 250px;
+      }
+      &:nth-child(2) {
+        width: 200px;
       }
       &:first-child {
         border-top-left-radius: rem(16);
@@ -34,39 +43,58 @@
     tbody {
       tr {
         td {
-          white-space: nowrap;
-          padding: 12px 0 0 0;
+          padding: 20px 12px;
+          font-size: rem(16);
+          border-right: 1px solid rgba(255, 255, 255, 0.05);
+          background: rgba(255, 255, 255, 0.05);
+          @media (max-width: 1600px) {
+            white-space: nowrap;
+          }
           &:last-child {
-            span {
-              border-top-right-radius: rem(16);
-              border-bottom-right-radius: rem(16);
-              border-right: none;
-            }
+            border-top-right-radius: rem(16);
+            border-bottom-right-radius: rem(16);
+            border-right: none;
           }
           &:first-child {
-            span {
-              border-top-left-radius: rem(16);
-              border-bottom-left-radius: rem(16);
-            }
+            border-top-left-radius: rem(16);
+            border-bottom-left-radius: rem(16);
           }
           &:nth-child(6) {
-            span {
-              padding: 12px 12px;
-            }
+            padding: 12px 12px;
           }
           &:nth-child(7) {
-            span {
-              padding: 14px 12px;
+            padding: 14px 12px;
+          }
+          a {
+            white-space: nowrap;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            height: 31px;
+            padding-left: 12px;
+            width: 127px;
+            .divider {
+              height: 31px;
+              width: 1px;
+              background: rgba(255, 255, 255, 0.05);
+            }
+            svg {
+              margin-right: -10px;
+              margin-left: -10px;
             }
           }
           span {
             display: block;
-            padding: 20px 12px;
-            font-size: rem(16);
-            border-right: 1px solid rgba(255, 255, 255, 0.05);
-            background: rgba(255, 255, 255, 0.05);
+
             color: #808080;
-            font-size: 16px;
+            font-size: 15px;
             font-style: normal;
             font-weight: 400;
             line-height: normal;
@@ -95,31 +123,6 @@
                 font-style: normal;
                 font-weight: 400;
                 line-height: normal;
-              }
-            }
-            a {
-              white-space: nowrap;
-              border-radius: 8px;
-              display: flex;
-              align-items: center;
-              gap: 12px;
-              color: #fff;
-              background: rgba(255, 255, 255, 0.05);
-              font-size: 16px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: normal;
-              height: 31px;
-              padding-left: 12px;
-              width: 100%;
-              .divider {
-                height: 31px;
-                width: 1px;
-                background: rgba(255, 255, 255, 0.05);
-              }
-              svg {
-                margin-right: -10px;
-                margin-left: -10px;
               }
             }
           }
