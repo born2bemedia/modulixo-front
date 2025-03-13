@@ -23,6 +23,7 @@ const Cart = () => {
 
   useEffect(() => {
     setIsMounted(true);
+    console.log(cart);
   }, []);
 
   return (
