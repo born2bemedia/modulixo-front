@@ -45,10 +45,11 @@
         height: 600px;
         background-repeat: no-repeat;
         background-position: center center;
-        background-size: 100%;
+        background-size: cover;
         display: flex;
         flex-direction: column;
-        border-radius: 24px;
+        border-radius: 16px;
+        overflow: hidden;
         &:nth-child(1) {
           background-image: url("/images/about/ethan.webp");
         }
