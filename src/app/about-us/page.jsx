@@ -7,6 +7,18 @@ import Lets from './components/Lets/Lets';
 import Beyond from './components/Beyond/Beyond';
 import styles from "./page.module.scss";
 
+export const metadata = {
+  title: "About Modulixo | Crafting Digital Experiences in 3D, Motion & Design",
+  description:
+    "Learn more about Modulixo – a creative powerhouse specializing in 3D modelling, animation, video production, and UI/UX design. Discover our process and team.",
+  openGraph: {
+    title: "About Modulixo | Crafting Digital Experiences in 3D, Motion & Design",
+    description:
+      "Learn more about Modulixo – a creative powerhouse specializing in 3D modelling, animation, video production, and UI/UX design. Discover our process and team.",
+    images: "https://modulixo.com/images/meta.png",
+  },
+};
+
 export default function About() {
   return (
     <>

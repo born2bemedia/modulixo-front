@@ -10,6 +10,18 @@ import CategorySection from "../../../shared/ui/CategorySection/CategorySection"
 import ShowcaseSection from "@/app/showcase/components/ShowcaseSection/ShowcaseSection";
 import { videoShowcase } from "@/lib/showcase";
 
+export const metadata = {
+  title: "Professional Video Production | Modulixo’s Cinematic Visuals",
+  description:
+    "Need high-impact video content? Modulixo specializes in promotional videos, explainer content, and cinematic storytelling for brands.",
+  openGraph: {
+    title: "Professional Video Production | Modulixo’s Cinematic Visuals",
+    description:
+      "Need high-impact video content? Modulixo specializes in promotional videos, explainer content, and cinematic storytelling for brands.",
+    images: "https://modulixo.com/images/meta.png",
+  },
+};
+
 const AnimationPage = () => {
   const showcase = videoShowcase.slice(0, 3);
 

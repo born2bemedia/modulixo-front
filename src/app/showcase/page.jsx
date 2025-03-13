@@ -8,6 +8,18 @@ import {
   videoShowcase,
 } from "@/lib/showcase";
 
+export const metadata = {
+  title: "Modulixo Portfolio | 3D Modelling, Animation, Video & UI/UX Work",
+  description:
+    "See Modulixo in action! Browse our portfolio of 3D models, animations, video productions, and UI/UX projects that bring ideas to life.",
+  openGraph: {
+    title: "Modulixo Portfolio | 3D Modelling, Animation, Video & UI/UX Work",
+    description:
+      "See Modulixo in action! Browse our portfolio of 3D models, animations, video productions, and UI/UX projects that bring ideas to life.",
+    images: "https://modulixo.com/images/meta.png",
+  },
+};
+
 const page = () => {
   return (
     <>
