@@ -14,13 +14,16 @@
 
 .skeletonCard {
   border-radius: 24px;
-  width: 25%;
+  width: calc(25% - 18px);
   background: rgba(255, 255, 255, 0.05);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media (max-width: rem(992)) {
+  @media (max-width: 992px) {
+    width: calc(50% - 12px);
+  }
+  @media (max-width: 768px) {
     width: 100%;
   }
 }
