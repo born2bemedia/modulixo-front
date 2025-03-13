@@ -54,7 +54,7 @@ const StayAhead = () => {
                 className={styles.item}
                 key={index}
               >
-                <Link href={post.slug}>
+                <Link href={`/insights/${post.slug}`}>
                   <div className={styles.top}>
                     <h3>{post.title}</h3>
                     <TextBlock text={post.excerpt_home} />

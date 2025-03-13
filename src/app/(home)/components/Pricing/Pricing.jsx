@@ -20,7 +20,7 @@ const Pricing = () => {
   const items = [
     {
       title: "Browse Our Packages",
-      url: "#",
+      url: "/pricing",
       image: "/images/home/pricing1.png",
       linkText: "View Pricing",
     },
