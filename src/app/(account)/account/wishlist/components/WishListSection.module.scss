@@ -2,9 +2,10 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  height: 100%;
   .wishlistItem {
     display: flex;
-
+    
     justify-content: space-between;
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.05);
@@ -48,7 +49,7 @@
         height: 31px;
         padding-left: 12px;
         border-radius: 8px;
-        gap:8px;
+        gap: 8px;
         @media (max-width: 992px) {
           font-size: 14px;
         }
@@ -58,6 +59,28 @@
           svg {
           }
         }
+      }
+    }
+  }
+  .noProducts {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin: auto;
+    h4 {
+      color: #fff;
+      text-align: center;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+    p {
+      max-width: 330px;
+      @media (max-width: 992px) {
+        max-width: 100%;
       }
     }
   }
