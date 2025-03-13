@@ -28,6 +28,9 @@
       font-style: normal;
       font-weight: 500;
       line-height: normal;
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
     }
     &:last-child {
       color: #0c0b0e;
@@ -38,6 +41,9 @@
       line-height: normal;
       border-radius: 16px;
       background: #fff;
+      &:hover {
+        background: #cacaca;
+      }
     }
     &.user {
       background: transparent;
