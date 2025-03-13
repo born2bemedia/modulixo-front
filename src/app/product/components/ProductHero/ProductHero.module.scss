@@ -298,8 +298,11 @@
           height: 51px;
           &:first-child {
             width: 172px;
+            &:hover {
+              background: #cacaca;
+            }
           }
-          &:last-child {
+          &:nth-child(2) {
             height: 51px;
             width: 51px;
             padding: 0;
