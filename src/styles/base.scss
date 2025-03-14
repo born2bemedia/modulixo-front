@@ -44,12 +44,35 @@ body {
     }
   }
 }
+
+
+
 body {
   line-height: 1;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   top: 0 !important;
+}
+
+html{
+  &[lang="de"],
+  &[lang="pl"],
+  &[lang="it"]{
+    header{
+      a, button{
+        font-size: 12px!important;
+      }
+      &+div{
+        a, button{
+          font-size: 12px!important;
+        }
+      }
+    }
+    .WhiteButton_whiteButton__HPh_c{
+      font-size: 14px!important;
+    }
+  }
 }
 
 .skiptranslate {
