@@ -5,6 +5,20 @@
   @media (max-width: 1600px) {
     overflow-x: auto;
   }
+  &::-webkit-scrollbar {
+    background: transparent;
+    height: rem(8);
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.25);
+  }
   table {
     //border-collapse: collapse;
     border: none;

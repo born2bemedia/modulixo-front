@@ -38,13 +38,11 @@ export default function RootLayout({ children }) {
         style={{ position: "relative" }}
       >
         <Preloader />
-        <SmoothScrolling>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-          <GetQuotePopup />
-          <ThanksPopup />
-        </SmoothScrolling>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+        <GetQuotePopup />
+        <ThanksPopup />
         <ToastContainer />
       </body>
     </html>

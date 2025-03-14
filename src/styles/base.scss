@@ -49,7 +49,17 @@ body {
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  top: 0 !important;
 }
+
+.skiptranslate {
+  display: none !important;
+}
+
+font {
+  pointer-events: none !important;
+}
+
 input,
 button,
 textarea {
