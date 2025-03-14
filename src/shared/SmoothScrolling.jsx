@@ -14,7 +14,7 @@ function SmoothScrolling({ children }) {
         const windowHeight = document.documentElement.scrollHeight;
         lenis.dimensions.scrollHeight = windowHeight;
         //console.log("lenis instance:", lenis.dimensions.scrollHeight);
-      }, 1500);
+      }, 2000);
     }
 
     const handleScrollToTop = () => {

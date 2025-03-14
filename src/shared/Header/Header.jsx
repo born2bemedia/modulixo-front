@@ -12,6 +12,7 @@ import HeadAccount from "../ui/HeadAccount/HeadAccount";
 import CloseIcon from "../icons/CloseIcon";
 import useCartStore from "@/stores/cartStore";
 import { WEBSITE_EMAIL, WEBSITE_PHONE } from "@/helpers/constants";
+import LangSwitcher from "../ui/LangSwitcher/LangSwitcher";
 
 const Header = () => {
   const { cart } = useCartStore();
@@ -22,11 +23,16 @@ const Header = () => {
   const [submenuPosition, setSubmenuPosition] = useState({ top: 0, left: 0 });
   const [cartCount, setCartCount] = useState(0);
   const subMenuButtonRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setIsMenuPopupOpen(false);
     setIsSubMenuOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 992);
+  }, []);
 
   useEffect(() => {
     setCartCount(cart?.length);
@@ -94,6 +100,7 @@ const Header = () => {
                     <Link href={`tel:${WEBSITE_PHONE}`}>{WEBSITE_PHONE}</Link>
                   </div>
                   <div className={styles.soc}>
+                    {!isMobile && <LangSwitcher />}
                     <Instagram />
                     <Facebook />
                     <X />
@@ -101,6 +108,11 @@ const Header = () => {
                 </div>
               </div>
             </div>
+            {isMobile && (
+              <div className={styles.mobileSwitcher}>
+                <LangSwitcher />
+              </div>
+            )}
             <header
               className={`${styles.header} ${
                 scrolling ? styles.scrolling : ""
@@ -143,7 +155,7 @@ const Header = () => {
                               pathname === "/about-us" ? styles.active : ""
                             }
                           >
-                            About
+                            About us
                           </Link>
                         </li>
                         <li>

@@ -17,7 +17,7 @@
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(7.5px);
   position: relative;
-  z-index: 999;
+  z-index: 1000;
   padding: 16px 0;
   @media (max-width: 992px) {
     display: none;
@@ -61,6 +61,12 @@
       }
     }
   }
+}
+.mobileSwitcher {
+  position: fixed;
+  top: 18px;
+  right: 110px;
+  z-index: 1000;
 }
 .header {
   background: rgba(0, 0, 0, 0.3);
