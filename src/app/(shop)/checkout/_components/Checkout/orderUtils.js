@@ -49,7 +49,7 @@ export const handleCreateOrder = async (
 
     const orderData = {
       orderNumber: `ORD_${Math.floor(Math.random() * 900000) + 100000}`,
-      user: { id: userId },
+      user: userId,
       items,
 
       total: totalAmount,
@@ -80,7 +80,12 @@ export const handleCreateOrder = async (
 
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData.message || "Failed to create order");
+      console.error("Server response:", errorData);
+      throw new Error(
+        errorData.error?.message ||
+          errorData.message ||
+          `Failed to create order: ${response.status}`
+      );
     }
 
     const emailPayload = {
@@ -163,14 +168,12 @@ const getFileUrlForProduct = async (productId, user) => {
     console.log("productData", productData);
 
     const fileurl =
-      productData?.filesurl &&
-      productData.filesurl.length > 0
+      productData?.filesurl && productData.filesurl.length > 0
         ? productData.filesurl[0].fileurl
         : null;
 
     const filename =
-      productData?.filesurl &&
-      productData.filesurl.length > 0
+      productData?.filesurl && productData.filesurl.length > 0
         ? productData.filesurl[0].filename
         : null;
 
