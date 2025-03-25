@@ -5,21 +5,25 @@ import axios from "axios";
 const useCountryCode = () => {
   const [countryCode, setCountryCode] = useState("us"); // Default to "us"
 
-  /*useEffect(() => {
+  useEffect(() => {
     const fetchCountryCode = async () => {
       try {
-        const res = await fetch("https://ipapi.co/json/");
-        const data = await res.json();
-        if (data && data.country_code) {
-          setCountryCode(data.country_code.toLowerCase());
-        }
+        const ipResponse = await fetch("https://api.ipify.org?format=json");
+        const { ip } = await ipResponse.json();
+
+        const countryResponse = await fetch(
+          `https://ipinfo.io/${ip}?token=a1de4b6d03b20a`
+        );
+        const { country } = await countryResponse.json();
+
+        setCountryCode(country.toLowerCase());
       } catch (error) {
-        console.error("Error fetching user country:", error);
+        console.error("Error fetching country code:", error);
       }
     };
 
     fetchCountryCode();
-  }, []);*/
+  }, []);
 
   return countryCode;
 };
