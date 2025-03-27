@@ -7,6 +7,7 @@ import {
   uxShowcase,
   videoShowcase,
 } from "@/lib/showcase";
+import VideoSection from "./components/VideoSection/VideoSection";
 
 export const metadata = {
   title: "Modulixo Portfolio | 3D Modelling, Animation, Video & UI/UX Work",
@@ -44,7 +45,7 @@ const page = () => {
         buttonLink={"/about-us"}
         showcase={animationShowcase}
       />
-      <ShowcaseSection
+      <VideoSection
         title={"Video Production – Storytelling Through Visuals"}
         text={
           "Our video production expertise ensures that every frame serves a purpose — a high-energy promo, a brand film, or a short-form social media video."

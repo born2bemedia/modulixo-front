@@ -9,6 +9,7 @@ import NeedCustomQuote from "./components/NeedCustomQuote/NeedCustomQuote";
 import CategorySection from "../../../shared/ui/CategorySection/CategorySection";
 import ShowcaseSection from "@/app/showcase/components/ShowcaseSection/ShowcaseSection";
 import { videoShowcase } from "@/lib/showcase";
+import VideoSection from "@/app/showcase/components/VideoSection/VideoSection";
 
 export const metadata = {
   title: "Professional Video Production | Modulixo’s Cinematic Visuals",
@@ -32,7 +33,7 @@ const AnimationPage = () => {
       <VideoPackagesSection />
       <NeedCustomQuote />
 
-      <ShowcaseSection
+      <VideoSection
         title={"Explore Our Video Showcase"}
         text={
           "Discover our portfolio of professionally crafted videos designed for marketing, branding, and social media engagement. See how we bring stories to life through cinematic visuals, dynamic editing, and high-impact storytelling."
