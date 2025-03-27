@@ -75,25 +75,19 @@ export const videoShowcase = [
   {
     id: 1,
     title: "Example 1",
-    image: "/images/showcase/video-1.png",
-    video: "/videos/showcase/video-1.mp4",
+    image: "/images/showcase/video-1.webp",
+    video: "/videos/showcase/video-p-1.mp4",
   },
   {
     id: 2,
     title: "Example 2",
-    image: "/images/showcase/video-2.png",
-    video: "/videos/showcase/video-2.mp4",
+    image: "/images/showcase/video-2.webp",
+    video: "/videos/showcase/video-p-2.mp4",
   },
   {
     id: 3,
     title: "Example 3",
-    image: "/images/showcase/video-3.png",
-    video: "/videos/showcase/video-3.mp4",
-  },
-  {
-    id: 4,
-    title: "Example 4",
-    image: "/images/showcase/video-4.png",
-    video: "/videos/showcase/video-4.mp4",
+    image: "/images/showcase/video-3.webp",
+    video: "/videos/showcase/video-p-3.mp4",
   },
 ];
