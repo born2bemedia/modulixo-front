@@ -30,7 +30,7 @@ const AnimationPage = () => {
       <AnimationHero />
       <WhatWeOffer />
       <AnimationPackagesSection />
-      <ShowcaseSection
+      {/**<ShowcaseSection
         title={"Explore Our Animation Showcase"}
         text={
           "Get inspired by our collection of past animations crafted for branding, marketing, and storytelling. See how our work brings ideas to life with seamless motion, dynamic visuals, and high-quality execution."
@@ -39,7 +39,7 @@ const AnimationPage = () => {
         buttonText="Discover Our Work"
         buttonLink="/showcase"
         length={"three"}
-      />
+      /> */}
       <NeedCustomQuote />
       <WhyWork />
       <TellUs />
