@@ -35,7 +35,7 @@ const page = () => {
         buttonLink={"/pricing"}
         showcase={threeDShowcase}
       />
-      <ShowcaseSection
+      {/**<ShowcaseSection
         title={"Animation – Motion That Tells a Story"}
         text={
           "We specialize in dynamic, expressive animations that enhance brand storytelling, product showcases, and UI experiences."
@@ -44,7 +44,7 @@ const page = () => {
         buttonText={"Discover Our Team"}
         buttonLink={"/about-us"}
         showcase={animationShowcase}
-      />
+      /> */}
       <VideoSection
         title={"Video Production – Storytelling Through Visuals"}
         text={
