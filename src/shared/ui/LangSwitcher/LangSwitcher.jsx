@@ -7,6 +7,7 @@ const LangSwitcher = () => {
   const [currentLang, setCurrentLang] = useState("EN");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
+
   useEffect(() => {
     setTimeout(() => {
       const lang = document.documentElement.lang;
@@ -48,6 +49,10 @@ const LangSwitcher = () => {
 
     retryDispatchEvent();
   };
+
+  useEffect(() => {
+    document.cookie = `googtrans=/en/pl;path=/;domain=${window.location.hostname}`;
+  }, []);
 
   return (
     <div style={{ position: "relative", display: "inline-block" }}>
