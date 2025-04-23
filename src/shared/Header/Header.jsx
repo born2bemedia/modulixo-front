@@ -101,7 +101,7 @@ const Header = () => {
                     <Link href={`tel:${WEBSITE_PHONE}`}>{WEBSITE_PHONE}</Link>
                   </div>
                   <div className={styles.soc}>
-                    {!isMobile && <LangChanger />}
+                    {!isMobile && <LangSwitcher />}
                     <Instagram />
                     <Facebook />
                     <X />
@@ -111,7 +111,7 @@ const Header = () => {
             </div>
             {isMobile && (
               <div className={styles.mobileSwitcher}>
-                <LangChanger />
+                <LangSwitcher />
               </div>
             )}
             <header
