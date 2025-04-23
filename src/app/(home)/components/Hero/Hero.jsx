@@ -9,6 +9,7 @@ import TextBlock from "@/shared/ui/TextBlock/TextBlock";
 import WhiteButton from "@/shared/ui/WhiteButton/WhiteButton";
 import Image from "next/image";
 
+
 const Hero = () => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({

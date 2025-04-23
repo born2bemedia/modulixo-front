@@ -13,6 +13,7 @@ import CloseIcon from "../icons/CloseIcon";
 import useCartStore from "@/stores/cartStore";
 import { WEBSITE_EMAIL, WEBSITE_PHONE } from "@/helpers/constants";
 import LangSwitcher from "../ui/LangSwitcher/LangSwitcher";
+import LangChanger from "@/shared/ui/Weglot/Weglot";
 
 const Header = () => {
   const { cart } = useCartStore();
@@ -100,7 +101,7 @@ const Header = () => {
                     <Link href={`tel:${WEBSITE_PHONE}`}>{WEBSITE_PHONE}</Link>
                   </div>
                   <div className={styles.soc}>
-                    {!isMobile && <LangSwitcher />}
+                    {!isMobile && <LangChanger />}
                     <Instagram />
                     <Facebook />
                     <X />
@@ -110,7 +111,7 @@ const Header = () => {
             </div>
             {isMobile && (
               <div className={styles.mobileSwitcher}>
-                <LangSwitcher />
+                <LangChanger />
               </div>
             )}
             <header
