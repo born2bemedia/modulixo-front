@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { ReactLenis, useLenis } from "lenis/react";
 
 const LangSwitcher = () => {
-  const [currentLang, setCurrentLang] = useState("PL");
+  const [currentLang, setCurrentLang] = useState("EN");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
 
@@ -51,7 +51,7 @@ const LangSwitcher = () => {
   };
 
   useEffect(() => {
-    document.cookie = `googtrans=/en/pl;path=/;domain=${window.location.hostname}`;
+    //document.cookie = `googtrans=/en/pl;path=/;domain=${window.location.hostname}`;
   }, []);
 
   return (
