@@ -8,16 +8,21 @@ const GTranslateSwitcher = () => {
   const dropdownRef = useRef(null);
 
   useEffect(() => {
-    // Set default language cookie if not already set
-    if (!document.cookie.includes("googtrans")) {
-      document.cookie =
-        "googtrans=/en/pl;path=/;domain=" + window.location.hostname;
-      setCurrentLang("PL");
-    } else {
-      // Get current language from cookie
-      const match = document.cookie.match(/googtrans=\/en\/([a-z]{2})/);
-      if (match && match[1]) {
-        setCurrentLang(match[1].toUpperCase());
+    // Check if we're in the browser
+    if (typeof window !== "undefined") {
+      // Set default language cookie if not already set
+      if (!document.cookie.includes("googtrans")) {
+        // Use a more reliable cookie setting approach
+        const domain = window.location.hostname;
+        const cookieValue = `googtrans=/en/pl;path=/;domain=${domain}`;
+        document.cookie = cookieValue;
+        setCurrentLang("PL");
+      } else {
+        // Get current language from cookie
+        const match = document.cookie.match(/googtrans=\/en\/([a-z]{2})/);
+        if (match && match[1]) {
+          setCurrentLang(match[1].toUpperCase());
+        }
       }
     }
   }, []);
@@ -37,24 +42,34 @@ const GTranslateSwitcher = () => {
   }, []);
 
   const handleLanguageChange = (language, languageCode) => {
-    // Set the cookie directly
-    document.cookie = `googtrans=/en/${language};path=/;domain=${window.location.hostname}`;
-    
-    // Update the current language state
-    setCurrentLang(languageCode);
-    setIsDropdownOpen(false);
-    
-    // Force a page reload to apply the translation
-    window.location.reload();
+    if (typeof window !== "undefined") {
+      // Set the cookie with a more reliable approach
+      const domain = window.location.hostname;
+      const cookieValue = `googtrans=/en/${language};path=/;domain=${domain}`;
+      document.cookie = cookieValue;
+
+      // Also set a localStorage item as a backup
+      localStorage.setItem("preferred_language", language);
+
+      // Update the current language state
+      setCurrentLang(languageCode);
+      setIsDropdownOpen(false);
+
+      // Force a page reload to apply the translation
+      window.location.reload();
+    }
   };
 
   return (
-    <div ref={dropdownRef} style={{ position: "relative", display: "inline-block" }}>
+    <div
+      ref={dropdownRef}
+      style={{ position: "relative", display: "inline-block" }}
+    >
       <div className="gtranslate_wrapper">
-        <img 
-          width={28} 
-          height={20} 
-          src={`/images/${currentLang}.svg`} 
+        <img
+          width={28}
+          height={20}
+          src={`/images/${currentLang}.svg`}
           alt={currentLang}
           style={{ cursor: "pointer" }}
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -144,12 +159,27 @@ const GTranslateSwitcher = () => {
       <Script id="gtranslate-init" strategy="afterInteractive">
         {`
           function googleTranslateElementInit() {
+            // Check for preferred language in localStorage
+            const preferredLang = localStorage.getItem('preferred_language');
+            
             new google.translate.TranslateElement({
               pageLanguage: 'en',
               includedLanguages: 'en,pl,de,it',
               layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
               autoDisplay: false
             }, 'gtranslate_wrapper');
+            
+            // If there's a preferred language, set it after initialization
+            if (preferredLang) {
+              setTimeout(() => {
+                const select = document.querySelector('.goog-te-combo');
+                if (select) {
+                  select.value = preferredLang;
+                  const event = new Event('change', { bubbles: true });
+                  select.dispatchEvent(event);
+                }
+              }, 1000);
+            }
           }
         `}
       </Script>
