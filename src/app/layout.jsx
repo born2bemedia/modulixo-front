@@ -10,6 +10,7 @@ import { ToastContainer } from "react-toastify";
 import Head from "next/head";
 import Script from "next/script";
 import Preloader from "@/shared/ui/Preloader";
+import GTranslateSwitcher from "@/shared/ui/GTranslateSwitcher/GTranslateSwitcher";
 
 const urbanist = Urbanist({
   variable: "--font-urbanist",
@@ -31,6 +32,26 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          src="https://cdn.gtranslate.net/widgets/latest/fd.js"
+          strategy="beforeInteractive"
+        />
+        <Script id="gtranslate-config" strategy="beforeInteractive">
+          {`
+            window.gtranslateSettings = {
+              "default_language": "pl",
+              "languages": ["en", "pl", "de", "it"],
+              "wrapper_selector": ".gtranslate_wrapper",
+              "flag_style": "3d",
+              "alt_flags": {"pl": "polish"},
+              "switcher_horizontal_position": "right",
+              "switcher_vertical_position": "top",
+              "switcher_open_direction": "top"
+            }
+          `}
+        </Script>
+      </head>
       <GoogleAnalytics gaId="G-X4YTW1XWJH" />
 
       <body
