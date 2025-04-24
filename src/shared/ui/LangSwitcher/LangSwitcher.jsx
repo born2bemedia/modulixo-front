@@ -51,7 +51,7 @@ const LangSwitcher = () => {
   };
 
   useEffect(() => {
-    //document.cookie = `googtrans=/en/pl;path=/;domain=${window.location.hostname}`;
+    document.cookie = `googtrans=/en/pl;path=/;domain=${window.location.hostname}`;
   }, []);
 
   return (
