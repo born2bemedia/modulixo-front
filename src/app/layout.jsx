@@ -44,7 +44,6 @@ export default function RootLayout({ children }) {
         <GetQuotePopup />
         <ThanksPopup />
         <ToastContainer />
-        
       </body>
     </html>
   );

@@ -9,12 +9,11 @@ import TextBlock from "@/shared/ui/TextBlock/TextBlock";
 import WhiteButton from "@/shared/ui/WhiteButton/WhiteButton";
 import Image from "next/image";
 
-
 const Hero = () => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ["start start", "end start"], 
+    offset: ["start start", "end start"],
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [0, -200]);
@@ -45,7 +44,12 @@ const Hero = () => {
           </motion.div>
         </div>
         <div className={styles.imagesWrap}>
-          <Image src={"/images/home/heroBack.webp"} fill alt="hero back" quality={100} />
+          <Image
+            src={"/images/home/heroBack.webp"}
+            fill
+            alt="hero back"
+            quality={100}
+          />
           <motion.img
             style={{ y }} // This applies the smooth upward motion
             src="/images/home/color-picker.svg"

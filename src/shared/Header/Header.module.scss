@@ -429,3 +429,14 @@
     }
   }
 }
+
+.soc {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  
+  .gtranslate_wrapper {
+    display: flex;
+    align-items: center;
+  }
+}

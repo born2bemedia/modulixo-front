@@ -14,6 +14,7 @@ import useCartStore from "@/stores/cartStore";
 import { WEBSITE_EMAIL, WEBSITE_PHONE } from "@/helpers/constants";
 import LangSwitcher from "../ui/LangSwitcher/LangSwitcher";
 import LangChanger from "@/shared/ui/Weglot/Weglot";
+import GTranslateSwitcher from "../ui/GTranslateSwitcher/GTranslateSwitcher";
 
 const Header = () => {
   const { cart } = useCartStore();
@@ -101,7 +102,7 @@ const Header = () => {
                     <Link href={`tel:${WEBSITE_PHONE}`}>{WEBSITE_PHONE}</Link>
                   </div>
                   <div className={styles.soc}>
-                    {!isMobile && <LangSwitcher />}
+                    {!isMobile && <GTranslateSwitcher />}
                     <Instagram />
                     <Facebook />
                     <X />
@@ -111,7 +112,7 @@ const Header = () => {
             </div>
             {isMobile && (
               <div className={styles.mobileSwitcher}>
-                <LangSwitcher />
+                <GTranslateSwitcher />
               </div>
             )}
             <header
