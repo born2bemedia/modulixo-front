@@ -1,34 +1,29 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
-import Script from "next/script";
 
 const GTranslateSwitcher = () => {
   const [currentLang, setCurrentLang] = useState("PL");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isClient, setIsClient] = useState(false);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
-    // Check if we're in the browser
-    if (typeof window !== "undefined") {
-      // Set default language cookie if not already set
-      if (!document.cookie.includes("googtrans")) {
-        // Use a more reliable cookie setting approach
-        const domain = window.location.hostname;
-        const cookieValue = `googtrans=/en/pl;path=/;domain=${domain}`;
-        document.cookie = cookieValue;
+    setIsClient(true);
+    
+    // Set Polish as default language
+    const doTranslate = () => {
+      if (window.doGTranslate) {
+        window.doGTranslate('en|pl');
         setCurrentLang("PL");
       } else {
-        // Get current language from cookie
-        const match = document.cookie.match(/googtrans=\/en\/([a-z]{2})/);
-        if (match && match[1]) {
-          setCurrentLang(match[1].toUpperCase());
-        }
+        setTimeout(doTranslate, 100);
       }
-    }
+    };
+    
+    doTranslate();
   }, []);
 
   useEffect(() => {
-    // Handle clicks outside the dropdown to close it
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsDropdownOpen(false);
@@ -42,30 +37,24 @@ const GTranslateSwitcher = () => {
   }, []);
 
   const handleLanguageChange = (language, languageCode) => {
-    if (typeof window !== "undefined") {
-      // Set the cookie with a more reliable approach
-      const domain = window.location.hostname;
-      const cookieValue = `googtrans=/en/${language};path=/;domain=${domain}`;
-      document.cookie = cookieValue;
-
-      // Also set a localStorage item as a backup
-      localStorage.setItem("preferred_language", language);
-
-      // Update the current language state
+    if (window.doGTranslate) {
+      window.doGTranslate(`en|${language}`);
       setCurrentLang(languageCode);
       setIsDropdownOpen(false);
-
-      // Force a page reload to apply the translation
-      window.location.reload();
     }
   };
+
+  if (!isClient) {
+    return <div className="gtranslate_wrapper" style={{ width: "28px", height: "20px" }}></div>;
+  }
 
   return (
     <div
       ref={dropdownRef}
       style={{ position: "relative", display: "inline-block" }}
     >
-      <div className="gtranslate_wrapper">
+      <div className="gtranslate_wrapper" style={{ cursor: "pointer" }}>
+        <div id="google_translate_element2"></div>
         <img
           width={28}
           height={20}
@@ -82,7 +71,7 @@ const GTranslateSwitcher = () => {
           style={{
             position: "absolute",
             top: "40px",
-            left: "-16px",
+            right: "0",
             zIndex: 10000,
             backgroundColor: "#000000D9",
             listStyle: "none",
@@ -102,9 +91,12 @@ const GTranslateSwitcher = () => {
               alignItems: "center",
               gap: "8px",
               color: "#fff",
+              transition: "opacity 0.3s",
             }}
+            onMouseEnter={(e) => e.currentTarget.style.opacity = "0.7"}
+            onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
           >
-            <img width={28} height={20} src="/images/EN.svg" />
+            <img width={28} height={20} src="/images/EN.svg" alt="English" />
             English
           </li>
           <li
@@ -116,9 +108,12 @@ const GTranslateSwitcher = () => {
               alignItems: "center",
               gap: "8px",
               color: "#fff",
+              transition: "opacity 0.3s",
             }}
+            onMouseEnter={(e) => e.currentTarget.style.opacity = "0.7"}
+            onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
           >
-            <img width={28} height={20} src="/images/DE.svg" />
+            <img width={28} height={20} src="/images/DE.svg" alt="German" />
             German
           </li>
           <li
@@ -130,9 +125,12 @@ const GTranslateSwitcher = () => {
               alignItems: "center",
               gap: "8px",
               color: "#fff",
+              transition: "opacity 0.3s",
             }}
+            onMouseEnter={(e) => e.currentTarget.style.opacity = "0.7"}
+            onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
           >
-            <img width={28} height={20} src="/images/IT.svg" />
+            <img width={28} height={20} src="/images/IT.svg" alt="Italian" />
             Italian
           </li>
           <li
@@ -144,46 +142,16 @@ const GTranslateSwitcher = () => {
               alignItems: "center",
               gap: "8px",
               color: "#fff",
+              transition: "opacity 0.3s",
             }}
+            onMouseEnter={(e) => e.currentTarget.style.opacity = "0.7"}
+            onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
           >
-            <img width={28} height={20} src="/images/PL.svg" />
+            <img width={28} height={20} src="/images/PL.svg" alt="Polish" />
             Polish
           </li>
         </ul>
       )}
-
-      <Script
-        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-        strategy="afterInteractive"
-      />
-      <Script id="gtranslate-init" strategy="afterInteractive">
-        {`
-          function googleTranslateElementInit() {
-            // Check for preferred language in localStorage
-            const preferredLang = localStorage.getItem('preferred_language');
-            
-            new google.translate.TranslateElement({
-              pageLanguage: 'en',
-              includedLanguages: 'en,pl,de,it',
-              layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-              autoDisplay: false
-            }, 'gtranslate_wrapper');
-            
-            // If there's a preferred language, set it after initialization
-            if (preferredLang) {
-              setTimeout(() => {
-                const select = document.querySelector('.goog-te-combo');
-                if (select) {
-                  select.value = preferredLang;
-                  const event = new Event('change', { bubbles: true });
-                  select.dispatchEvent(event);
-                }
-              }, 1000);
-            }
-          }
-        `}
-      </Script>
-      <div id="google_translate_element" style={{ display: "none" }}></div>
     </div>
   );
 };
