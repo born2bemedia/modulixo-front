@@ -11,6 +11,7 @@ import Head from "next/head";
 import Script from "next/script";
 import Preloader from "@/shared/ui/Preloader";
 import GTranslateSwitcher from "@/shared/ui/GTranslateSwitcher/GTranslateSwitcher";
+import CookiePopup from "@/shared/CookiePopup/CookiePopup";
 
 const urbanist = Urbanist({
   variable: "--font-urbanist",
@@ -46,6 +47,7 @@ export default function RootLayout({ children }) {
         <ThanksPopup />
         <ToastContainer />
         <GTranslateSwitcher />
+        <CookiePopup />
       </body>
     </html>
   );

@@ -81,6 +81,9 @@ html{
 
 font {
   pointer-events: none !important;
+  a{
+    pointer-events: auto !important;
+  }
 }
 
 input,
