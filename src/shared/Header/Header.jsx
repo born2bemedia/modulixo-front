@@ -13,8 +13,6 @@ import CloseIcon from "../icons/CloseIcon";
 import useCartStore from "@/stores/cartStore";
 import { WEBSITE_EMAIL, WEBSITE_PHONE } from "@/helpers/constants";
 import LangSwitcher from "../ui/LangSwitcher/LangSwitcher";
-import LangChanger from "@/shared/ui/Weglot/Weglot";
-import GTranslateSwitcher from "../ui/GTranslateSwitcher/GTranslateSwitcher";
 
 const Header = () => {
   const { cart } = useCartStore();
