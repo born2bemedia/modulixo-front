@@ -67,7 +67,11 @@ const LangSwitcher = () => {
           cursor: "pointer",
         }}
       >
-        <img width={28} height={20} src={`/images/${currentLang}.svg`} />
+        <img
+          width={28}
+          height={20}
+          src={`/images/${currentLang ? currentLang : "PL"}.svg`}
+        />
       </button>
 
       {isDropdownOpen && (
