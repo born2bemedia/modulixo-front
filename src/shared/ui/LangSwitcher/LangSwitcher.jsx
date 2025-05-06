@@ -21,7 +21,7 @@ const LangSwitcher = () => {
           ? "IT"
           : "PL";
       setCurrentLang(langName);
-    }, 1000);
+    }, 3000);
   }, []);
 
   const handleLanguageChange = (language, languageCode) => {
