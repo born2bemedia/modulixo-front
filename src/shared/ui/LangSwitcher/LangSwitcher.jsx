@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { ReactLenis, useLenis } from "lenis/react";
 
 const LangSwitcher = () => {
-  const [currentLang, setCurrentLang] = useState("EN");
+  const [currentLang, setCurrentLang] = useState("PL");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
 
