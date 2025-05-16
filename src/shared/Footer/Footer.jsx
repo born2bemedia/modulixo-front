@@ -2,7 +2,7 @@
 import React from "react";
 import styles from "./Footer.module.scss";
 import Link from "next/link";
-import Instagram from "../ui/socials/Instagram";
+// import Instagram from "../ui/socials/Instagram";
 import Facebook from "../ui/socials/Facebook";
 import X from "../ui/socials/X";
 import TextBlock from "../ui/TextBlock/TextBlock";
@@ -93,13 +93,9 @@ const Footer = () => {
                       </Link>
                       <Link href={`tel:${WEBSITE_PHONE}`}>{WEBSITE_PHONE}</Link>
                       <div className={styles.soc}>
-                        <Instagram />
-                        <Link href="https://x.com/modulixo/">
-                          <Facebook />
-                        </Link>
-                        <Link href="https://x.com/modulixo/">
-                          <X />
-                        </Link>
+                        {/* <Instagram /> */}
+                        <Facebook />
+                        <X />
                       </div>
                     </nav>
                   </div>
