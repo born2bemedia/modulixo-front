@@ -102,8 +102,12 @@ const Header = () => {
                   <div className={styles.soc}>
                     {!isMobile && <LangSwitcher />}
                     <Instagram />
-                    <Facebook />
-                    <X />
+                    <Link href="https://x.com/modulixo/">
+                      <Facebook />
+                    </Link>
+                    <Link href="https://x.com/modulixo/">
+                      <X />
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -275,8 +279,12 @@ const Header = () => {
                         </Link>
                         <div className={styles.soc}>
                           <Instagram />
-                          <Facebook />
-                          <X />
+                          <Link href="https://x.com/modulixo/">
+                            <Facebook />
+                          </Link>
+                          <Link href="https://x.com/modulixo/">
+                            <X />
+                          </Link>
                         </div>
                       </div>
                     </div>

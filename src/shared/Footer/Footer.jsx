@@ -94,8 +94,12 @@ const Footer = () => {
                       <Link href={`tel:${WEBSITE_PHONE}`}>{WEBSITE_PHONE}</Link>
                       <div className={styles.soc}>
                         <Instagram />
-                        <Facebook />
-                        <X />
+                        <Link href="https://x.com/modulixo/">
+                          <Facebook />
+                        </Link>
+                        <Link href="https://x.com/modulixo/">
+                          <X />
+                        </Link>
                       </div>
                     </nav>
                   </div>

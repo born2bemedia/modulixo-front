@@ -69,8 +69,12 @@ const ContactDetails = () => {
               <TextBlock text="Follow Modulixo to stay updated on our latest projects, industry trends, and creative insights. Engage with us, get inspired, and be part of our growing community!" />
               <div className={styles.soc}>
                 <Instagram />
-                <Facebook />
-                <X />
+                <Link href="https://x.com/modulixo/">
+                  <Facebook />
+                </Link>
+                <Link href="https://x.com/modulixo/">
+                  <X />
+                </Link>
               </div>
             </div>
           </div>
