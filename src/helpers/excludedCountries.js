@@ -56,10 +56,43 @@ const excludeCountries = [
     "MA", // Morocco
     "SA", // Saudi Arabia
     "TW", // Taiwan
-  ];
-  
-  const allCountries = countryList().getData();
-  
-  export const filteredCountries = allCountries.filter(
+    // Adding new countries
+    "AB", // Abkhazia
+    "PT", // Azores (part of Portugal)
+    "BJ", // Benin
+    "CM", // Cameroon
+    "CF", // Central African Republic
+    "TD", // Chad
+    "CD", // Congo, Democratic Republic of
+    "CI", // Côte d'Ivoire
+    "UA", 
+    "ER", // Eritrea
+    "PS", // Gaza Strip
+    "GN", // Guinea
+    "GW", // Guinea-Bissau
+    "HT", // Haiti
+    "IR", // Iran
+    "IN", // Kashmir (part of India)
+    "UA", // Kherson (part of Ukraine)
+    "XK", // Kosovo
+    "KW", // Kuwait
+    "LB", // Lebanon
+    "LR", // Liberia
+    "LY", // Libya
+    "UA", // Luhansk (part of Ukraine)
+    "ML", // Mali
+    "AZ", // Nagorno Karabakh (part of Azerbaijan)
+    "CY", // Northern Cyprus
+    "QA", // Qatar
+    "GE", // South Ossetia (part of Georgia)
+    "SS", // South Sudan
+    "TG", // Togo
+    "VE", // Venezuela
+    "PS", // West Bank
+];
+
+const allCountries = countryList().getData();
+
+export const filteredCountries = allCountries.filter(
     (country) => !excludeCountries.includes(country.value)
-  );
+);
