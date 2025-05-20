@@ -2,11 +2,16 @@
 import { useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import "react-phone-input-2/lib/style.css";
+import { filteredCountries } from "@/helpers/excludedCountries";
 
-// Dynamically import PhoneInput with SSR disabled.
 const DynamicPhoneInput = dynamic(() => import("react-phone-input-2"), {
   ssr: false,
 });
+
+const allowedCountries = filteredCountries.map(
+  (country) => country.value.toLowerCase()
+);
+//console.log("allowedCountries", allowedCountries);
 
 export default function CustomPhoneInput(props) {
   const containerRef = useRef(null);
@@ -32,7 +37,11 @@ export default function CustomPhoneInput(props) {
 
   return (
     <div ref={containerRef}>
-      <DynamicPhoneInput {...props} />
+      <DynamicPhoneInput
+        {...props}
+        enableSearch={false}
+        onlyCountries={allowedCountries}
+      />
     </div>
   );
 }
