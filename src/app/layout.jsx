@@ -11,6 +11,7 @@ import Head from "next/head";
 import Script from "next/script";
 import Preloader from "@/shared/ui/Preloader";
 import CookiePopup from "@/shared/CookiePopup/CookiePopup";
+import RequestPopup from "@/shared/RequestPopup/RequestPopup";
 
 const urbanist = Urbanist({
   variable: "--font-urbanist",
@@ -43,6 +44,7 @@ export default function RootLayout({ children }) {
         <main>{children}</main>
         <Footer />
         <GetQuotePopup />
+        <RequestPopup />
         <ThanksPopup />
         <ToastContainer />
         <CookiePopup />

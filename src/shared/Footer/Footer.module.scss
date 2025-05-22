@@ -52,7 +52,7 @@
     .col2 {
       display: flex;
       justify-content: flex-end;
-      gap: 48px;
+      gap: 32px;
       @media (max-width: 992px) {
         flex-wrap: wrap;
       }

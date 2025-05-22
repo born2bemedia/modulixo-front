@@ -9,6 +9,7 @@ import NeedCustomQuote from "./components/NeedCustomQuote/NeedCustomQuote";
 import CategorySection from "@/shared/ui/CategorySection/CategorySection";
 import { animationShowcase } from "@/lib/showcase";
 import ShowcaseSection from "@/app/showcase/components/ShowcaseSection/ShowcaseSection";
+import AnimationContact from "./components/AnimationContact/AnimationContact";
 
 export const metadata = {
   title: "Animation Services | Modulixo’s High-Quality Motion Design",
@@ -42,6 +43,7 @@ const AnimationPage = () => {
       /> */}
       <NeedCustomQuote />
       <WhyWork />
+      <AnimationContact />
       <TellUs />
       <div className={styles.footerImage}></div>
     </>

@@ -212,6 +212,18 @@ const Header = () => {
                         </li>
                         <li>
                           <Link
+                            href="/special-offers"
+                            className={
+                              pathname === "/special-offers"
+                                ? styles.active
+                                : ""
+                            }
+                          >
+                            Special Offers
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
                             href="/showcase"
                             className={
                               pathname === "/showcase" ? styles.active : ""
@@ -220,6 +232,7 @@ const Header = () => {
                             Showcase
                           </Link>
                         </li>
+
                         <li>
                           <Link
                             href="/pricing"

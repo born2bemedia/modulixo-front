@@ -8,6 +8,14 @@
     flex-direction: column;
     gap: 24px;
     align-items: center;
+    > div {
+      > a {
+        width: 500px;
+        @media (max-width: 992px) {
+          width: 100%;
+        } 
+      }
+    }
     h2,
     p {
       text-align: center;

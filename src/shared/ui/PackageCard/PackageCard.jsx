@@ -6,6 +6,7 @@ import styles from "./PackageCard.module.scss";
 import TextBlock from "../TextBlock/TextBlock";
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
 import { renderBlock } from "@/helpers/renderBlock";
+import WhiteButton from "../WhiteButton/WhiteButton";
 
 const PackageCard = ({ product, color = "#09f" }) => {
   const includes = renderBlock(product.content.root.children[0], 0);
@@ -48,7 +49,12 @@ const PackageCard = ({ product, color = "#09f" }) => {
         <span></span>
       </div>
       <div className={styles.includes}>{includes}</div>
-      <AddToCartButton product={product} text="Get This Package" icon={false} />
+      <WhiteButton
+        text="Get This Package"
+        type="request"
+        icon={false}
+        requestValue={product.title}
+      />
     </motion.div>
   );
 };

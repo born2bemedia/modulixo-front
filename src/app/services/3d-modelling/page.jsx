@@ -2,6 +2,7 @@ import React from "react";
 import ModellingHero from "./components/ModellingHero/ModellingHero";
 import CategorySection from "../../../shared/ui/CategorySection/CategorySection";
 import ModellingContact from "./components/ModellingContact/ModellingContact";
+import CurrentDeals from "./components/CurrentDeals/CurrentDeals";
 
 export const metadata = {
   title: "3D Modelling Services | Print-Ready, High-Quality Digital Designs",
@@ -79,6 +80,7 @@ const ModellingPage = () => {
         buttonText={"Enhance Your Fitness Gear"}
         categorySlug={"fitness-and-lifestyle"}
       />
+      <CurrentDeals />
       <ModellingContact />
     </>
   );

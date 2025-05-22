@@ -37,6 +37,8 @@ const ModellingInner = async ({ params }) => {
         title={category.title}
         subtitle={category.subtitle}
         description={category.description}
+        link={"/services/3d-modelling"}
+        buttonText={"Explore Our Full 3D Modelling Collection"}
       />
       <ModellingInnerContact />
     </>

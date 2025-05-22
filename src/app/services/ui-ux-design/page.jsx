@@ -9,6 +9,7 @@ import UiUxPackagesSection from "./components/UiUxPackagesSection/UiUxPackagesSe
 import StepByStep from "./components/StepByStep/StepByStep";
 import { uxShowcase } from "@/lib/showcase";
 import ShowcaseSection from "@/app/showcase/components/ShowcaseSection/ShowcaseSection";
+import UiUxContact from "./components/UiUxContact/UiUxContact";
 
 export const metadata = {
   title: "UI/UX Design Services | Stunning Interfaces & Digital Experiences",
@@ -44,6 +45,7 @@ const AnimationPage = () => {
         length={"three"}
       />
 
+      <UiUxContact />
       <TellUs />
       <div className={styles.footerImage}></div>
     </>
