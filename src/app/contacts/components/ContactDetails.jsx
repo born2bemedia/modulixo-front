@@ -48,7 +48,7 @@ const ContactDetails = () => {
                   height="244"
                   allowFullScreen=""
                   loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
+                  referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
               </div>
               <div>
@@ -60,7 +60,7 @@ const ContactDetails = () => {
                   height="244"
                   allowFullScreen=""
                   loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
+                  referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
               </div>
             </div>
