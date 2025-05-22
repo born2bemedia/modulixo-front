@@ -10,6 +10,7 @@ import CategorySection from "../../../shared/ui/CategorySection/CategorySection"
 import ShowcaseSection from "@/app/showcase/components/ShowcaseSection/ShowcaseSection";
 import { videoShowcase } from "@/lib/showcase";
 import VideoSection from "@/app/showcase/components/VideoSection/VideoSection";
+import VideoContact from "./components/VideoContact/VideoContact";
 
 export const metadata = {
   title: "Professional Video Production | Modulixo’s Cinematic Visuals",
@@ -43,6 +44,7 @@ const AnimationPage = () => {
       />
 
       <WhyWork />
+      <VideoContact />
       <TellUs />
       <div className={styles.footerImage}></div>
     </>

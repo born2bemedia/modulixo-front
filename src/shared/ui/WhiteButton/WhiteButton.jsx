@@ -5,11 +5,17 @@ import React from "react";
 import styles from "./WhiteButton.module.scss";
 import usePopupStore from "@/stores/popupStore";
 
-const WhiteButton = ({ text, type, onClick, url }) => {
-  const { setGetQuotePopupDisplay } = usePopupStore();
+const WhiteButton = ({ text, type, onClick, url, requestValue }) => {
+  const { setGetQuotePopupDisplay, setRequestPopupDisplay, setRequestValue } =
+    usePopupStore();
 
   const handleClick = () => {
     setGetQuotePopupDisplay(true);
+  };
+
+  const handleRequestClick = () => {
+    setRequestPopupDisplay(true);
+    setRequestValue(requestValue);
   };
 
   switch (type) {
@@ -34,6 +40,15 @@ const WhiteButton = ({ text, type, onClick, url }) => {
         <button className={styles.whiteButton} onClick={() => handleClick()}>
           {text}
           <ButtonArrow />
+        </button>
+      );
+    case "request":
+      return (
+        <button
+          className={styles.whiteButton}
+          onClick={() => handleRequestClick()}
+        >
+          {text}
         </button>
       );
     default:

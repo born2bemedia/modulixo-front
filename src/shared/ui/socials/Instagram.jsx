@@ -3,7 +3,7 @@ import React from "react";
 
 const Instagram = () => {
   return (
-    <Link href="#">
+    <Link href="https://www.instagram.com/modulixodesign/" target="_blank">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"

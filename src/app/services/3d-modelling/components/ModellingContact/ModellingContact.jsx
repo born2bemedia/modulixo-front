@@ -5,8 +5,9 @@ import SectionTitle from "@/shared/ui/SectionTitle/SectionTitle";
 import TextBlock from "@/shared/ui/TextBlock/TextBlock";
 import { motion } from "framer-motion";
 import { fadeInUp } from "@/helpers/animations";
-import ContactForm from "@/shared/ContactForm/ContactForm";
 import Image from "next/image";
+import ContactForm from "../ContactForm/ContactForm";
+import SectionLabel from "@/shared/ui/SectionLabel/SectionLabel";
 
 const ModellingContact = () => {
   return (
@@ -19,8 +20,16 @@ const ModellingContact = () => {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
+            <SectionLabel text={"Struggling to Find the Right 3D Model?"} />
+          </motion.div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
             <SectionTitle
-              text={"Let’s Connect – Start Your 3D <br/>Journey with Modulixo"}
+              text={"Work with Modulixo to Create a <br/>Custom Design Made for You"}
               tag={"h2"}
             />
           </motion.div>
@@ -32,7 +41,7 @@ const ModellingContact = () => {
           >
             <TextBlock
               text={
-                "Got a project idea? Need a custom 3D model or a printing consultation? Whether you want to collaborate, <br/>purchase, or inquire, we’re here to help. Drop us a message, and we’ll bring your vision to life!"
+                "Looking for a tailor-made 3D model or personalized printing advice? Whether you want to collaborate on a custom <br/>design, request a personalized 3D model, or simply have questions, we’re here to help. Send us your individual <br/>request or inquiry, and let’s create something exceptional together!"
               }
             />
           </motion.div>

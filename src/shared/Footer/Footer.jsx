@@ -51,6 +51,7 @@ const Footer = () => {
                     <nav>
                       <Link href="/">Home</Link>
                       <Link href="/about-us">About</Link>
+                      <Link href="/special-offers">Special Offers</Link>
                       <Link href="/contacts">Contacts</Link>
                     </nav>
                   </div>
