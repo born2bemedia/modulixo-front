@@ -22,7 +22,7 @@ const PackageCard = ({ product, color = "#09f" }) => {
       <h3>{product.title}</h3>
       <TextBlock text={product.excerpt} />
       <div className={styles.price}>
-        <span>€{product.price}</span>
+        <span>From €{product.price}</span>
       </div>
       <div className={styles.details}>
         {product.duration && (
