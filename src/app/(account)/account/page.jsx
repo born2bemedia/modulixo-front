@@ -35,6 +35,7 @@ export default function DashboardPage() {
       getOrders(userId)
         .then((ordersData) => {
           setOrders(ordersData);
+          console.log(ordersData);
           setLoadingOrders(false);
         })
         .catch((error) => {
@@ -83,7 +84,7 @@ export default function DashboardPage() {
                 <th>Total</th>
                 <th>Payment Method</th>
                 <th>Order Status</th>
-                <th>Invoice</th>
+                <th>Files</th>
               </tr>
             </thead>
             <tbody>
@@ -108,7 +109,7 @@ export default function DashboardPage() {
                 <th>Total</th>
                 <th>Payment Method</th>
                 <th>Order Status</th>
-                <th>Invoice</th>
+                <th>Files</th>
               </tr>
             </thead>
             <tbody>
@@ -149,17 +150,15 @@ export default function DashboardPage() {
                     </span>
                   </td>
                   <td>
-                    {order.invoice ? (
-                      <a
-                        href={`${API_URL}${order.invoice.url}`}
-                        download
-                        target="_blank"
-                      >
-                        Download <div className={styles.divider}></div>
-                        <InvoiceDownload />
-                      </a>
+                    {order.status === "completed" ? (
+                      order.items.map((item) => (
+                        <a href={item.product.filesurl[0].fileurl} download>
+                          Download <div className={styles.divider}></div>
+                          <InvoiceDownload />
+                        </a>
+                      ))
                     ) : (
-                      <a href="#">No Invoice</a>
+                      <a href="#">-</a>
                     )}
                   </td>
                 </tr>
