@@ -5,7 +5,7 @@ export const CACHE_TAG_PRODUCTS = "products";
 export const CACHE_TAG_IDEAS = "ideas";
 
 export const WEBSITE_EMAIL = "info@modulixo.com";
-export const WEBSITE_PHONE = "+48573589252";
+export const WEBSITE_PHONE = "+48732071242";
 
 export const WEBSITE_REGISTRATION_ADDRESS =
   "ul. Hoża 86/210, 00-682 Warsaw, Poland";
