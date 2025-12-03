@@ -12,6 +12,7 @@ import PrivacyIcon from "../icons/PrivacyIcon";
 import usePopupStore from "@/stores/popupStore";
 import ThanksPopup from "../ThanksPopup/ThanksPopup";
 import CustomPhoneInput from "../ui/CustomPhoneInput/CustomPhoneInput";
+import ReCaptcha from 'react-google-recaptcha';
 
 // Validation Schema with updated fields and messages
 const schema = yup.object().shape({
@@ -36,6 +37,9 @@ const ContactForm = ({ type = "default" }) => {
   const [successMessage, setSuccessMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const countryCode = useCountryCode();
+  const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
+
+  const onCaptchaHandle = (token) => setIsCaptchaVerified(!!token);
 
   const { thanksPopupDisplay, setThanksPopupDisplay } = usePopupStore();
 
@@ -198,10 +202,14 @@ const ContactForm = ({ type = "default" }) => {
           <input type="hidden" {...register("type")} value={type} />
 
           {/* Submit Button */}
-          <button className={styles.submit} type="submit">
+          <button className={styles.submit} type="submit" disabled={!isCaptchaVerified}>
             <span>{loading ? "Sending..." : "Send Request"}</span>
             <ButtonArrow />
           </button>
+          <ReCaptcha
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ''}
+            onChange={onCaptchaHandle}
+          />
           <div className={styles.privacy}>
             <PrivacyIcon />
             <p>
