@@ -5,7 +5,6 @@ import ContactForm from "@/shared/ContactForm/ContactForm";
 import SectionLabel from "@/shared/ui/SectionLabel/SectionLabel";
 import SectionTitle from "@/shared/ui/SectionTitle/SectionTitle";
 import TextBlock from "@/shared/ui/TextBlock/TextBlock";
-import Instagram from "@/shared/ui/socials/Instagram";
 import Facebook from "@/shared/ui/socials/Facebook";
 import X from "@/shared/ui/socials/X";
 import {
@@ -68,7 +67,6 @@ const ContactDetails = () => {
               <h3>Connect with Us on Social Media</h3>
               <TextBlock text="Follow Modulixo to stay updated on our latest projects, industry trends, and creative insights. Engage with us, get inspired, and be part of our growing community!" />
               <div className={styles.soc}>
-                <Instagram />
                 <Facebook />
                 <X />
               </div>

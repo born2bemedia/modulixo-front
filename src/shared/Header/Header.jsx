@@ -2,7 +2,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import styles from "./Header.module.scss";
 import Link from "next/link";
-import Instagram from "@/shared/ui/socials/Instagram";
 import Facebook from "@/shared/ui/socials/Facebook";
 import X from "@/shared/ui/socials/X";
 import MenuIcon from "../icons/MenuIcon";
@@ -101,7 +100,6 @@ const Header = () => {
                   </div>
                   <div className={styles.soc}>
                     {!isMobile && <LangSwitcher />}
-                    <Instagram />
                     <Facebook />
                     <X />
                   </div>
@@ -287,7 +285,6 @@ const Header = () => {
                           {WEBSITE_PHONE}
                         </Link>
                         <div className={styles.soc}>
-                          <Instagram />
                           <Facebook />
                           <X />
                         </div>
