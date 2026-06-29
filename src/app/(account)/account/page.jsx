@@ -152,7 +152,7 @@ export default function DashboardPage() {
                   <td>
                     {order.status === "completed" ? (
                       order.items.map((item) => (
-                        <a href={item.product.filesurl[0].fileurl} download>
+                        <a href={item.product.filesurl?.[0]?.fileurl} download>
                           Download <div className={styles.divider}></div>
                           <InvoiceDownload />
                         </a>
